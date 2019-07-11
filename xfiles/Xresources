@@ -1,7 +1,7 @@
 #define FONT -*-terminus-medium-*-*-*-12-*-*-*-*-*-*-*
 #define BOLD -*-terminus-bold-*-*-*-12-*-*-*-*-*-*-*
 
-#include "/home/xenone/dots/xfiles/themes/designr"
+#include "/home/xenone/dots/xfiles/themes/purplespace"
 #include "/home/xenone/dots/xfiles/urxvt"
 
 *.foreground: FG
