@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+file="$HOME/dots/scripts/${1}"
+if [[ -e "$file" ]]; then
+	nvim $file
+	exit
+fi
+touch $file
+chmod +x $file
+echo '#!/usr/bin/env bash' > $file
+nvim $file

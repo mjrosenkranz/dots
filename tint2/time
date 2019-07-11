@@ -1,0 +1,39 @@
+# bg
+rounded = 15
+border_width = 0
+border_sides = TBLR
+background_color = #8a757e 100
+
+# panel
+panel_items = C:B
+panel_size = 110 30
+panel_position = bottom right horizontal
+panel_layer = bottom
+panel_monitor = all
+panel_margin = 10 10
+panel_padding = 10 8
+panel_background_id = 1
+
+separator = new
+separator_color = #2c3539 100
+separator_style = line
+separator_size = 1
+separator_padding = 0 0
+# clock
+time1_format = %H:%M
+time1_font = Unifont medium 8
+#%a %d %b
+clock_font_color = #2c3539 100
+clock_padding = 0 0
+clock_background_id = 0
+
+# battery
+bat1_format = %p
+bat1_font = Unifont medium 8
+battery_hide = never
+battery_low_status = 20
+# battery_low_cmd = cmd here
+battery_font_color = #2c3539 100
+battery_padding = 0 0
+battery_background_id = 0
+

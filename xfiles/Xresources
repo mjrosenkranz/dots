@@ -1,0 +1,24 @@
+#define FONT -*-terminus-medium-*-*-*-12-*-*-*-*-*-*-*
+#define BOLD -*-terminus-bold-*-*-*-12-*-*-*-*-*-*-*
+
+#include "/home/xenone/dots/xfiles/themes/designr"
+#include "/home/xenone/dots/xfiles/urxvt"
+
+*.foreground: FG
+*.background: BG
+*.color0: BLK
+*.color8: BBLK
+*.color1: RED
+*.color9: BRED
+*.color2: GRN
+*.color10: BGRN
+*.color3: YLW
+*.color11: BYLW
+*.color4: BLU
+*.color12: BBLU
+*.color5: MAG
+*.color13: BMAG
+*.color6: CYN
+*.color14: BCYN
+*.color7: WHT
+*.color15: BWHT

@@ -1,0 +1,10 @@
+# vi: ft=sh:
+
+alias bat="cat /sys/class/power_supply/BAT0/capacity"
+alias merge="xrdb merge $HOME/dots/xfiles/Xresources"
+alias sourceb="source $HOME/.bashrc"
+alias bashrc="nvim $HOME/.bashrc -c \":tabe $HOME/dots/bash/aliases\""
+alias vimrc="nvim $HOME/.config/nvim/init.vim"
+alias xres="nvim $HOME/dots/xfiles/Xresources"
+alias ls="ls --color"
+

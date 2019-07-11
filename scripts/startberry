@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+exec berry -f Dina 16

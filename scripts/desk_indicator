@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+desknum="$(xprop -root _NET_CURRENT_DESKTOP | awk '{print $3}')"
+toprint=""
+for i in {0..9}; do
+	if [ "$i" -eq "$desknum" ]; then
+		toprint+="x"
+	else
+		toprint+="+"
+		#toprint+="\u25A0"
+		#toprint+="\u25CF"
+	fi
+done
+
+echo -e "${toprint}"

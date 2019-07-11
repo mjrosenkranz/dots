@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+if [ "${1}" = "-k" ]; then
+	killall Xephyr
+	exit
+fi
+
+
+[ -z $(pidof Xephyr) ] && Xephyr -br -ac \
+							-noreset -screen 800x600 :1 &
+DISPLAY=:1 $HOME/wndwmngr/wndwmngr

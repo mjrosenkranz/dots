@@ -1,0 +1,11 @@
+! vi: ft=xdefaults
+URxvt.scrollBar: false
+URxvt.internalBorder: 20
+URxvt*scrollTtyOutput: false
+URxvt*scrollWithBuffer: true
+URxvt*scrollTtyKeypress: true
+
+URxvt.font: FONT
+URxvt.boldFOnt: BOLD
+
+URxvt.perl-ext-common: default,resize-font

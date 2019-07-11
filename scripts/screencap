@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+file="$(echo '' | dmenu -p 'filename: ')"
+maim $HOME/dots/scrots/${file}.png -d 1.0

@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+
+# berryc window_resize
+
+dir="${2}"
+sign="${1}"
+
+if [ "$sign" = "inc" ]; then
+	case "$dir" in
+		n) berryc window_move 0 -50
+			berryc window_resize 0 50;;
+		s) berryc window_move 0 0
+			berryc window_resize 0 50;;
+		e) berryc window_move 0 0
+			berryc window_resize 50 0;;
+		w) berryc window_move -50 0
+			berryc window_resize 50 0;;
+		*) echo "not option";;
+	esac
+elif [ "$sign" = "dec" ]; then
+	case "$dir" in
+		n) berryc window_move 0 0
+			berryc window_resize 0 -50;;
+		s) berryc window_move 0 50
+			berryc window_resize 0 -50;;
+		e) berryc window_move 50 0
+			berryc window_resize -50 0;;
+		w) berryc window_move 0 0
+			berryc window_resize -50 0;;
+		*) echo "not option";;
+	esac
+else
+	echo "$sign not a propper sign"
+fi
