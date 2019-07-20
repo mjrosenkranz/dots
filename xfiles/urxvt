@@ -5,7 +5,9 @@ URxvt*scrollTtyOutput: false
 URxvt*scrollWithBuffer: true
 URxvt*scrollTtyKeypress: true
 
+URxvt*cursorColor: BMAG
+
 URxvt.font: FONT
-URxvt.boldFOnt: BOLD
+URxvt.boldFont: BOLD
 
 URxvt.perl-ext-common: default,resize-font

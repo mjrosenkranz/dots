@@ -12,7 +12,11 @@ PATH="$HOME/dots/scripts:$PATH"
 : "${C_CYAN:=\[$(tput setaf 6)\]}" 
 : "${C_DEFAULT:=\[$(tput sgr0)\]}"
 : "${C_REV:=\[$(tput rev)\]}"
+
 # source the alias file
 source $HOME/dots/bash/aliases
+# source our colors
+source $HOME/dots/scripts/colorize
+
 text="$(echo -e "\u2590\u2593\u2592\u2591")"
 export PS1="${C_MAGENTA}${text}${C_DEFAULT} "

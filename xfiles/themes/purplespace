@@ -6,8 +6,8 @@
 #define BBLK	#495e69
 
 
-#define BRED		#eb634b
-#define RED	#be5b47
+#define BRED	#eb634b
+#define RED		#be5b47
 
 
 #define GRN		#769070

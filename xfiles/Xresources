@@ -1,8 +1,9 @@
 #define FONT -*-terminus-medium-*-*-*-12-*-*-*-*-*-*-*
 #define BOLD -*-terminus-bold-*-*-*-12-*-*-*-*-*-*-*
 
-#include "/home/xenone/dots/xfiles/themes/purplespace"
+#include "/home/xenone/dots/xfiles/themes/harvest"
 #include "/home/xenone/dots/xfiles/urxvt"
+#include "/home/xenone/dots/xfiles/helium"
 
 *.foreground: FG
 *.background: BG

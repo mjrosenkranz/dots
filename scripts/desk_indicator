@@ -3,9 +3,9 @@ desknum="$(xprop -root _NET_CURRENT_DESKTOP | awk '{print $3}')"
 toprint=""
 for i in {0..9}; do
 	if [ "$i" -eq "$desknum" ]; then
-		toprint+="x"
+		toprint+="\ue1c2"
 	else
-		toprint+="+"
+		toprint+="\ue1bc"
 		#toprint+="\u25A0"
 		#toprint+="\u25CF"
 	fi

@@ -1,6 +1,7 @@
 #!/bin/bash
 
 source $HOME/.bashrc
+source $HOME/dots/scripts/colorize
 sxhkd -c $HOME/.config/berry/sxhkdrc &
 
 xrdb -merge $HOME/dots/xfiles/Xresources
@@ -12,7 +13,8 @@ xcape -e 'Caps_Lock=Escape'
 (urxvt &)
 
 # set the bg
-hsetroot -add '#2c3539' -add '#b89ca8' -gradient 130
+# hsetroot -add '#2c3539' -add '#b89ca8' -gradient 130
+hsetroot -solid '#230e37' -center walls/floatin.png
 
 # start bars
 tint2 -c $HOME/dots/tint2/time &
@@ -24,9 +26,7 @@ berryc border_width 0
 berryc inner_border_width 5
 berryc title_height 20
 
-berryc focus_color 292d3e
-berryc unfocus_color 292d3e
-berryc inner_focus_color b89ca8
-berryc inner_unfocus_color 343d41
-berryc text_focus_color 2c3539
-berryc text_unfocus_color 565679
+berryc inner_focus_color $COLOR3
+berryc inner_unfocus_color $COLOR0
+berryc text_focus_color $COLOR6
+berryc text_unfocus_color $COLOR13

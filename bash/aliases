@@ -7,4 +7,4 @@ alias bashrc="nvim $HOME/.bashrc -c \":tabe $HOME/dots/bash/aliases\""
 alias vimrc="nvim $HOME/.config/nvim/init.vim"
 alias xres="nvim $HOME/dots/xfiles/Xresources"
 alias ls="ls --color"
-
+alias pix="maim -st 0 | convert - -scale 1x1\! -format '%[hex:s]\n' info:-"
