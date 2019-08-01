@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+source $HOME/dots/scripts/colorize
+options="-f "-*-unifont-medium-*-*-*-16-*-*-*-*-*-*-*"\
+		-f "-*-siji-medium-*-*-*-10-*-*-*-*-*-*-*"\
+		"
+colors1=" -B "\#${COLOR0}" -F "\#${COLOR8}""
+colors2=" -B "\#${COLOR14}" -F "\#${COLOR15}""
+desk() {
+	while true; do
+		desknum="$(xprop -root _NET_CURRENT_DESKTOP | awk '{print $3}')"
+		toprint=""
+		for i in {0..9}; do
+			if [[ "$i" -eq "$desknum" ]]; then
+				toprint+="\ue1c2"
+			else
+				toprint+="\ue1bc"
+			fi
+		done
+		echo -e "%{c}${toprint}"
+		sleep 0.3
+	done
+}
+
+time_bat() {
+	while true; do
+		echo "%{c}$(date '+%I:%M') | $(cat /sys/class/power_supply/BAT0/capacity)%"
+		sleep 1
+	done
+}
+
+desk | lemonbar -g 130x25+10+10 ${options} ${colors1} &
+time_bat | lemonbar -g 120x30+1236+10 -b ${options} ${colors2} &

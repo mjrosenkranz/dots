@@ -1,0 +1,8 @@
+st.termname: st-256color
+st.borderpx: 20
+st.shell: /bin/bash
+st.chscale: 1.0
+st.cwscale: 1.0
+st.bold_font: 0
+st.font: Droid Sans:style=regular:pixelsize=12:antialias=true;
+st.xfps: 120

@@ -4,7 +4,7 @@ source $HOME/.bashrc
 source $HOME/dots/scripts/colorize
 sxhkd -c $HOME/.config/berry/sxhkdrc &
 
-xrdb -merge $HOME/dots/xfiles/Xresources
+xrdb -merge $HOME/.Xresources
 
 setxkbmap -layout us -option caps:ctrl_modifier
 xcape -e 'Caps_Lock=Escape'
@@ -14,11 +14,10 @@ xcape -e 'Caps_Lock=Escape'
 
 # set the bg
 # hsetroot -add '#2c3539' -add '#b89ca8' -gradient 130
-hsetroot -solid '#230e37' -center walls/floatin.png
+hsetroot -center $HOME/walls/floating_cliffs.png
 
 # start bars
-tint2 -c $HOME/dots/tint2/time &
-tint2 -c $HOME/dots/tint2/desktop &
+bar
 
 berryc top_gap 0
 
@@ -26,7 +25,7 @@ berryc border_width 0
 berryc inner_border_width 5
 berryc title_height 20
 
-berryc inner_focus_color $COLOR3
-berryc inner_unfocus_color $COLOR0
-berryc text_focus_color $COLOR6
-berryc text_unfocus_color $COLOR13
+berryc inner_unfocus_color $COLOR6
+berryc text_unfocus_color $COLOR0
+berryc inner_focus_color $COLOR8
+berryc text_focus_color $COLOR4

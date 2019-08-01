@@ -6,28 +6,28 @@
 #define BBLK	#c3c369
             	
             	
-#define RED		#ba5a5a
-#define BRED	#dd5c5c
+#define RED		#B25A62
+#define BRED	#D7747D
             	
             	
-#define GRN		#cb795c
-#define BGRN	#d8704b
+#define GRN		#CA8748
+#define BGRN	#F8A44F
             	
             	
-#define YLW		#d5be65
-#define BYLW	#e2c451
+#define YLW		#E0C141
+#define BYLW	#EDE766
             	
             	
-#define BLU		#8380ab
-#define BBLU	#7a74bf
+#define BLU		#545D8C
+#define BBLU	#6576E0
             	
             	
-#define MAG		#9c77a8
-#define BMAG	#ac7bbb
+#define MAG		#A57BB3
+#define BMAG	#C47EDA
             	
             	
-#define CYN		#6e6897
-#define BCYN	#968bdd
+#define CYN		#87A676
+#define BCYN	#B4CDA6
             	
             	
 #define WHT		#697178

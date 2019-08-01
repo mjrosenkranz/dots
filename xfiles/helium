@@ -1,6 +1,6 @@
-helium.border_width: 5
-helium.border_radius: 15
-helium.title_height: 20
+helium.border_width: 0
+helium.border_radius: 10
+helium.title_height: 25
 helium.focused_color: YLW
 helium.unfocused_color: BLK
-helium.font: font1
+helium.font: -*-dina-bold-*-*-*-13-*-*-*-*-*-*-*

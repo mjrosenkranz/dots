@@ -1,0 +1,14 @@
+#!/bin/bash
+source $HOME/.bashrc
+source $HOME/dots/scripts/colorize
+
+setxkbmap -layout us -option caps:ctrl_modifier
+xcape -e 'Caps_Lock=Escape'
+xrdb -merge $HOME/.Xresources
+
+urxvt &
+
+exec berry -f Dina 16
+
+#sxhkd -c $HOME/wndwmngr/examples/keys &
+#exec $HOME/wndwmngr/helium

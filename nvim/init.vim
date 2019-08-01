@@ -58,27 +58,29 @@ let s:c07=	[ '', 7 ]
 let s:c15=	[ '', 15 ]
 
 let s:p = {'normal': {}, 'inactive': {}, 'insert': {}, 'replace': {}, 'visual': {}, 'tabline': {}}
-let s:p.normal.left =	[ [ s:c00, s:c05 ], [ s:c08, s:c13 ], [ s:c15, s:c08 ] ]
-let s:p.normal.right =	[ [ s:c08, s:c13 ], [ s:c15, s:c08 ] ]
+let s:p.normal.left =	[ [ s:c00, s:c06 ], [ s:c06, s:c14 ], [ s:c15, s:c08 ] ]
+let s:p.normal.right =	[ [ s:c00, s:c06 ], [ s:c06, s:c14 ] ]
+
 let s:p.normal.middle =	[ [ s:c08, s:c00 ] ]
+
 let s:p.normal.error =	[ [ s:c00, s:c01 ] ]
 let s:p.normal.warning= [ [ s:c00, s:c03 ] ]
 
-let s:p.insert.left =	[ [ s:c00, s:c06 ], [ s:c08, s:c14 ], [ s:c15, s:c08 ] ]
-let s:p.insert.right =	[ [ s:c08, s:c14 ], [ s:c15, s:c08 ] ]
+let s:p.insert.left =	[ [ s:c00, s:c03 ], [ s:c03, s:c11 ], [ s:c15, s:c08 ] ]
+let s:p.insert.right =	[ [ s:c00, s:c03 ], [ s:c03, s:c11 ] ]
 
-let s:p.visual.left =	[ [ s:c00, s:c02 ], [ s:c15, s:c10 ], [ s:c15, s:c08 ] ]
-let s:p.visual.right =	[ [ s:c07, s:c10 ], [ s:c07, s:c08 ] ]
+let s:p.visual.left =	[ [ s:c00, s:c05 ], [ s:c05, s:c13 ], [ s:c15, s:c08 ] ]
+let s:p.visual.right =	[ [ s:c00, s:c05 ], [ s:c05, s:c13 ] ]
 
 let s:p.replace.left = [ [ s:c08, s:c00 ], [ s:c00, s:c00 ] ]
 
 let s:p.inactive.left =		[ [ s:c08, s:c04 ], [ s:c08, s:c10 ] ]
 let s:p.inactive.right =	[ [ s:c08, s:c04 ], [ s:c00, s:c08 ] ]
 
-let s:p.tabline.left =		[ [ s:c08, s:c05 ] ]
-let s:p.tabline.tabsel =	[ [ s:c08, s:c13 ] ]
-let s:p.tabline.middle =	copy(s:p.normal.middle)
-let s:p.tabline.right =		[ [ s:c07, s:c05 ] ]
+let s:p.tabline.left =		[ [ s:c06, s:c14 ] ]
+let s:p.tabline.tabsel =	[ [ s:c00, s:c06 ] ]
+let s:p.tabline.middle =	[ [ s:c06, s:c14 ] ]
+let s:p.tabline.right =		[ [ s:c00, s:c06 ] ]
 
 let g:lightline#colorscheme#term#palette = lightline#colorscheme#flatten(s:p)
 
@@ -103,3 +105,4 @@ let g:lightline.tab = {
 let mapleader = ","
 nnoremap <leader>s :source ~/.config/nvim/init.vim<cr>
 nnoremap <leader>r :tabe ~/.config/nvim/init.vim<cr>
+
