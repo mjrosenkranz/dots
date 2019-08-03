@@ -32,8 +32,9 @@ set nowrap
 set foldmethod=syntax
 
 " clipboard and mouse
-set clipboard=unnamed
-set mouse=n
+"set clipboard=unnamed
+set clipboard+=unnamedplus
+"set mouse=n
 
 
 
@@ -86,7 +87,7 @@ let g:lightline#colorscheme#term#palette = lightline#colorscheme#flatten(s:p)
 
 " lightline
 let g:lightline = {
-  \ 'colorscheme': 'term',
+  \ 'colorscheme': 'wal',
   \ 'separator': { 'left': '▓▒░', 'right': '░▒▓' },
   \ 'subseparator': { 'left': '░', 'right': '░' },
 	\ 'active': {

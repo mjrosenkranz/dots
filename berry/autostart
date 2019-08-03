@@ -6,18 +6,16 @@ sxhkd -c $HOME/.config/berry/sxhkdrc &
 
 xrdb -merge $HOME/.Xresources
 
-setxkbmap -layout us -option caps:ctrl_modifier
-xcape -e 'Caps_Lock=Escape'
 
 
 (urxvt &)
 
 # set the bg
 # hsetroot -add '#2c3539' -add '#b89ca8' -gradient 130
-hsetroot -center $HOME/walls/floating_cliffs.png
+hsetroot -center $HOME/dots/walls/floating_cliffs.png
 
 # start bars
-bar
+#bar
 
 berryc top_gap 0
 

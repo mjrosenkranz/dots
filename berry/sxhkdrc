@@ -20,10 +20,10 @@ super + Escape
 
 # brightness
 XF86MonBrightnessUp
-    xbacklight -inc 1
+    xbacklight -inc 5
 
 XF86MonBrightnessDown
-    xbacklight -dec 1
+    xbacklight -dec 5
 # voluee
 XF86AudioLowerVolume
 	pactl set-sink-volume 0 -5%

@@ -1,3 +1,4 @@
+! vi: ft=xdefaults
 helium.border_width: 0
 helium.border_radius: 10
 helium.title_height: 25

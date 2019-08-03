@@ -8,6 +8,7 @@ xrdb -merge $HOME/.Xresources
 
 urxvt &
 
+
 exec berry -f Dina 16
 
 #sxhkd -c $HOME/wndwmngr/examples/keys &
