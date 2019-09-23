@@ -1,0 +1,21 @@
+# status bar
+set -g message-command-style fg=brightwhite,bg='#3b4650'
+set -g message-style fg=brightwhite,bg=brightblack
+
+# win
+setw -g window-status-format "#[bg=brightblack,fg=white] #I #[bg=magenta,fg=#3b4650] #W "
+setw -g window-status-current-format "#[bg=magenta,fg=brightwhite] #I #[bg=brightmagenta,fg=brightwhite] #W "
+setw -g renumber-windows on
+setw -g window-status-separator ' '
+bind-key , command-prompt "rename-window '%%'"
+
+# status bar
+set -g status-style bg='#3b4650',fg=brightwhite
+set -g status-position bottom
+set -g status-justify left
+set -g status-right '#{?client_prefix,#[fg=brightblack],#[fg=white]}#{?client_prefix,#[bg=brightgreen],#[bg=black]} #S ' 
+#3f4b56
+set -g status-left ''
+
+# for scrolling mode or whatever
+set -g mode-style bg=brightyellow,fg=brightblack
