@@ -12,7 +12,7 @@ xrdb -merge $HOME/.Xresources
 
 # set the bg
 # hsetroot -add '#2c3539' -add '#b89ca8' -gradient 130
-hsetroot -center $HOME/dots/walls/floating_cliffs.png
+#hsetroot -center $HOME/dots/walls/floating_cliffs.png
 
 # start bars
 #bar

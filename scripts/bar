@@ -1,19 +1,20 @@
 #!/usr/bin/env bash
-source $HOME/dots/scripts/colorize
-options="-f "-*-unifont-medium-*-*-*-16-*-*-*-*-*-*-*"\
-		-f "-*-siji-medium-*-*-*-10-*-*-*-*-*-*-*"\
-		"
-colors1=" -B "\#${COLOR0}" -F "\#${COLOR8}""
-colors2=" -B "\#${COLOR14}" -F "\#${COLOR15}""
+eval "$(var_color)"
+#fonts="-f -*-unifont-medium-*-*-*-16-*-*-*-*-*-*-*"
+fonts="-f -*-dina-medium-r-*-*-10-*-*-*-*-*-*-*"
+colors=" -B "\#${COLOR14}" -F "\#${COLOR7}""
 desk() {
 	while true; do
-		desknum="$(xprop -root _NET_CURRENT_DESKTOP | awk '{print $3}')"
+		state="$(xprop -root | grep -i "tag_state" | awk -F ' = ' '{ gsub(/"/, "", $2); print $2 }')"
+		nobel=(None He Ne Ar Kr Xe Rn)
 		toprint=""
-		for i in {0..9}; do
-			if [[ "$i" -eq "$desknum" ]]; then
-				toprint+="\ue1c2"
+		for i in {1..6}; do
+			if [[ "${state:i:1}" == "i" ]]; then
+				toprint+="%{F#${COLOR5}}[${nobel[i]}]"
+			elif [[ "${state:i:1}" == "a" ]]; then
+				toprint+="%{F-}[${nobel[i]}]"
 			else
-				toprint+="\ue1bc"
+				toprint+="%{F#${COLOR15}}[${nobel[i]}]"
 			fi
 		done
 		echo -e "%{c}${toprint}"
@@ -28,5 +29,5 @@ time_bat() {
 	done
 }
 
-desk | lemonbar -g 130x25+10+10 ${options} ${colors1} &
-time_bat | lemonbar -g 120x30+1236+10 -b ${options} ${colors2} &
+desk | lemonbar -g 180x25+10+10 ${fonts} ${colors} &
+time_bat | lemonbar -g 120x30+1236+10 -b ${fonts} ${colors} &

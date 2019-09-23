@@ -1,5 +1,5 @@
-#define BG			#314a6a
-#define FG			#edf1f1
+#define FG			#314a6a
+#define BG			#edf1f1
 
 #define BLK			#bdd4eb
 #define BBLK		#8cbbeb

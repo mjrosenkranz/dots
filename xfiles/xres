@@ -1,9 +1,11 @@
 ! vi: ft=xdefaults
-#define FONT -*-terminus-medium-*-*-*-12-*-*-*-*-*-*-*
-#define BOLD -*-terminus-bold-*-*-*-12-*-*-*-*-*-*-*
+#define FONT xft:Sauce Code Pro Nerd Font:style=Medium:pixelsize=10
+#define BOLD xft:Sauce Code Pro Nerd Font:style=Bold:pixelsize=10
 
 #include "/home/xenone/dots/xfiles/themes/harvest"
 !#include "/home/xenone/dots/xfiles/themes/purplespace"
+!#include "/home/xenone/dots/xfiles/themes/bubble"
+
 #include "/home/xenone/dots/xfiles/urxvt"
 #include "/home/xenone/dots/xfiles/xst"
 #include "/home/xenone/dots/xfiles/helium"
@@ -26,5 +28,4 @@
 *.color14: BCYN
 *.color7: WHT
 *.color15: BWHT
-
 

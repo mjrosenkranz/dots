@@ -14,8 +14,6 @@ super + space
 super + shift + r
 	pkill -USR1 -x sxhkd
 
-super + Escape
-	dm-tool switch-to-greeter
 #killall Xorg
 
 # brightness

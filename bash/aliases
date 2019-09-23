@@ -1,6 +1,6 @@
 # vi: ft=sh:
 
-alias bat="cat /sys/class/power_supply/BAT0/capacity"
+#alias bat="cat /sys/class/power_supply/BAT0/capacity"
 alias merge="xrdb merge $HOME/.Xresources"
 alias sourceb="source $HOME/.bashrc"
 alias bashrc="nvim $HOME/dots/bash"

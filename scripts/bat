@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+level="$(cat /sys/class/power_supply/BAT0/capacity)"
+
+echo -e "\ue0b6$(tput rev) $level $(tput sgr0)\ue0b4"

@@ -5,10 +5,15 @@ URxvt*scrollTtyOutput: false
 URxvt*scrollWithBuffer: true
 URxvt*scrollTtyKeypress: true
 
+
 URxvt*cursorColor: BMAG
 
-!URxvt.font: FONT
-!URxvt.boldFont: BOLD
+URxvt.font: FONT
+URxvt.boldFont: BOLD
+URxvt.letterSpace: 0
 
-!URxvt.perl-ext-common: default,resize-font
-URxvt.perl-ext-common: default
+URxvt.perl-ext-common: default,resize-font,clipboard
+
+URxvt.clipboard.autocopy: true
+URxvt.keysym.M-c: perl:clipboard:copy
+URxvt.keysym.M-v: perl:clipboard:paste

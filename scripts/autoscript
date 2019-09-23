@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
+[[ -z ${1} ]] && exit
 file="$HOME/dots/scripts/${1}"
-if [[ -e "$file" ]]; then
-	nvim $file
-	exit
+if [[ ! -e "$file" ]]; then
+	touch $file
+	chmod +x $file
+	echo '#!/usr/bin/env bash' >> $file
 fi
-touch $file
-chmod +x $file
-echo '#!/usr/bin/env bash' > $file
+
 nvim $file

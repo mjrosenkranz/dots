@@ -88,7 +88,7 @@ let g:lightline#colorscheme#term#palette = lightline#colorscheme#flatten(s:p)
 " lightline
 let g:lightline = {
   \ 'colorscheme': 'wal',
-  \ 'separator': { 'left': '▓▒░', 'right': '░▒▓' },
+  \ 'separator': { 'left': '', 'right': '' },
   \ 'subseparator': { 'left': '░', 'right': '░' },
 	\ 'active': {
 	\		'left':		[ [ 'mode' ], [ 'filename' ], [ 'modified' ] ],
