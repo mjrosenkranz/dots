@@ -1,0 +1,4 @@
+alias zshrc="nvim $HOME/.zshrc"
+alias sourcez="source $HOME/.zshrc"
+alias vimrc="nvim $HOME/.config/nvim/init.vim"
+alias xfiles="nvim $HOME/dots/xfiles"

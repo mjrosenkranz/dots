@@ -1,15 +1,3 @@
-" plugins
-call plug#begin('~/.local/share/nvim/plugged')
-Plug 'dylanaraps/wal.vim'
-Plug 'itchyny/lightline.vim'
-Plug 'chrisbra/colorizer'
-call plug#end()
-
-" colorscheme set termguicolors
-colorscheme wal
-:let g:colorizer_auto_color = 1
-:au BufNewFile,BufRead *.css,*.html,*  :ColorHighlight!
-
 " file explorer
 let g:netrw_liststyle=3
 let g:netrw_banner=0
@@ -34,73 +22,34 @@ set foldmethod=syntax
 " clipboard and mouse
 "set clipboard=unnamed
 set clipboard+=unnamedplus
-"set mouse=n
-
-
+set mouse=a
 
 " get rid of pesky swap files
 set noswapfile
 
-let s:c00=	[ '', 0 ]
-let s:c08=	[ '', 8 ]
-let s:c01=	[ '', 1 ]
-let s:c09=	[ '', 9 ]
-let s:c02=	[ '', 2 ]
-let s:c10=	[ '', 10 ]
-let s:c03=	[ '', 3 ]
-let s:c11=	[ '', 11 ]
-let s:c04=	[ '', 4 ]
-let s:c12=	[ '', 12 ]
-let s:c05=	[ '', 5 ]
-let s:c13=	[ '', 13 ]
-let s:c06=	[ '', 6 ]
-let s:c14=	[ '', 14 ]
-let s:c07=	[ '', 7 ]
-let s:c15=	[ '', 15 ]
+function! GetFileType(filetype)
+	if a:filetype == ''
+		return "none"
+	else
+		return a:filetype
+	endif
+endfunction
 
-let s:p = {'normal': {}, 'inactive': {}, 'insert': {}, 'replace': {}, 'visual': {}, 'tabline': {}}
-let s:p.normal.left =	[ [ s:c00, s:c06 ], [ s:c06, s:c14 ], [ s:c15, s:c08 ] ]
-let s:p.normal.right =	[ [ s:c00, s:c06 ], [ s:c06, s:c14 ] ]
+set laststatus=2
+set statusline=%f\ 
+set statusline+=%m
+set statusline+=%=
+set statusline+=%{GetFileType(&filetype)}\ 
+set statusline+=%{&ff}\ 
 
-let s:p.normal.middle =	[ [ s:c08, s:c00 ] ]
+"if exists('+termguicolors')
+"	let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+"	let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+"	set termguicolors
+"endif
 
-let s:p.normal.error =	[ [ s:c00, s:c01 ] ]
-let s:p.normal.warning= [ [ s:c00, s:c03 ] ]
-
-let s:p.insert.left =	[ [ s:c00, s:c03 ], [ s:c03, s:c11 ], [ s:c15, s:c08 ] ]
-let s:p.insert.right =	[ [ s:c00, s:c03 ], [ s:c03, s:c11 ] ]
-
-let s:p.visual.left =	[ [ s:c00, s:c05 ], [ s:c05, s:c13 ], [ s:c15, s:c08 ] ]
-let s:p.visual.right =	[ [ s:c00, s:c05 ], [ s:c05, s:c13 ] ]
-
-let s:p.replace.left = [ [ s:c08, s:c00 ], [ s:c00, s:c00 ] ]
-
-let s:p.inactive.left =		[ [ s:c08, s:c04 ], [ s:c08, s:c10 ] ]
-let s:p.inactive.right =	[ [ s:c08, s:c04 ], [ s:c00, s:c08 ] ]
-
-let s:p.tabline.left =		[ [ s:c06, s:c14 ] ]
-let s:p.tabline.tabsel =	[ [ s:c00, s:c06 ] ]
-let s:p.tabline.middle =	[ [ s:c06, s:c14 ] ]
-let s:p.tabline.right =		[ [ s:c00, s:c06 ] ]
-
-let g:lightline#colorscheme#term#palette = lightline#colorscheme#flatten(s:p)
-
-" lightline
-let g:lightline = {
-  \ 'colorscheme': 'wal',
-  \ 'separator': { 'left': '', 'right': '' },
-  \ 'subseparator': { 'left': '░', 'right': '░' },
-	\ 'active': {
-	\		'left':		[ [ 'mode' ], [ 'filename' ], [ 'modified' ] ],
-	\		'right':	[ [ 'filetype' ], [ 'fileformat' ] ]
-	\ }
-\ }
-	"\		'right':	[ [ 'lineinfo' ], [ 'filetype', 'fileformat' ] ]
-
-let g:lightline.tab = {
-	\ 'active': [ 'filename' ],
-	\ 'inactive': [ 'filename', 'modified' ],
-\ }
+" colorz
+colo mariana
 
 "keybindings
 let mapleader = ","

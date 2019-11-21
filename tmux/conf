@@ -3,9 +3,6 @@ set-option -g prefix C-a
 bind-key C-a send-prefix
 set -s escape-time 0
 
-# load our colors
-source-file ~/.tmux/mariana
-
 # keybindings
 # change new window (tab)
 bind w kill-window

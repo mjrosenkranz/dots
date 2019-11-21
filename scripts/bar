@@ -24,10 +24,10 @@ desk() {
 
 time_bat() {
 	while true; do
-		echo "%{c}$(date '+%I:%M') | $(cat /sys/class/power_supply/BAT0/capacity)%"
+		echo "%{c}$(date '+%I:%M') | $(bat)"
 		sleep 1
 	done
 }
 
-desk | lemonbar -g 180x25+10+10 ${fonts} ${colors} &
+# desk | lemonbar -g 180x25+10+10 ${fonts} ${colors} &
 time_bat | lemonbar -g 120x30+1236+10 -b ${fonts} ${colors} &

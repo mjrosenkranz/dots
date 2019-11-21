@@ -1,11 +1,11 @@
 ! vi: ft=xdefaults
 helium.border_width: 5
 helium.inner_width: 5
-helium.border_radius: 10
+helium.border_radius: 15
 helium.title_height: 0
 helium.focused_color: BG
 helium.unfocused_color: BG
-helium.inner_focused_color: BCYN
+helium.inner_focused_color: GRN
 helium.inner_unfocused_color: BBLK
 helium.text_focused_color: WHT
 helium.text_unfocused_color: WHT

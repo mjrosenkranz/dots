@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+#
+# consider adding color definitions or whatever
+# add color block echoing too
+
+get_hex() {
+	xrdb -query |
+		awk -v i="$1" '$1 ~ "color" i ":$" {print $2}' |
+		cut -c2-
+}
+
+usage() {
+	cat <<///
+usage: clr [-xlr] index
+possible opts:
+nothing: prints in raw hex
+-x: prints in hex
+-l: prints in hsl or whatever
+-r: prints in rgb
+///
+}
+
+main() {
+	case $1 in
+		'-x') 
+			echo "#$(get_hex $2)"
+			;;
+		'-r') 
+			echo "rgb shit $(get_hex $2)"
+			;;
+		[0-9]*)
+			get_hex $1
+			;;
+		*|'-h')
+			usage
+			;;
+	esac
+
+}
+
+main $@

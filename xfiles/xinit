@@ -6,10 +6,11 @@ setxkbmap -layout us -option caps:ctrl_modifier
 xcape -e 'Caps_Lock=Escape'
 xrdb -merge $HOME/.Xresources
 
-#urxvt &
+urxvt &
 
+hsetroot -solid "#689a64"
 
-#exec berry -f Dina 16
-hsetroot -center $HOME/dots/walls/floating_cliffs.png
-sxhkd -c $HOME/dots/helium/sxhkdrc &
-exec $HOME/dots/scripts/helium_exe
+#sxhkd -c $HOME/dots/helium/sxhkdrc &
+#exec $HOME/dots/scripts/helium_exe
+#exec openbox
+exec pekwm

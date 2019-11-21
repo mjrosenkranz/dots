@@ -6,4 +6,5 @@ xrdb -query | awk '
 		gsub(/#/, "", $2)
 		print toupper($1) "\"" $2 "\""
 	}
-'
+' > $HOME/dots/scripts/colorize
+source colorize

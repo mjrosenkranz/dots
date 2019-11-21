@@ -12,7 +12,8 @@ URxvt.font: FONT
 URxvt.boldFont: BOLD
 URxvt.letterSpace: 0
 
-URxvt.perl-ext-common: default,resize-font,clipboard
+!URxvt.perl-ext-common: default,resize-font,clipboard
+URxvt.perl-ext-common: default,resize-font
 
 URxvt.clipboard.autocopy: true
 URxvt.keysym.M-c: perl:clipboard:copy
