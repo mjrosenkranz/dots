@@ -4,7 +4,7 @@ zle -N zle-line-init
 zle -N zle-keymap-select
 # no esc lag
 export KEYTIMEOUT=1
-bindkey -v '^?' backward-delete-char
+bindkey '^?' backward-delete-char
 
 function zle-line-init zle-keymap-select {
 	if [ $KEYMAP = "vicmd" ]; then
@@ -18,13 +18,10 @@ function zle-line-init zle-keymap-select {
 PS1='%B%F{6}[%F{4}%~%F{6}]%b
 %F{green}>_ %F{reset}'
 
-# aliases
-source $HOME/dots/zsh/aliases
 
 # path
 PATH=$PATH:/usr/local/bin/
 PATH=$PATH:$HOME/dots/scripts/
-PATH=$PATH:/opt/texlive/2019/bin/x86_64-linux/
 
 # autocomplete
 autoload -Uz compinit

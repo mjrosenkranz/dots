@@ -1,0 +1,4 @@
+setxkbmap -layout us -option caps:ctrl_modifier
+xcape -e 'Caps_Lock=Escape'
+xrdb -merge $HOME/.Xresources
+hsetroot -solid '#5a6b7b'

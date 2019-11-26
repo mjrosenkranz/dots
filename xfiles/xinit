@@ -1,7 +1,4 @@
 #!/bin/bash
-source $HOME/.bashrc
-source $HOME/dots/scripts/colorize
-
 setxkbmap -layout us -option caps:ctrl_modifier
 xcape -e 'Caps_Lock=Escape'
 xrdb -merge $HOME/.Xresources
@@ -13,4 +10,4 @@ hsetroot -solid "#689a64"
 #sxhkd -c $HOME/dots/helium/sxhkdrc &
 #exec $HOME/dots/scripts/helium_exe
 #exec openbox
-exec pekwm
+exec openbox

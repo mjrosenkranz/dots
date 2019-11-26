@@ -2,6 +2,3 @@
 bat0="$(cat /sys/class/power_supply/BAT0/capacity)"
 bat1="$(cat /sys/class/power_supply/BAT1/capacity)"
 echo "$(((bat0 + bat1) / 2))%"
-
-#echo -e "\ue0b6$(tput rev) $level $(tput sgr0)\ue0b4"
-

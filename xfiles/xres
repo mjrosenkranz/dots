@@ -1,7 +1,5 @@
 ! vi: ft=xdefaults
-!#define FONT xft:Sauce Code Pro Nerd Font:style=Medium:pixelsize=10
-!#define FONT -*-dina-medium-r-*-*-13-*-*-*-*-*-*-*
-!#define BOLD -*-dina-bold-r-*-*-13-*-*-*-*-*-*-*
+
 #define FONT xft:Hack:style=Regular:size=10
 #define BOLD xft:Hack:style=Bold:size=10
 
