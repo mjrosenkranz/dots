@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
-eval "$(var_color)"
-#fonts="-f -*-unifont-medium-*-*-*-16-*-*-*-*-*-*-*"
 fonts="-f -*-dina-medium-r-*-*-10-*-*-*-*-*-*-*"
-colors=" -B "\#${COLOR14}" -F "\#${COLOR7}""
+colors=" -B "\#$(clr 0)" -F "\#$(clr 3)""
 desk() {
 	while true; do
 		state="$(xprop -root | grep -i "tag_state" | awk -F ' = ' '{ gsub(/"/, "", $2); print $2 }')"
@@ -30,4 +28,4 @@ time_bat() {
 }
 
 # desk | lemonbar -g 180x25+10+10 ${fonts} ${colors} &
-time_bat | lemonbar -g 120x30+1236+10 -b ${fonts} ${colors} &
+time_bat | lemonbar -g 120x30+900+10 ${colors} &

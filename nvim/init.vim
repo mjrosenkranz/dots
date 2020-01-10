@@ -17,7 +17,7 @@ set number
 " line wrapping
 set nowrap
 
-set foldmethod=syntax
+set nofoldenable
 
 " clipboard and mouse
 "set clipboard=unnamed

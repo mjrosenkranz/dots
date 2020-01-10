@@ -267,7 +267,7 @@
 		</keybind>
 		<keybind key="XF86AudioRaiseVolume">
 			<action name="Execute">
-				<command>pactl set-sink-volume 0 -5%</command>
+				<command>pactl set-sink-volume 0 +5%</command>
 			</action>
 		</keybind>
 		<keybind key="XF86AudioMute">

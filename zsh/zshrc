@@ -22,6 +22,7 @@ PS1='%B%F{6}[%F{4}%~%F{6}]%b
 # path
 PATH=$PATH:/usr/local/bin/
 PATH=$PATH:$HOME/dots/scripts/
+PATH=$PATH:/usr/local/texlive/2019/bin/x86_64-linux
 
 # autocomplete
 autoload -Uz compinit
