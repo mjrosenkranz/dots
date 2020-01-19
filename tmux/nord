@@ -1,0 +1,22 @@
+# vim: set ft=tmux:
+# status bar
+set -g message-command-style fg=brightwhite,bg='#2e3340'
+set -g message-style fg=brightwhite,bg=brightblack
+
+# win
+setw -g window-status-format "#[fg=brightblack] #W "
+setw -g window-status-current-format "#[fg=magenta] #W "
+setw -g renumber-windows on
+setw -g window-status-separator ''
+
+# status bar
+set -g status-style bg='#2e3340'
+set -g status-position bottom
+set -g status-justify centre
+set -g status-right '#{?client_prefix,#[fg=green]#S,#[fg=brightblack]#S}'
+#3f4b56
+set -g status-left ''
+
+# for scrolling mode or whatever
+set -g mode-style bg=brightyellow,fg=brightblack
+

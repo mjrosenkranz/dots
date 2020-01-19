@@ -29,3 +29,4 @@ time_bat() {
 
 # desk | lemonbar -g 180x25+10+10 ${fonts} ${colors} &
 time_bat | lemonbar -g 120x30+900+10 ${colors} &
+time_bat | lemonbar -g 120x30+2820+10 ${colors} &

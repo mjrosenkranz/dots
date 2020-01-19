@@ -69,9 +69,14 @@
 	</menu>
 
 	<keyboard>
+		<keybind key="">
+			<action name="">
+				
+			</action>
+		</keybind>
 		<keybind key="W-Return">
 			<action name="Execute">
-				<command>kitty</command>
+				<command>urxvt</command>
 			</action>
 		</keybind>
 		<!-- directional focus -->
@@ -108,9 +113,6 @@
 		</keybind>
 		<keybind key="W-S-f">
 			<action name="ToggleMaximize"/>
-		</keybind>
-		<keybind key="W-f">
-			<action name="ToggleFullscreen"/>
 		</keybind>
 		<!-- send to desktop -->
 		<keybind key="W-S-1">
@@ -207,7 +209,7 @@
 				<right>20</right>
 			</action>
 		</keybind>
-		<keybind key="W-S-Left">
+		<keybind key="W-S-Right">
 			<action name="ResizeRelative">
 				<right>-20</right>
 			</action>
@@ -217,7 +219,7 @@
 				<left>20</left>
 			</action>
 		</keybind>
-		<keybind key="W-S-Right">
+		<keybind key="W-S-Left">
 			<action name="ResizeRelative">
 				<left>-20</left>
 			</action>
@@ -227,7 +229,7 @@
 				<up>20</up>
 			</action>
 		</keybind>
-		<keybind key="W-S-Down">
+		<keybind key="W-S-Up">
 			<action name="ResizeRelative">
 				<up>-20</up>
 			</action>
@@ -237,7 +239,7 @@
 				<down>20</down>
 			</action>
 		</keybind>
-		<keybind key="W-S-Up">
+		<keybind key="W-S-Down">
 			<action name="ResizeRelative">
 				<down>-20</down>
 			</action>
@@ -265,7 +267,7 @@
 		</keybind>
 		<keybind key="XF86AudioRaiseVolume">
 			<action name="Execute">
-				<command>pactl set-sink-volume 0 +5%</command>
+				<command>pactl set-sink-volume 0 -5%</command>
 			</action>
 		</keybind>
 		<keybind key="XF86AudioMute">

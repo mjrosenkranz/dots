@@ -1,10 +1,19 @@
+# prompt
+PS1='%B%F{10}%~%b ^_^
+$%F{reset} '
+
+# includes
+source $HOME/dots/zsh/aliases
+source $HOME/dots/zsh/path
+
 # vi mode
 bindkey -v
+bindkey "^?" backward-delete-char
 zle -N zle-line-init
 zle -N zle-keymap-select
+
 # no esc lag
 export KEYTIMEOUT=1
-bindkey '^?' backward-delete-char
 
 function zle-line-init zle-keymap-select {
 	if [ $KEYMAP = "vicmd" ]; then
@@ -14,27 +23,20 @@ function zle-line-init zle-keymap-select {
 	fi
 }
 
-
-PS1='%B%F{6}[%F{4}%~%F{6}]%b
-%F{green}>_ %F{reset}'
-
-
-# path
-PATH=$PATH:/usr/local/bin/
-PATH=$PATH:$HOME/dots/scripts/
-PATH=$PATH:/usr/local/texlive/2019/bin/x86_64-linux
-
 # autocomplete
-autoload -Uz compinit
-compinit
-zstyle ':completion:*' menu select
 autoload -Uz compinit && compinit
 zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*'
 setopt auto_cd
 setopt no_case_glob
 
+# history
 setopt inc_append_history
 setopt share_history
 SAVEHIST=100
 HISTFILE=~/.zsh_history
 
+# misc
+setopt KSH_ARRAYS
+
+# syntax highlighting
+#source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

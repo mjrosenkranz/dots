@@ -3,6 +3,9 @@ set-option -g prefix C-a
 bind-key C-a send-prefix
 set -s escape-time 0
 
+# make the first window #1
+set -g base-index 1
+
 # keybindings
 # change new window (tab)
 bind w kill-window
@@ -15,6 +18,11 @@ bind l next
 bind h prev
 # vi mode
 set -g status-keys vi
+# new session
+#bind Enter new-session
+bind Enter command-prompt "new-session -s '%%'"
+# rename window without old name there
+bind-key , command-prompt "rename-window '%%'"
 
 # sessions
 set -g detach-on-destroy on
@@ -29,6 +37,8 @@ setw -g automatic-rename on
 
 # mouse
 set -g mouse on
+# stop the jumpin
+unbind -T copy-mode MouseDragEnd1Pane
 
 # reload the config
 bind r source-file ~/.tmux.conf \; set display-time 550\; display-message "reloaded"

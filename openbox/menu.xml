@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openbox_menu xmlns="http://openbox.org/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://openbox.org/ file:///usr/share/openbox/menu.xsd">
+	<menu id="root-menu" label="menu" >
+		<separator label="menu"/>
+		<item label="web">
+			<action name="Execute">
+				<command>firefox</command>
+			</action>
+		</item>
+		<item label="term">
+			<action name="Execute">
+				<command>kitty</command>
+			</action>
+		</item>
+		<separator />
+		<item label="dots">
+			<action name="Execute">
+				<command>kitty -d "~/dots"</command>
+			</action>
+		</item>
+		<item label="rc">
+			<action name="Execute">
+				<command>kitty nvim ~/dots/openbox</command>
+			</action>
+		</item>
+		<menu id="sys" label="system">
+			<item label="lock">
+				<action name="Execute">
+					<command></command>
+				</action>
+			</item>
+			<item label="sleep">
+				<action name="Execute">
+					<command></command>
+				</action>
+			</item>
+			<item label="shutdown">
+				<action name="Execute">
+					<command></command>
+				</action>
+			</item>
+		</menu>
+		<item label="reload">
+			<action name="Reconfigure"/>
+		</item>
+	</menu>
+	
+</openbox_menu>
+

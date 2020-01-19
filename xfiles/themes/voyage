@@ -1,0 +1,19 @@
+#define FG			#
+#define BG			#
+
+#define BLK			#
+#define BBLK		#
+#define RED			#
+#define BRED		#
+#define GRN 		#
+#define BGRN 		#
+#define YLW 		#
+#define BYLW 		#
+#define BLU 		#
+#define BBLU 		#
+#define MAG 		#
+#define BMAG 		#
+#define CYN 		#
+#define BCYN 		#
+#define WHT 		#
+#define BWHT 		#
