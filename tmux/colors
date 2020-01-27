@@ -1,0 +1,22 @@
+# status bar
+#set -g message-command-style fg=brightwhite,bg="#(~/dots/scripts/clr 1)"
+set -g message-command-style fg=white,bg=colour2
+set -g message-style fg=brightwhite,bg=colour2
+
+# win
+setw -g window-status-format "#[bg=red,fg=white] #I#[bg=red,fg=white] #W "
+setw -g window-status-current-format "#[bg=green,fg=red] #I#[bg=green,fg=red] #W "
+setw -g renumber-windows on
+setw -g window-status-separator ''
+bind-key , command-prompt "rename-window '%%'"
+
+# status bar
+set -g status-style bg=brightblack,fg=brightwhite
+#set -g status-style "#(~/test.sh)"
+set -g status-position bottom
+set -g status-justify left
+set -g status-right '#{?client_prefix,#[fg=brightblack],#[fg=white]}#{?client_prefix,#[bg=brightgreen],#[bg=black]} #S ' 
+set -g status-left ''
+
+# for scrolling mode or whatever
+set -g mode-style bg=brightyellow,fg=brightblack

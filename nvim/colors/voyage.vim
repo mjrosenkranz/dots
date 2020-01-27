@@ -5,7 +5,7 @@ if exists('syntax_on')
 endif
 
 set background=light
-let g:colors_name = 'mariana'
+let g:colors_name = 'voyage'
 
 let s:bg =		'#3b4650'
 
@@ -24,7 +24,7 @@ let s:bryellow =	'#f6ca88'
 let s:brblue =		'#91b2dd'
 let s:brmagenta =	'#bba7b3'
 let s:brcyan =		'#92b3df'
-let s:brwhite =		''
+let s:brwhite =		'#edebe9'
 
 function! s:HL(group, fg, bg, attr)
 	let l:attr = a:attr

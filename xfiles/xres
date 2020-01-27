@@ -4,7 +4,8 @@
 #define BOLD xft:Hack:style=Bold:size=10
 
 !#include "/home/xenone/dots/xfiles/themes/harvest"
-#include "/home/xenone/dots/xfiles/themes/mariana"
+!#include "/home/xenone/dots/xfiles/themes/mariana"
+#include "/home/xenone/dots/xfiles/themes/forrest"
 !#include "/home/xenone/dots/xfiles/themes/purplespace"
 !#include "/home/xenone/dots/xfiles/themes/bubble"
 

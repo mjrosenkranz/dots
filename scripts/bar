@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 fonts="-f -*-dina-medium-r-*-*-10-*-*-*-*-*-*-*"
-colors=" -B "\#$(clr 0)" -F "\#$(clr 3)""
+#colors=" -B "$(clr -x color0)" -F "$(clr -x color3)""
+colors=" -F "$(clr -x color2)" -B "$(clr -x color0)""
 desk() {
 	while true; do
 		state="$(xprop -root | grep -i "tag_state" | awk -F ' = ' '{ gsub(/"/, "", $2); print $2 }')"
@@ -28,5 +29,6 @@ time_bat() {
 }
 
 # desk | lemonbar -g 180x25+10+10 ${fonts} ${colors} &
+pkill lemonbar
 time_bat | lemonbar -g 120x30+900+10 ${colors} &
 time_bat | lemonbar -g 120x30+2820+10 ${colors} &

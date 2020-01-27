@@ -5,36 +5,68 @@
 
 get_hex() {
 	xrdb -query |
-		awk -v i="$1" '$1 ~ "color" i ":$" {print $2}' |
-		cut -c2-
+		awk -v i="$1" '$1 ~ i ":$" {print $2}'
+}
+
+get_escape() {
+	col=${1}
+	if [[ "$col" == "background" ]]; then
+		echo "\033]11;$(get_hex background)\007"
+		echo "\033]708;$(get_hex background)\007"
+	elif [[ "$col" == "foreground" ]]; then
+		echo "\033]10;$(get_hex foreground)\007"
+	elif [[ ${col} =~ ^color[0-9]{,2}$ ]]; then
+		index=${col//[!0-9]/}
+		echo "\033]4;${index};$(get_hex $col)\007"
+	else
+		echo "not found"
+	fi
+	echo "\033[H"
+}
+
+all_codes() {
+	all=(color{0..15} background foreground)
+	for c in "${all[@]}"; do
+		get_escape $c
+	done
 }
 
 usage() {
 	cat <<///
 usage: clr [-xlr] index
 possible opts:
-nothing: prints in raw hex
--x: prints in hex
--l: prints in hsl or whatever
--r: prints in rgb
+nothing: prints colors out
+	 -x: prints in hex
+	 -n: prints raw hex
+	 -l: prints in hsl or whatever
+	 -r: prints in rgb
+	 -e: prints escape code
 ///
 }
 
 main() {
-	case $1 in
-		'-x') 
-			echo "#$(get_hex $2)"
-			;;
-		'-r') 
-			echo "rgb shit $(get_hex $2)"
-			;;
-		[0-9]*)
-			get_hex $1
-			;;
-		*|'-h')
-			usage
-			;;
-	esac
+	if [[ -z $@ ]]; then
+		all_codes
+	else
+		case $1 in
+			'-x') 
+				echo "$(get_hex $2)"
+				;;
+			'-n') 
+				echo "$(get_hex $2 | cut -c2-)"
+				;;
+			'-r') 
+				echo "rgb shit $(get_hex $2)"
+				;;
+			'-l') 
+				echo "hsl shit $(get_hex $2)"
+				;;
+			'-e') 
+				get_escape $2
+				;;
+			* | '-h') usage ;;
+		esac
+	fi
 
 }
 

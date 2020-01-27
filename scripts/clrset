@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+xrdb -merge "$HOME/.Xresources"
+# recolor all terminals
+for tty in /dev/pts/[0-9]*; do
+	printf "%b" "$(clr)" > "$tty"
+done
