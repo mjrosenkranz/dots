@@ -3,6 +3,9 @@ set-option -g prefix C-a
 bind-key C-a send-prefix
 set -s escape-time 0
 
+# alkdsf
+source-file $HOME/dots/tmux/colors
+
 # make the first window #1
 set -g base-index 1
 
