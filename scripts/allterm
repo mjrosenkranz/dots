@@ -1,0 +1,5 @@
+#!/bin/bash
+xrdb -merge ~/.Xresources
+for term in /dev/pts/[0-9]*; do
+	printf "%b" "$(clr)" > "${term}"
+done

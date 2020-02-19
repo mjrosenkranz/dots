@@ -1,4 +1,7 @@
 setxkbmap -layout us -option caps:ctrl_modifier
 xcape -e 'Caps_Lock=Escape'
 xrdb -merge $HOME/.Xresources
-feh --bg-scale $HOM#/dots/walls/voyage_dhermes.jpg
+feh --bg-fill $HOME/dots/walls/forrest.jpg
+polybar simple &
+xfsettingsd &
+picom &

@@ -1,23 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <openbox_config xmlns="http://openbox.org/3.4/rc" xmlns:xi="http://www.w3.org/2001/XInclude">
-	<resistance>
-	  <strength>20</strength>
-	  <screen_edge_strength>20</screen_edge_strength>
-	</resistance>
-
-	<focus>
-		<focusNew>yes</focusNew>
-		<followMouse>no</followMouse>
-	</focus>
-
-	<placement>
-		<policy>Smart</policy>
-		<center>yes</center>
-	</placement>
-
-	<theme>
-		<name>Nightmare</name>
-		<!--
+  <resistance>
+    <strength>20</strength>
+    <screen_edge_strength>20</screen_edge_strength>
+  </resistance>
+  <focus>
+    <focusNew>yes</focusNew>
+    <followMouse>no</followMouse>
+    <focusDelay>0</focusDelay>
+    <raiseOnFocus>no</raiseOnFocus>
+    <focusLast>yes</focusLast>
+    <underMouse>no</underMouse>
+  </focus>
+  <placement>
+    <policy>Smart</policy>
+    <center>yes</center>
+    <monitor>Any</monitor>
+    <primaryMonitor></primaryMonitor>
+  </placement>
+  <theme>
+    <name>Afterpiece</name>
+    <!--
 			N :window icon
 		    L :window label (aka. title)
 		    I: iconify
@@ -26,272 +29,307 @@
 		    S: shade (roll up/down)
 		    D: omnipresent (on all desktops).
 		-->
-		<titleLayout>LSMC</titleLayout>
-		<keepBorder>yes</keepBorder>
-		<animateIconify>no</animateIconify>
-	</theme>
-
-	<desktops>
-		<number>6</number>
-		<firstdesk>1</firstdesk>
-		<popupTime>0</popupTime>
-		<names>
-			<name>He</name>
-			<name>Ne</name>
-			<name>Ar</name>
-			<name>Kr</name>
-			<name>Xe</name>
-			<name>Rn</name>
-		</names>
-	</desktops>
-
-	<resize>
-		<drawContents>yes</drawContents>
-		<popupShow>Never</popupShow>
-		<popupPosition>Center</popupPosition>
-	</resize>
-
-	<margins>
-		<top>20</top>
-		<left>20</left>
-		<right>20</right>
-		<bottom>20</bottom>
-	</margins>
-
-	<menu>
-		<hideDelay>250</hideDelay>
-		<middle>no</middle>
-		<submenuShowDelay>0</submenuShowDelay>
-		<submenuHideDelay>0</submenuHideDelay>
-		<applicationIcons>no</applicationIcons>
-		<manageDesktops>no</manageDesktops>
-		<file>menu.xml</file>
-	</menu>
-
-	<keyboard>
-		<keybind key="W-Return">
-			<action name="Execute">
-				<command>kitty</command>
-			</action>
-		</keybind>
-		<!-- directional focus -->
-		<keybind key="W-h">
-			<action name="DirectionalTargetWindow">
-				<direction>west</direction>
-			</action>
-		</keybind>
-		<keybind key="W-j">
-			<action name="DirectionalTargetWindow">
-				<direction>south</direction>
-			</action>
-		</keybind>
-		<keybind key="W-k">
-			<action name="DirectionalTargetWindow">
-				<direction>north</direction>
-			</action>
-		</keybind>
-		<keybind key="W-l">
-			<action name="DirectionalTargetWindow">
-				<direction>east</direction>
-			</action>
-		</keybind>
-		<!-- reconfigure -->
-		<keybind key="W-S-r">
-			<action name="Reconfigure"/>
-		</keybind>
-		<!-- misc window actions -->
-		<keybind key="W-w">
-			<action name="Close"/>
-		</keybind>
-		<keybind key="W-m">
-			<action name="ToggleShade"/>
-		</keybind>
-		<keybind key="W-S-f">
-			<action name="ToggleMaximize"/>
-		</keybind>
-		<keybind key="W-f">
-			<action name="ToggleFullscreen"/>
-		</keybind>
-		<!-- send to desktop -->
-		<keybind key="W-S-1">
-			<action name="SendToDesktop">
-				<to>1</to>
-				<follow>no</follow>
-			</action>
-		</keybind>
-		<keybind key="W-S-2">
-			<action name="SendToDesktop">
-				<to>2</to>
-				<follow>no</follow>
-			</action>
-		</keybind>
-		<keybind key="W-S-3">
-			<action name="SendToDesktop">
-				<to>3</to>
-				<follow>no</follow>
-			</action>
-		</keybind>
-		<keybind key="W-S-4">
-			<action name="SendToDesktop">
-				<to>4</to>
-				<follow>no</follow>
-			</action>
-		</keybind>
-		<keybind key="W-S-5">
-			<action name="SendToDesktop">
-				<to>5</to>
-				<follow>no</follow>
-			</action>
-		</keybind>
-		<keybind key="W-S-6">
-			<action name="SendToDesktop">
-				<to>6</to>
-				<follow>no</follow>
-			</action>
-		</keybind>
-		<!-- go to desktop-->
-		<keybind key="W-1">
-			<action name="GoToDesktop">
-				<to>1</to>
-			</action>
-		</keybind>
-		<keybind key="W-2">
-			<action name="GoToDesktop">
-				<to>2</to>
-			</action>
-		</keybind>
-		<keybind key="W-3">
-			<action name="GoToDesktop">
-				<to>3</to>
-			</action>
-		</keybind>
-		<keybind key="W-4">
-			<action name="GoToDesktop">
-				<to>4</to>
-			</action>
-		</keybind>
-		<keybind key="W-5">
-			<action name="GoToDesktop">
-				<to>5</to>
-			</action>
-		</keybind>
-		<keybind key="W-6">
-			<action name="GoToDesktop">
-				<to>6</to>
-			</action>
-		</keybind>
-		<!-- move window -->
-		<keybind key="W-S-h">
-			<action name="MoveRelative">
-				<x>-20</x>
-			</action>
-		</keybind>
-		<keybind key="W-S-j">
-			<action name="MoveRelative">
-				<y>20</y>
-			</action>
-		</keybind>
-		<keybind key="W-S-k">
-			<action name="MoveRelative">
-				<y>-20</y>
-			</action>
-		</keybind>
-		<keybind key="W-S-l">
-			<action name="MoveRelative">
-				<x>20</x>
-			</action>
-		</keybind>
-		<!-- resize window -->
-		<keybind key="W-Right">
-			<action name="ResizeRelative">
-				<right>20</right>
-			</action>
-		</keybind>
-		<keybind key="W-S-Left">
-			<action name="ResizeRelative">
-				<right>-20</right>
-			</action>
-		</keybind>
-		<keybind key="W-Left">
-			<action name="ResizeRelative">
-				<left>20</left>
-			</action>
-		</keybind>
-		<keybind key="W-S-Right">
-			<action name="ResizeRelative">
-				<left>-20</left>
-			</action>
-		</keybind>
-		<keybind key="W-Up">
-			<action name="ResizeRelative">
-				<up>20</up>
-			</action>
-		</keybind>
-		<keybind key="W-S-Down">
-			<action name="ResizeRelative">
-				<up>-20</up>
-			</action>
-		</keybind>
-		<keybind key="W-Down">
-			<action name="ResizeRelative">
-				<down>20</down>
-			</action>
-		</keybind>
-		<keybind key="W-S-Up">
-			<action name="ResizeRelative">
-				<down>-20</down>
-			</action>
-		</keybind>
-		<!-- misc stuff -->
-		<keybind key="W-space">
-			<action name="Execute">
-				<command>~/dots/scripts/drun</command>
-			</action>
-		</keybind>
-		<keybind key="XF86MonBrightnessUp">
-			<action name="Execute">
-				<command>xbacklight -inc 5</command>
-			</action>
-		</keybind>
-		<keybind key="XF86MonBrightnessDown">
-			<action name="Execute">
-				<command>xbacklight -dec 5</command>
-			</action>
-		</keybind>
-		<keybind key="XF86AudioLowerVolume">
-			<action name="Execute">
-				<command>pactl set-sink-volume 0 -5%</command>
-			</action>
-		</keybind>
-		<keybind key="XF86AudioRaiseVolume">
-			<action name="Execute">
-				<command>pactl set-sink-volume 0 +5%</command>
-			</action>
-		</keybind>
-		<keybind key="XF86AudioMute">
-			<action name="Execute">
-				<command>pactl set-sink-mute 0 toggle</command>
-			</action>
-		</keybind>
-		<keybind key="XF86AudioPlay">
-			<action name="Execute">
-				<command>playerctl play-pause</command>
-			</action>
-		</keybind>
-		<keybind key="XF86AudioNext">
-			<action name="Execute">
-				<command>playerctl next</command>
-			</action>
-		</keybind>
-		<keybind key="XF86AudioPrev">
-			<action name="Execute">
-				<command>playerctl previous</command>
-			</action>
-		</keybind>
-		
-	</keyboard>
-
-	 <mouse>
+    <titleLayout>LSMC</titleLayout>
+    <keepBorder>yes</keepBorder>
+    <animateIconify>no</animateIconify>
+    <font place="ActiveWindow">
+      <name>Sans</name>
+      <size>8</size>
+      <weight></weight>
+      <slant></slant>
+    </font>
+    <font place="InactiveWindow">
+      <name>Sans</name>
+      <size>8</size>
+      <weight></weight>
+      <slant></slant>
+    </font>
+    <font place="MenuHeader">
+      <name>Sans</name>
+      <size>8</size>
+      <weight></weight>
+      <slant></slant>
+    </font>
+    <font place="MenuItem">
+      <name>Sans</name>
+      <size>8</size>
+      <weight></weight>
+      <slant></slant>
+    </font>
+    <font place="ActiveOnScreenDisplay">
+      <name/>
+    </font>
+    <font place="InactiveOnScreenDisplay">
+      <name>Sans</name>
+      <size>8</size>
+      <weight></weight>
+      <slant></slant>
+    </font>
+  </theme>
+  <desktops>
+    <number>6</number>
+    <firstdesk>1</firstdesk>
+    <popupTime>0</popupTime>
+    <names>
+      <name>He</name>
+      <name>Ne</name>
+      <name>Ar</name>
+      <name>Kr</name>
+      <name>Xe</name>
+      <name>Rn</name>
+    </names>
+  </desktops>
+  <resize>
+    <drawContents>yes</drawContents>
+    <popupShow>Never</popupShow>
+    <popupPosition>Center</popupPosition>
+    <popupFixedPosition>
+      <x>0</x>
+      <y>0</y>
+    </popupFixedPosition>
+  </resize>
+  <margins>
+    <top>20</top>
+    <left>20</left>
+    <right>20</right>
+    <bottom>20</bottom>
+  </margins>
+  <menu>
+    <hideDelay>250</hideDelay>
+    <middle>no</middle>
+    <submenuShowDelay>0</submenuShowDelay>
+    <submenuHideDelay>0</submenuHideDelay>
+    <applicationIcons>no</applicationIcons>
+    <manageDesktops>no</manageDesktops>
+    <file>menu.xml</file>
+  </menu>
+  <keyboard>
+    <keybind key="W-Return">
+      <action name="Execute">
+        <command>kitty</command>
+      </action>
+    </keybind>
+    <keybind key="W-shift-M">
+      <action name="Execute">
+		  <command>/home/xenone/dots/scripts/monitor</command>
+      </action>
+    </keybind>
+    <!-- directional focus -->
+    <keybind key="W-h">
+      <action name="DirectionalTargetWindow">
+        <direction>west</direction>
+      </action>
+    </keybind>
+    <keybind key="W-j">
+      <action name="DirectionalTargetWindow">
+        <direction>south</direction>
+      </action>
+    </keybind>
+    <keybind key="W-k">
+      <action name="DirectionalTargetWindow">
+        <direction>north</direction>
+      </action>
+    </keybind>
+    <keybind key="W-l">
+      <action name="DirectionalTargetWindow">
+        <direction>east</direction>
+      </action>
+    </keybind>
+    <!-- reconfigure -->
+    <keybind key="W-S-r">
+      <action name="Reconfigure"/>
+    </keybind>
+    <!-- misc window actions -->
+    <keybind key="W-w">
+      <action name="Close"/>
+    </keybind>
+    <keybind key="W-m">
+      <action name="ToggleShade"/>
+    </keybind>
+    <keybind key="W-S-f">
+      <action name="ToggleMaximize"/>
+    </keybind>
+    <keybind key="W-f">
+      <action name="ToggleFullscreen"/>
+    </keybind>
+    <!-- send to desktop -->
+    <keybind key="W-S-1">
+      <action name="SendToDesktop">
+        <to>1</to>
+        <follow>no</follow>
+      </action>
+    </keybind>
+    <keybind key="W-S-2">
+      <action name="SendToDesktop">
+        <to>2</to>
+        <follow>no</follow>
+      </action>
+    </keybind>
+    <keybind key="W-S-3">
+      <action name="SendToDesktop">
+        <to>3</to>
+        <follow>no</follow>
+      </action>
+    </keybind>
+    <keybind key="W-S-4">
+      <action name="SendToDesktop">
+        <to>4</to>
+        <follow>no</follow>
+      </action>
+    </keybind>
+    <keybind key="W-S-5">
+      <action name="SendToDesktop">
+        <to>5</to>
+        <follow>no</follow>
+      </action>
+    </keybind>
+    <keybind key="W-S-6">
+      <action name="SendToDesktop">
+        <to>6</to>
+        <follow>no</follow>
+      </action>
+    </keybind>
+    <!-- go to desktop-->
+    <keybind key="W-1">
+      <action name="GoToDesktop">
+        <to>1</to>
+      </action>
+    </keybind>
+    <keybind key="W-2">
+      <action name="GoToDesktop">
+        <to>2</to>
+      </action>
+    </keybind>
+    <keybind key="W-3">
+      <action name="GoToDesktop">
+        <to>3</to>
+      </action>
+    </keybind>
+    <keybind key="W-4">
+      <action name="GoToDesktop">
+        <to>4</to>
+      </action>
+    </keybind>
+    <keybind key="W-5">
+      <action name="GoToDesktop">
+        <to>5</to>
+      </action>
+    </keybind>
+    <keybind key="W-6">
+      <action name="GoToDesktop">
+        <to>6</to>
+      </action>
+    </keybind>
+    <!-- move window -->
+    <keybind key="W-S-h">
+      <action name="MoveRelative">
+        <x>-20</x>
+      </action>
+    </keybind>
+    <keybind key="W-S-j">
+      <action name="MoveRelative">
+        <y>20</y>
+      </action>
+    </keybind>
+    <keybind key="W-S-k">
+      <action name="MoveRelative">
+        <y>-20</y>
+      </action>
+    </keybind>
+    <keybind key="W-S-l">
+      <action name="MoveRelative">
+        <x>20</x>
+      </action>
+    </keybind>
+    <!-- resize window -->
+    <keybind key="W-Right">
+      <action name="ResizeRelative">
+        <right>20</right>
+      </action>
+    </keybind>
+    <keybind key="W-S-Left">
+      <action name="ResizeRelative">
+        <right>-20</right>
+      </action>
+    </keybind>
+    <keybind key="W-Left">
+      <action name="ResizeRelative">
+        <left>20</left>
+      </action>
+    </keybind>
+    <keybind key="W-S-Right">
+      <action name="ResizeRelative">
+        <left>-20</left>
+      </action>
+    </keybind>
+    <keybind key="W-Up">
+      <action name="ResizeRelative">
+        <up>20</up>
+      </action>
+    </keybind>
+    <keybind key="W-S-Down">
+      <action name="ResizeRelative">
+        <up>-20</up>
+      </action>
+    </keybind>
+    <keybind key="W-Down">
+      <action name="ResizeRelative">
+        <down>20</down>
+      </action>
+    </keybind>
+    <keybind key="W-S-Up">
+      <action name="ResizeRelative">
+        <down>-20</down>
+      </action>
+    </keybind>
+    <!-- misc stuff -->
+    <keybind key="W-space">
+      <action name="Execute">
+        <command>/home/xenone/dots/scripts/drun</command>
+      </action>
+    </keybind>
+    <keybind key="XF86MonBrightnessUp">
+      <action name="Execute">
+		  <command>/home/xenone/dots/scripts/brightness -i 30</command>
+      </action>
+    </keybind>
+    <keybind key="XF86MonBrightnessDown">
+      <action name="Execute">
+		  <command>/home/xenone/dots/scripts/brightness -d 30</command>
+      </action>
+    </keybind>
+    <keybind key="XF86AudioLowerVolume">
+      <action name="Execute">
+        <command>pactl set-sink-volume 0 -5%</command>
+      </action>
+    </keybind>
+    <keybind key="XF86AudioRaiseVolume">
+      <action name="Execute">
+        <command>pactl set-sink-volume 0 +5%</command>
+      </action>
+    </keybind>
+    <keybind key="XF86AudioMute">
+      <action name="Execute">
+        <command>pactl set-sink-mute 0 toggle</command>
+      </action>
+    </keybind>
+    <keybind key="XF86AudioPlay">
+      <action name="Execute">
+        <command>playerctl play-pause</command>
+      </action>
+    </keybind>
+    <keybind key="XF86AudioNext">
+      <action name="Execute">
+        <command>playerctl next</command>
+      </action>
+    </keybind>
+    <keybind key="XF86AudioPrev">
+      <action name="Execute">
+        <command>playerctl previous</command>
+      </action>
+    </keybind>
+  </keyboard>
+  <mouse>
     <dragThreshold>8</dragThreshold>
     <!-- number of pixels the mouse must move before a drag begins -->
     <doubleClickTime>200</doubleClickTime>
@@ -319,7 +357,7 @@
       <mousebind button="Left" action="DoubleClick">
         <action name="ToggleMaximizeFull"/>
       </mousebind>
-      <mousebind button="Middle" action="DoubleClick">
+      <mousebind button="Middle" action="Press">
         <action name="Close"/>
       </mousebind>
       <mousebind button="Right" action="Press">
@@ -517,6 +555,15 @@
       </mousebind>
     </context>
   </mouse>
-
-
+  <dock>
+    <position>TopLeft</position>
+    <floatingX>0</floatingX>
+    <floatingY>0</floatingY>
+    <stacking>Above</stacking>
+    <direction>Vertical</direction>
+    <noStrut>no</noStrut>
+    <autoHide>no</autoHide>
+    <hideDelay>300</hideDelay>
+    <showDelay>300</showDelay>
+  </dock>
 </openbox_config>

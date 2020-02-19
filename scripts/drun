@@ -1,1 +1,4 @@
-dmenu_run -nb "#475562" -nf "#d8dee9" -sb "#d8dee9" -sf "#475562"
+c="$HOME/dots/scripts/clr"
+dmenu_run -x 560 -y 405 -w 800 -l 15 \
+-nb "$($c -x color0)" -nf "$($c -x color2)" \
+-sb "$($c -x color2)" -sf "$($c -x color0)" \

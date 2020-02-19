@@ -1,0 +1,24 @@
+#!/bin/bash
+cc="/home/xenone/dots/scripts/clr"
+#i3lock -c "$($cc -n background)" \
+i3lock -i /home/xenone/dots/walls/blurred_forrest.png \
+--composite \
+-k \
+--insidecolor=00000000 \
+--insidewrongcolor=00000000 \
+--insidevercolor=00000000 \
+--ringcolor="$($cc -n foreground)ff" \
+--ringvercolor="$($cc -n color4)ff" \
+--ringwrongcolor="$($cc -n color1)ff" \
+--separatorcolor=$($cc -n foreground)ff \
+--linecolor=00000000 \
+--keyhlcolor="$($cc -n color2)ff" \
+--bshlcolor="$($cc -n color0)ff" \
+--noinputtext="" \
+--ring-width 30 \
+--radius 150 \
+--indpos="w/2:h/3 + 100" \
+--timepos="w/2:h/2 + 200" \
+--timestr="Hello $(whoami), it is %I:%M" \
+--datestr="%A, %m %Y"
+

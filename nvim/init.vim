@@ -15,7 +15,9 @@ set copyindent      " copy indent from the previous line
 " line numbers
 set number
 " line wrapping
-set nowrap
+set wrap
+noremap <silent> k gk
+noremap <silent> j gj
 
 set nofoldenable
 
@@ -44,17 +46,19 @@ set statusline+=%{&ff}\
 
 " colorz
 syntax on
-colo voyage
+colo wal
+set notermguicolors
 
-if exists('+termguicolors')
-	let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-	let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-	set termguicolors
-endif
+"if exists('+termguicolors')
+"	let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+"	let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+"	set termguicolors
+"endif
 
 
 "keybindings
 let mapleader = ","
 nnoremap <leader>s :source ~/.config/nvim/init.vim<cr>
 nnoremap <leader>r :tabe ~/.config/nvim/init.vim<cr>
+nnoremap <leader>p :silent exec "!pdflatex %"<cr>
 

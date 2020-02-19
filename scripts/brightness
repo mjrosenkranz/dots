@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+curr="$(cat /sys/class/backlight/intel_backlight/brightness)"
+bf="/sys/class/backlight/intel_backlight/brightness"
+
+case $1 in
+	"-i") echo $(( $curr + $2)) > $bf;;
+	"-d") echo $(( $curr - $2)) > $bf;;
+	*) echo "$curr"
+esac
