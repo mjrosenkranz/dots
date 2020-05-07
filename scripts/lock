@@ -1,19 +1,20 @@
 #!/bin/bash
-cc="/home/xenone/dots/scripts/clr"
-#i3lock -c "$($cc -n background)" \
-i3lock -i /home/xenone/dots/walls/blurred_forrest.png \
+cc="/home/xenone/dots/scripts/clrmgr"
+
+# lock the screen
+i3lock -t -i /home/xenone/dots/walls/tiles/hideout.png \
 --composite \
 -k \
 --insidecolor=00000000 \
 --insidewrongcolor=00000000 \
 --insidevercolor=00000000 \
---ringcolor="$($cc -n foreground)ff" \
---ringvercolor="$($cc -n color4)ff" \
---ringwrongcolor="$($cc -n color1)ff" \
---separatorcolor=$($cc -n foreground)ff \
+--ringcolor="$($cc -n bg)ff" \
+--ringvercolor="$($cc -n primary)ff" \
+--separatorcolor="$($cc -n bg)ff" \
+--ringwrongcolor="$($cc -n alert)ff" \
 --linecolor=00000000 \
---keyhlcolor="$($cc -n color2)ff" \
---bshlcolor="$($cc -n color0)ff" \
+--keyhlcolor="$($cc -n primary)ff" \
+--bshlcolor="$($cc -n bg_alt)ff" \
 --noinputtext="" \
 --ring-width 30 \
 --radius 150 \

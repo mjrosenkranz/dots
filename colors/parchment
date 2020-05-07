@@ -1,0 +1,20 @@
+#define FG	   		#000000
+#define BG	   		#ffffea
+#define CURSOR 		#cdb23d
+
+#define COLOR0		#000000
+#define COLOR1		#880000
+#define COLOR2		#005500
+#define COLOR3		#663311
+#define COLOR4		#004488
+#define COLOR5		#770077
+#define COLOR6		#007777
+#define COLOR7		#eeeecc
+#define COLOR8		#000000
+#define COLOR9		#880000
+#define COLOR10		#005500
+#define COLOR11		#663311
+#define COLOR12		#004488
+#define COLOR13		#770077
+#define COLOR14		#007777
+#define COLOR15		#ffffea

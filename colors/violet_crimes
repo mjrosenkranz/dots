@@ -1,0 +1,11 @@
+#define FG	   		#e3e3e3
+#define FG_ALT 		#bdbdbd
+#define BG	   		#1a2026
+#define BG_ALT 		#36424f
+#define CURSOR 		#e3e3e3
+#define ALERT			#cf9086
+#define PRIMARY 	#b4aee3
+#define SECONDARY	#91b2cd
+#define COLOR1 		#dcabce
+#define COLOR2		#c3c897
+#define COLOR3 		#5e8d87

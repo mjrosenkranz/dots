@@ -1,0 +1,7 @@
+#!/bin/bash
+# $1 in $2 out
+# $3 fg $4 bg
+sed "s/\(fill=\)\"#000\"/\1\"$(clrmgr -x $3)\"/g" $1 > tmp.svg && \
+inkscape -f tmp.svg -b "$(clrmgr -x $4)" -e $2
+
+#rm tmp.svg

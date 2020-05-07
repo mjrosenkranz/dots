@@ -1,0 +1,21 @@
+! vi: ft=xdefaults
+! summer wine by torvim
+#define FG	   		#c5c8c6
+#define BG	   		#161a1d
+#define CURSOR 		#c5c8c6
+#define COLOR0 		#ceb187
+#define COLOR8 		#ceb187
+#define COLOR1 		#a35e4e
+#define COLOR9 		#a35e4e
+#define COLOR2 		#a35e4e
+#define COLOR10 	#789ab0
+#define COLOR3 		#ceb187
+#define COLOR11 	#ceb187
+#define COLOR4 		#434e51
+#define COLOR12 	#363e40
+#define COLOR5 		#7d8799
+#define COLOR13 	#93cddc
+#define COLOR6 		#5e8d87
+#define COLOR14 	#8abeb7
+#define COLOR7 		#ea8d8d
+#define COLOR15 	#cfd3db

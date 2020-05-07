@@ -1,0 +1,21 @@
+! vi: ft=xdefaults
+! yuno by x from dotshare.it
+#define FG	   		#c1cada
+#define BG	   		#080b0f
+#define CURSOR 		#c1cada
+#define COLOR0 		#161f28
+#define COLOR8 		#303d4b
+#define COLOR1 		#b34f63
+#define COLOR9 		#f4718c
+#define COLOR2 		#3e5266
+#define COLOR10 	#7097ba
+#define COLOR3 		#4d6982
+#define COLOR11 	#598ab8
+#define COLOR4 		#567ca4
+#define COLOR12 	#8dabc8
+#define COLOR5 		#4c607d
+#define COLOR13 	#53769d
+#define COLOR6 		#a9bdd5
+#define COLOR14 	#8093aa
+#define COLOR7 		#dde3eb
+#define COLOR15 	#dde3eb

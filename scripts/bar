@@ -1,34 +1,39 @@
 #!/usr/bin/env bash
-fonts="-f -*-dina-medium-r-*-*-10-*-*-*-*-*-*-*"
-#colors=" -B "$(clr -x color0)" -F "$(clr -x color3)""
-colors=" -F "$(clr -x color2)" -B "$(clr -x color0)""
-desk() {
-	while true; do
-		state="$(xprop -root | grep -i "tag_state" | awk -F ' = ' '{ gsub(/"/, "", $2); print $2 }')"
-		nobel=(None He Ne Ar Kr Xe Rn)
-		toprint=""
-		for i in {1..6}; do
-			if [[ "${state:i:1}" == "i" ]]; then
-				toprint+="%{F#${COLOR5}}[${nobel[i]}]"
-			elif [[ "${state:i:1}" == "a" ]]; then
-				toprint+="%{F-}[${nobel[i]}]"
-			else
-				toprint+="%{F#${COLOR15}}[${nobel[i]}]"
-			fi
-		done
-		echo -e "%{c}${toprint}"
-		sleep 0.3
-	done
-}
+fonts="CozetteVector:pixelsize=10;1"
+#-f -*-dina-medium-r-*-*-10-*-*-*-*-*-*-*
+fg_alt="$(clrctl.py -x fg_alt)"
+fg="$(clrctl.py -x fg)"
+bg="$(clrctl.py -x bg)"
+fill="$(clrctl.py -x fill)"
+primary="$(clrctl.py -x primary)"
+p="10"
 
 time_bat() {
+	echo "$(date '+%I:%M') | $(bat)"
+}
+
+desk() {
+		desknum="$(xprop -root | grep '_NET_CURRENT_DESKTOP(CARDINAL)' | awk -F ' = ' '{print $2}')"
+		toprint=""
+		for i in {0..5}; do
+			if [ "$i" == "$desknum" ]; then
+				toprint+="%{B${primary}} %{F${fg}}$((i + 1)) %{F-}%{B-}"
+			else
+				toprint+=" $((i + 1)) "
+			fi
+		done
+
+		echo -e "${toprint}"
+}
+
+call() {
 	while true; do
-		echo "%{c}$(date '+%I:%M') | $(bat)"
+		echo -ne "%{B${primary}}%{O$p}$(date '+%I:%M')%{O$p}%{B-}\
+							%{O$p}$(desk)%{O$p}\
+							%{O$p}$(bat)%{O$p}"
 		sleep 1
 	done
 }
 
-# desk | lemonbar -g 180x25+10+10 ${fonts} ${colors} &
 pkill lemonbar
-time_bat | lemonbar -g 120x30+900+10 ${colors} &
-# time_bat | lemonbar -g 120x30+2820+10 ${colors} &
+call | lemonbar -g 1920x30 ${fonts}  -F ${fg} -B ${bg}

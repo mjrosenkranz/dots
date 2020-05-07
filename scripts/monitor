@@ -9,7 +9,7 @@ if [ "connected" == "$DP1_STATUS" ]; then
 	xrandr --output ${LAP} --scale 1.0 --mode 1920x1080 --pos 1920x0 --rotate normal \
 		--output ${MON} --primary --mode 1920x1080 --pos 0x0 --rotate normal
 	sleep 0.5
-	feh --bg-fill $HOME/dots/walls/forrest.jpg
+	feh --bg-tile $HOME/dots/walls/tiles/hideout.png
 	setxkbmap -layout us -option caps:ctrl_modifier
 	#/usr/bin/notify-send -t 5000 "Plugged in"
 else

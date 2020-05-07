@@ -1,13 +1,12 @@
 #!/usr/bin/env bash
-desknum="$(xprop -root _NET_CURRENT_DESKTOP | awk '{print $3}')"
+
+desknum="$(xprop -root | grep "_NET_CURRENT_DESKTOP(CARDINAL)" | awk -F ' = ' '{print $2}')"
 toprint=""
-for i in {0..9}; do
-	if [ "$i" -eq "$desknum" ]; then
-		toprint+="\ue1c2"
+for i in {0..5}; do
+	if [ "$i" == "$desknum" ]; then
+		toprint+="%{B$($HOME/dots/scripts/clrmgr -x color8)}%{u$($HOME/dots/scripts/clrmgr -x color2)} $((i + 1)) %{-u}%{B-}"
 	else
-		toprint+="\ue1bc"
-		#toprint+="\u25A0"
-		#toprint+="\u25CF"
+		toprint+=" $((i + 1)) "
 	fi
 done
 

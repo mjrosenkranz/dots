@@ -3,12 +3,12 @@ let g:netrw_liststyle=3
 let g:netrw_banner=0
 let g:netrw_browse_split=3
 let g:netrw_winsize=20
-set fillchars=vert:░
+set fillchars+=vert:│
 
 " tabs/spaces
-set tabstop=4       " number of visual spaces per TAB
-set softtabstop=4   " number of spaces in tab when editing
-set shiftwidth=4    " number of spaces to use for autoindent set expandtab       " tabs are space
+set tabstop=2       " number of visual spaces per TAB
+set softtabstop=2   " number of spaces in tab when editing
+set shiftwidth=2    " number of spaces to use for autoindent set expandtab
 set autoindent
 set copyindent      " copy indent from the previous line
 
@@ -46,9 +46,7 @@ set statusline+=%{&ff}\
 
 " colorz
 syntax on
-colo wal
-set notermguicolors
-
+colo color
 "if exists('+termguicolors')
 "	let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 "	let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
@@ -61,4 +59,8 @@ let mapleader = ","
 nnoremap <leader>s :source ~/.config/nvim/init.vim<cr>
 nnoremap <leader>r :tabe ~/.config/nvim/init.vim<cr>
 nnoremap <leader>p :silent exec "!pdflatex %"<cr>
+
+packloadall
+
+
 

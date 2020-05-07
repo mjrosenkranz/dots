@@ -1,0 +1,197 @@
+#!/usr/bin/env bash
+#
+# consider adding color definitions or whatever
+# add color block echoing too
+
+# set file we are reading from with synlink
+# if no symlink exists then use default colors in array here
+
+COLOR_FILE="$HOME/dots/colors/source"
+COLOR_DIR="$HOME/dots/colors"
+
+declare -A colors
+colors['FG']='#504a2f'
+colors['BG']='#e1e1e1'
+colors['FG_ALT']='#887e50'
+colors['BG_ALT']='#ababab'
+colors['CURSOR']='#e9c963'
+colors['ALERT']='#e96363'
+colors['PRIMARY']='#52c064'
+colors['SECONDARY']='#639ee9'
+colors['COLOR1']='#888888'
+colors['COLOR2']='#666666'
+colors['COLOR3']='#444444'
+
+
+get_hex() {
+	xrdb -query |
+		awk -v i="$1" '$1 ~ "^*." i ":$" {print $2}'
+}
+
+get_rgb() {
+	h="$(echo $1 | cut -c2-)"
+	r=${h:0:2}
+	g=${h:2:2}
+	b=${h:4:2}
+	printf "%d %d %d\n" "0x$r" "0x$g" "0x$b"
+}
+
+get_hsl() {
+	rgb="$(get_rgb $1)"
+
+	r="${rgb:0:2}"
+	g="${rgb:3:2}"
+	b="${rgb:6:2}"
+
+	echo -e "$r\n$g\n$b"
+}
+
+get_escape() {
+	col=${1,,}
+	case $col in
+		"cursor")
+			echo "\033]12;${colors[CURSOR]}\007"
+			;;
+		"bg")
+			echo "\033]11;${colors[BG]}\007"
+			echo "\033]708;${colors[BG]}\007"
+			echo "\033]4;0;${colors[BG]}\007"
+			;;
+		"bg_alt")
+			echo "\033]4;8;${colors[BG_ALT]}\007"
+			;;
+		"fg")
+			echo "\033]10;${colors[FG]}\007"
+			echo "\033]4;7;${colors[FG]}\007"
+			;;
+		"fg_alt")
+			echo "\033]4;15;${colors[FG_ALT]}\007"
+			;;
+		"alert")
+			echo "\033]4;1;${colors[ALERT]}\007"
+			echo "\033]4;9;${colors[ALERT]}\007"
+			;;
+		"primary")
+			echo "\033]4;2;${colors[PRIMARY]}\007"
+			echo "\033]4;10;${colors[PRIMARY]}\007"
+			;;
+		"secondary")
+			echo "\033]4;3;${colors[SECONDARY]}\007"
+			echo "\033]4;11;${colors[SECONDARY]}\007"
+			;;
+		"color1")
+			echo "\033]4;4;${colors[COLOR1]}\007"
+			echo "\033]4;12;${colors[COLOR1]}\007"
+			;;
+		"color2")
+			echo "\033]4;5;${colors[COLOR2]}\007"
+			echo "\033]4;13;${colors[COLOR2]}\007"
+			;;
+		"color3")
+			echo "\033]4;6;${colors[COLOR3]}\007"
+			echo "\033]4;14;${colors[COLOR3]}\007"
+			;;
+		*) echo "$col not found" ;;
+	esac
+}
+
+
+all_codes() {
+	for c in ${!colors[@]}; do
+		get_escape $c
+	done
+	echo "\033[H"
+}
+
+source_colors() {
+	# check if colors file exists
+
+	if [[ -f $COLOR_FILE ]]; then
+		for c in ${!colors[@]}; do
+			colors["$c"]="$(awk -v "c=$c" '$2==c {print $3}' $COLOR_FILE)"
+		done
+	fi
+}
+
+all_term() {
+	for term in /dev/pts/[0-9]*; do
+		printf "%b" "$(all_codes)" > "${term}"
+	done
+}
+
+change_color() {
+	# check if file exists
+	if [[ ! -f "$COLOR_DIR/$1" ]]; then
+		echo "$COLOR_DIR/$1 does not exist"
+		exit 1
+	fi
+	# link
+	ln -sf "$COLOR_DIR/$1" "$COLOR_FILE"
+	xrdb -merge "$HOME/.Xresources"
+	polybar-msg cmd restart
+}
+
+mkvars() {
+	for c in ${!colors[@]}; do
+			echo "export $c=${colors["$c"]}"
+	done
+}
+
+usage() {
+	cat <<///
+usage: clrmgr [-xlr] index
+possible opts:
+nothing: prints colors out
+	 -x: prints in hex
+	 -s: prints as a string with formatting
+	 -n: prints raw hex
+	 -H: prints in hsl
+	 -r: prints in rgb
+	 -e: prints escape code
+	 -c: changes the color file
+	 -l: lists all color file choices
+	 -a: applies colors to all terms
+	 -v: exports colors as env variables
+///
+}
+
+main() {
+	source_colors
+	if [[ -z $@ ]]; then
+		all_codes
+	else
+		case $1 in
+			'-x') 
+				echo "${colors["${2^^}"]}"
+				;;
+			'-s') 
+				echo "havent done this yet"
+				;;
+			'-n') 
+				echo "$(echo ${colors["${2^^}"]} | cut -c2-)"
+				;;
+			'-r') 
+				get_rgb ${colors["${2^^}"]}
+				;;
+			'-H') 
+				get_hsl $2
+				;;
+			'-e') 
+				get_escape $2
+				;;
+			'-c') 
+				change_color $2
+				;;
+			'-v') mkvars ;;
+			'-l') 
+				for i in $COLOR_DIR/*; do
+					basename $i
+				done
+				;;
+			* | '-h') usage ;;
+		esac
+	fi
+
+}
+
+main $@

@@ -1,8 +1,15 @@
 # prompt
+#PS1='%B%F{10}%~%b :(
 PS1='%B%F{10}%~%b 🌱
 $%F{reset} '
 
-printf "%b" "$($HOME/dots/scripts/clr)"
+#printf "%b" "$($HOME/dots/scripts/clrmgr)"
+#eval "$($HOME/dots/scripts/clrmgr -v)"
+if [[ $TERM == screen* ]]; then
+	clrctl.py -t
+else
+	clrctl.py
+fi
 
 # includes
 source $HOME/dots/zsh/aliases
@@ -42,3 +49,7 @@ setopt KSH_ARRAYS
 
 # syntax highlighting
 #source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+precmd() {
+	printf "%b" "\033]2;${PWD//\/home\/xenone/~}\007"
+}

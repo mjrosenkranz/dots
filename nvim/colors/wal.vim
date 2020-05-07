@@ -16,27 +16,27 @@ let g:colors_name = 'wal'
 " highlight groups {{{
 
 " set t_Co=16
-hi Normal ctermbg=NONE ctermfg=7
-hi NonText ctermbg=NONE ctermfg=0
-hi Comment ctermbg=NONE ctermfg=1
-hi Conceal ctermbg=NONE
-hi Constant ctermbg=NONE ctermfg=3
-hi Error ctermbg=1 ctermfg=7
-hi Identifier ctermbg=NONE ctermfg=1 cterm=BOLD
-hi Ignore ctermbg=8 ctermfg=0
-hi PreProc ctermbg=NONE ctermfg=3
-hi Special ctermbg=NONE ctermfg=6
-hi Statement ctermbg=NONE ctermfg=1
-hi String ctermbg=NONE ctermfg=2
-hi Number ctermbg=NONE ctermfg=3
-hi Todo ctermbg=2 ctermfg=0
-hi Type ctermbg=NONE ctermfg=3
+hi Normal			ctermbg=NONE ctermfg=7
+hi NonText			ctermbg=NONE ctermfg=0
+hi Comment			ctermbg=NONE ctermfg=1
+hi Conceal 		ctermbg=NONE
+hi Constant		ctermbg=NONE ctermfg=3
+hi Error				ctermbg=1 ctermfg=7
+hi Identifier	ctermbg=NONE ctermfg=1 cterm=BOLD
+hi Ignore			ctermbg=8 ctermfg=0
+hi PreProc			ctermbg=NONE ctermfg=3
+hi Special			ctermbg=NONE ctermfg=6
+hi Statement		ctermbg=NONE ctermfg=1
+hi String			ctermbg=NONE ctermfg=2
+hi Number			ctermbg=NONE ctermfg=3
+hi Todo				ctermbg=2 ctermfg=0
+hi Type				ctermbg=NONE ctermfg=3
 hi Underlined ctermbg=NONE ctermfg=1 cterm=underline
 hi StatusLine ctermbg=3 ctermfg=8
 hi StatusLineNC ctermbg=8 ctermfg=0
-hi TabLine ctermbg=1 ctermfg=7 cterm=NONE
-hi TabLineFill ctermbg=NONE ctermfg=1
-hi TabLineSel ctermbg=4 ctermfg=0
+hi TabLine ctermbg=NONE ctermfg=5 cterm=NONE
+hi TabLineFill ctermbg=NONE ctermfg=NONE cterm=NONE
+hi TabLineSel ctermbg=NONE ctermfg=1
 hi TermCursorNC ctermbg=3 ctermfg=0
 hi VertSplit ctermbg=8 ctermfg=0
 hi Title ctermbg=NONE ctermfg=4

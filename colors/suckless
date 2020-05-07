@@ -1,0 +1,10 @@
+! vi: ft=xdefaults
+#define FG	   		#eeeeee
+#define FG_ALT 		#eeeeee
+#define BG	   		#114488
+#define BG_ALT 		#6396d0
+#define CURSOR 		#6396d0
+#define ALERT			#006dff
+#define PRIMARY 	#eeeeee
+#define SECONDARY	#eeeeee
+#define FILL			#eeeeee

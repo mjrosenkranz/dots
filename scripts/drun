@@ -1,4 +1,12 @@
-c="$HOME/dots/scripts/clr"
-dmenu_run -x 560 -y 405 -w 800 -l 15 \
--nb "$($c -x color0)" -nf "$($c -x color2)" \
--sb "$($c -x color2)" -sf "$($c -x color0)" \
+c="$HOME/dots/scripts/clrmgr"
+
+vars="-x 560 -y 405 -w 800 -l 15 \
+-nb "$($c -x bg)" -nf "$($c -x fg)" \
+-sb "$($c -x secondary)" -sf "$($c -x bg)""
+
+if [[ "$1" == "-m" ]]; then
+	dmenu $vars < /dev/stdin
+else
+	dmenu_run ${vars}
+fi
+
