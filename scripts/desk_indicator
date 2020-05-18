@@ -4,7 +4,7 @@ desknum="$(xprop -root | grep "_NET_CURRENT_DESKTOP(CARDINAL)" | awk -F ' = ' '{
 toprint=""
 for i in {0..5}; do
 	if [ "$i" == "$desknum" ]; then
-		toprint+="%{B$($HOME/dots/scripts/clrmgr -x color8)}%{u$($HOME/dots/scripts/clrmgr -x color2)} $((i + 1)) %{-u}%{B-}"
+		toprint+="%{B$(clrmgr -x color8)}%{u$(clrmgr -x color2)} $((i + 1)) %{-u}%{B-}"
 	else
 		toprint+=" $((i + 1)) "
 	fi

@@ -6,6 +6,7 @@ usage:
 """
 
 import os
+import yaml
 import argparse
 
 DEFAULT_PATH = "$HOME/dots/colors/"
@@ -27,6 +28,7 @@ COLORS = [
 def main():
     parser = argparse.ArgumentParser()
     group = parser.add_mutually_exclusive_group()
+    group2 = parser.add_mutually_exclusive_group()
     parser.add_argument("colorfile", type=str, nargs='?', help="color config we want to load")
     group.add_argument("-x", "--hex",
             help="Print specified color or all colors in hex",
@@ -38,11 +40,20 @@ def main():
             help="Print specified color escape or all escape codes",
             action="store", nargs='?', const="-")
 
-    parser.add_argument("-t", "--tmux", action="store_true", help="print escapes in tmux compatible way")
+    group2.add_argument("-t", "--tmux", action="store_const",
+            help="print escapes in tmux compatible way",
+            const='tmux', dest='ttype')
+
+    group2.add_argument("-i", "--iterm", action="store_const",
+            help="print escapes in iterm2 compatible way",
+            const='iterm', dest='ttype')
+
     parser.add_argument("-d", "--set-default", action="store_true",
             help="change default color sceme")
 
     args = parser.parse_args()
+    if args.ttype is None:
+        args.ttype = 'default'
 
     cm = get_colors()
     if args.colorfile:
@@ -74,12 +85,12 @@ def main():
     elif args.esc:
         # print rgb
         if args.esc == '-':
-            print(get_escape(cm, args.tmux))
+            print(get_escape(cm, args.ttype))
         else:
             verify_colorname(args.esc)
-            print(get_escape(cm, args.tmux, args.esc))
+            print(get_escape(cm, args.ttype, args.esc))
     else:
-        print(get_escape(cm, args.tmux))
+        print(get_escape(cm, args.ttype))
 
 def get_rgb(color):
     """
@@ -95,7 +106,7 @@ def get_rgb(color):
     return "{}, {}, {}".format(int(r,16), int(g, 16), int(b, 16))
         
 
-def get_escape(colormap, tmux, c=None):
+def get_escape(colormap, ttype, c=None):
     """
     Prints the escape sequence of the given color.
     If no color is specified then all escape codes are printed.
@@ -107,22 +118,36 @@ def get_escape(colormap, tmux, c=None):
     # a string to use for escape sequences
     # the first value is part of the escape sequence
     # the second value is the color
-    esc_str = "\033Ptmux;\033\033]{}{}\007\a\033\\\n" if tmux else "\033]{}{}\007\n"
-    #esc_str = "\033Ptmux;\033\033]{}{}\007\a\033\\\n"
+    esc_str = {'tmux' : "\033Ptmux;\033\033]{}#{}\007\a\033\\\n",
+            'default' : "\033]{}#{}\007\n",
+            'iterm' : "\033]P{}{}\007\n"}
 
 
     # a map of lists of escape strings
     escmap = {
-            'bg'        : ['11;', '708;', '4;0;'],
+            'bg'        : ['11;', '4;0;'],
             'bg_alt'    : ['4;8;'],
             'primary'   : ['4;1;', '4;9;'],
             'secondary' : ['4;2;', '4;10;'],
-            'alert'     : ['4;3;', '4;11;', '17;'], # 17 : selection
+            'alert'     : ['4;3;', '4;11;'], # 17 : selection
             'cursor'    : ['4;4;', '4;12;', '12;'], # 12 : cursor
             'fill'      : ['4;5;', '4;13;', '4;6;', '4;14;'],
             'fg'        : ['10;', '4;7;'],
-            'fg_alt'    : ['4;15;'],
+            'fg_alt'    : ['4;15;', '17;'],
     }
+
+    if ttype == 'iterm':
+        escmap = {
+            'bg'        : ['h', '0'],
+            'bg_alt'    : ['8'],
+            'primary'   : ['1', '9'],
+            'secondary' : ['2', 'a'],
+            'alert'     : ['3', 'b'],
+            'cursor'    : ['4', 'c', 'l'],
+            'fill'      : ['5', 'd', '6', 'e'],
+            'fg'        : ['g', '7', 'k'],
+            'fg_alt'    : ['j', 'f'],
+        }
 
     # the string we are going to return
     ret = ""
@@ -131,12 +156,12 @@ def get_escape(colormap, tmux, c=None):
         c = c.lower()
         if c in colormap.keys():
             for esc in escmap[c]:
-                ret += esc_str.format(esc, colormap[c])
+                ret += esc_str[ttype].format(esc, colormap[c].strip('#'))
     else:
         # print all escape sequences
         for c in colormap.keys():
             for esc in escmap[c]:
-                ret += esc_str.format(esc, colormap[c])
+                ret += esc_str[ttype].format(esc, colormap[c].strip('#'))
         ret += "\033[H"
 
     return ret
@@ -151,42 +176,19 @@ def get_colors(file_path = DEFAULT_FILE):
     A dictionary of color names to values in hex.
     """
 
-    colormap = {
-            'fg'        : '',
-            'bg'        : '',
-            'fg_alt'    : '',
-            'bg_alt'    : '',
-            'cursor'    : '',
-            'alert'     : '',
-            'primary'   : '',
-            'secondary' : '',
-            'fill'      : '',
-    }
-
     # attempt to open the file
     file_path = os.path.expandvars(file_path)
     try:
         with open(file_path) as f:
-            lines = f.readlines()
-            # go through the file and try to assign the colors
-            for l in lines:
-                # break line into columns
-                col = l.split()
-                # the color name column
-                c = col[1].lower()
-                # the value column
-                v = col[2]
-                # check if we have an appropriate color name
-                if c in colormap.keys():
-                    colormap[c] = v
-
-        # check if the map is complete
-        for c in colormap.keys():
-            if colormap[c] == '':
-                print("Color \"{}\" not assigned, using default value of #00ff00"
-                        .format(c))
-                colormap[c] = "#00ff00"
-        return colormap
+            data = yaml.load(f, Loader=yaml.FullLoader)
+            # check that we have everything
+            if set(data.keys()) == set(COLORS):
+                return data
+            else:
+                print("keys missing")
+                print(data.keys())
+                print(COLORS)
+                exit(1)
     except FileNotFoundError:
         print("file \"{}\" does not exist".format(file_path))
 

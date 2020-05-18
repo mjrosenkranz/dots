@@ -37,12 +37,15 @@ function! GetFileType(filetype)
 	endif
 endfunction
 
+" status line
 set laststatus=2
 set statusline=%f\ 
 set statusline+=%m
 set statusline+=%=
 set statusline+=%{GetFileType(&filetype)}\ 
 set statusline+=%{&ff}\ 
+" tabline
+set showtabline=2
 
 " colorz
 syntax on
@@ -59,6 +62,7 @@ let mapleader = ","
 nnoremap <leader>s :source ~/.config/nvim/init.vim<cr>
 nnoremap <leader>r :tabe ~/.config/nvim/init.vim<cr>
 nnoremap <leader>p :silent exec "!pdflatex %"<cr>
+nnoremap <leader>n :noh <cr>
 
 packloadall
 

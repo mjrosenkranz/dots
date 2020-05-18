@@ -1,8 +1,7 @@
-c="$HOME/dots/scripts/clrmgr"
-
+#!/bin/bash
 vars="-x 560 -y 405 -w 800 -l 15 \
--nb "$($c -x bg)" -nf "$($c -x fg)" \
--sb "$($c -x secondary)" -sf "$($c -x bg)""
+-nb "$(clrmgr.py -x bg)" -nf "$(clrmgr.py -x fg)" \
+-sb "$(clrmgr.py -x secondary)" -sf "$(clrmgr.py -x bg)""
 
 if [[ "$1" == "-m" ]]; then
 	dmenu $vars < /dev/stdin
