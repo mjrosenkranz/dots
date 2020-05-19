@@ -6,10 +6,11 @@ usage:
 """
 
 import os
+import sys
 import yaml
 import argparse
 
-DEFAULT_PATH = "$HOME/dots/colors/"
+DEFAULT_PATH = os.path.expandvars("$HOME/dots/colors/")
 DEFAULT_FILE = DEFAULT_PATH + "source"
 COLORS = [
     'fg',
@@ -40,20 +41,10 @@ def main():
             help="Print specified color escape or all escape codes",
             action="store", nargs='?', const="-")
 
-    group2.add_argument("-t", "--tmux", action="store_const",
-            help="print escapes in tmux compatible way",
-            const='tmux', dest='ttype')
-
-    group2.add_argument("-i", "--iterm", action="store_const",
-            help="print escapes in iterm2 compatible way",
-            const='iterm', dest='ttype')
-
     parser.add_argument("-d", "--set-default", action="store_true",
             help="change default color sceme")
 
     args = parser.parse_args()
-    if args.ttype is None:
-        args.ttype = 'default'
 
     cm = get_colors()
     if args.colorfile:
@@ -62,9 +53,16 @@ def main():
             os.unlink(os.path.expandvars(DEFAULT_FILE))
             os.symlink(os.path.expandvars(DEFAULT_PATH + args.colorfile), 
                     os.path.expandvars(DEFAULT_FILE))
-            cm = get_colors()
+            #cm = get_colors()
+            cm = get_colors(DEFAULT_PATH + args.colorfile)
+            with open(DEFAULT_PATH + ".cache", "w+") as f:
+                f.write(get_escape(cm, True))
+                f.write(get_escape(cm, False))
         else:
             cm = get_colors(DEFAULT_PATH + args.colorfile)
+            print(get_escape(cm, "screen" in os.getenv("TERM")))
+            exit()
+
 
     if args.hex:
         # print hex
@@ -83,14 +81,20 @@ def main():
             verify_colorname(args.rgb)
             print(get_rgb(cm[args.rgb]))
     elif args.esc:
+        tmux = False
+        if ("screen" in os.getenv("TERM")):
+            tmux = True
         # print rgb
         if args.esc == '-':
-            print(get_escape(cm, args.ttype))
+            print(get_escape(cm, tmux))
         else:
             verify_colorname(args.esc)
-            print(get_escape(cm, args.ttype, args.esc))
+            print(get_escape(cm, tmux, args.esc))
     else:
-        print(get_escape(cm, args.ttype))
+        with open(DEFAULT_PATH + ".cache") as f:
+            print(f.read())
+
+
 
 def get_rgb(color):
     """
@@ -106,7 +110,7 @@ def get_rgb(color):
     return "{}, {}, {}".format(int(r,16), int(g, 16), int(b, 16))
         
 
-def get_escape(colormap, ttype, c=None):
+def get_escape(colormap, tmux, c=None):
     """
     Prints the escape sequence of the given color.
     If no color is specified then all escape codes are printed.
@@ -114,14 +118,6 @@ def get_escape(colormap, ttype, c=None):
     c -- string name of color to print.
     colormap -- map of possible colors.
     """
-
-    # a string to use for escape sequences
-    # the first value is part of the escape sequence
-    # the second value is the color
-    esc_str = {'tmux' : "\033Ptmux;\033\033]{}#{}\007\a\033\\\n",
-            'default' : "\033]{}#{}\007\n",
-            'iterm' : "\033]P{}{}\007\n"}
-
 
     # a map of lists of escape strings
     escmap = {
@@ -135,8 +131,13 @@ def get_escape(colormap, ttype, c=None):
             'fg'        : ['10;', '4;7;'],
             'fg_alt'    : ['4;15;', '17;'],
     }
+    # a string to use for escape sequences
+    # the first value is part of the escape sequence
+    # the second value is the color
+    esc_str = "\033]{}#{}\007"
 
-    if ttype == 'iterm':
+    if (sys.platform.startswith('darwin')):
+        esc_str = "\033]P{}{}\007"
         escmap = {
             'bg'        : ['h', '0'],
             'bg_alt'    : ['8'],
@@ -149,6 +150,10 @@ def get_escape(colormap, ttype, c=None):
             'fg_alt'    : ['j', 'f'],
         }
 
+
+    if (tmux):
+        esc_str = "\033Ptmux;\033" + esc_str + "\a\033\\"
+
     # the string we are going to return
     ret = ""
 
@@ -156,12 +161,14 @@ def get_escape(colormap, ttype, c=None):
         c = c.lower()
         if c in colormap.keys():
             for esc in escmap[c]:
-                ret += esc_str[ttype].format(esc, colormap[c].strip('#'))
+                ret += esc_str.format(esc, colormap[c].strip('#'))
+                ret += '\n'
     else:
         # print all escape sequences
         for c in colormap.keys():
             for esc in escmap[c]:
-                ret += esc_str[ttype].format(esc, colormap[c].strip('#'))
+                ret += esc_str.format(esc, colormap[c].strip('#'))
+                ret += '\n'
         ret += "\033[H"
 
     return ret
@@ -177,7 +184,8 @@ def get_colors(file_path = DEFAULT_FILE):
     """
 
     # attempt to open the file
-    file_path = os.path.expandvars(file_path)
+    #file_path = os.path.expandvars(file_path)
+    file_path = file_path
     try:
         with open(file_path) as f:
             data = yaml.load(f, Loader=yaml.FullLoader)
