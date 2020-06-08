@@ -1,10 +1,10 @@
 #! vi: ft=yaml
 fg        : "#504a2f"
-fg_alt    : "#A67A15"
+fg_alt    : "#756F50"
 primary   : "#2fbe47"
 secondary : "#639ee9"
 alert     : "#e96363"
 cursor    : "#e9c963"
-fill      : "#8e8e8e"
+fill      : "#ababab"
 bg        : "#e1e1e1"
-bg_alt    : "#ababab"
+bg_alt    : "#B8AD7D"

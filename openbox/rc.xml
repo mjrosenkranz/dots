@@ -106,7 +106,7 @@
   <keyboard>
     <keybind key="W-Return">
       <action name="Execute">
-        <command>kitty</command>
+        <command>termite</command>
       </action>
     </keybind>
     <keybind key="W-shift-M">
@@ -290,12 +290,12 @@
     </keybind>
     <keybind key="XF86MonBrightnessUp">
       <action name="Execute">
-		  <command>/home/xenone/dots/scripts/brightness -i 30</command>
+		  <command>/home/xenone/dots/scripts/brightness -i 15</command>
       </action>
     </keybind>
     <keybind key="XF86MonBrightnessDown">
       <action name="Execute">
-		  <command>/home/xenone/dots/scripts/brightness -d 30</command>
+		  <command>/home/xenone/dots/scripts/brightness -d 15</command>
       </action>
     </keybind>
     <keybind key="XF86AudioLowerVolume">

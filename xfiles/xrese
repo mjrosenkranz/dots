@@ -5,7 +5,7 @@
 
 !#include "/home/xenone/dots/xfiles/themes/underwater"
 !#include "/home/xenone/dots/colors/primary"
-#include "/home/xenone/dots/colors/source"
+#include "/home/xenone/dots/colors/poop"
 
 Xcursor.theme: redglass
 

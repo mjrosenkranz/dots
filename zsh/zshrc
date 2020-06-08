@@ -3,13 +3,12 @@
 PS1='%B%F{10}%~%b 🌱
 $%F{reset} '
 
-#printf "%b" "$($HOME/dots/scripts/clrmgr)"
-#eval "$($HOME/dots/scripts/clrmgr -v)"
-if [[ $TERM == screen* ]]; then
-	clrctl.py -t
-else
-	clrctl.py
-fi
+clrmgr.py
+
+#if [[ $TERM == screen* ]]; then
+#	clrmgr -t
+#else
+#fi
 
 # includes
 source $HOME/dots/zsh/aliases

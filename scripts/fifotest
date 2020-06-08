@@ -1,0 +1,6 @@
+#!/bin/bash
+file="/tmp/tmpfile"
+rm -rf $file
+touch "$file"
+
+echo "${1}" > "$file"

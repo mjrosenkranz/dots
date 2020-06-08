@@ -1,14 +1,25 @@
+" plugins
+call plug#begin('~/.config/plugged')
+
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+
+Plug 'junegunn/goyo.vim'
+
+call plug#end()
+
+" markdown preview
+let g:mkdp_refresh_slow=1
+
 " file explorer
 let g:netrw_liststyle=3
 let g:netrw_banner=0
 let g:netrw_browse_split=3
 let g:netrw_winsize=20
-set fillchars+=vert:│
 
 " tabs/spaces
-set tabstop=2       " number of visual spaces per TAB
-set softtabstop=2   " number of spaces in tab when editing
-set shiftwidth=2    " number of spaces to use for autoindent set expandtab
+set tabstop=4       " number of visual spaces per TAB
+set softtabstop=4   " number of spaces in tab when editing
+set shiftwidth=4    " number of spaces to use for autoindent set expandtab
 set autoindent
 set copyindent      " copy indent from the previous line
 
@@ -66,5 +77,6 @@ nnoremap <leader>n :noh <cr>
 
 packloadall
 
-
+set list
+set listchars=tab:\│\ 
 

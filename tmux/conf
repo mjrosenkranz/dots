@@ -1,7 +1,6 @@
 ###########
 # sources #
 ###########
-#run-shell ~/code/tmux-resurrect/resurrect.tmux
 
 ########
 # misc #
@@ -72,17 +71,20 @@ set -g message-command-style fg=white,bg=colour0
 set -g message-style fg=white,bg=colour8
 
 # win
-setw -g window-status-format "#[bg=colour8,fg=colour15] #I #W "
-setw -g window-status-current-format "#[bg=colour1,fg=colour0] #I #W "
+#setw -g window-status-format "#[bg=colour8,fg=colour15] #I #W "
+#setw -g window-status-current-format "#[bg=colour1,fg=colour0] #I #W "
+setw -g window-status-format "#[bg=colour15,fg=colour0] #I #W "
+setw -g window-status-current-format "#[bg=colour0,fg=colour7] #I #W "
 setw -g renumber-windows on
 setw -g window-status-separator ''
 bind-key , command-prompt "rename-window '%%'"
 
 # status bar
-set -g status-style bg=colour8,fg=brightwhite
+#set -g status-style bg=colour8,fg=brightwhite
+set -g status-style bg=colour15,fg=brightwhite
 set -g status-position top
 set -g status-justify left
-set -g status-right '#{?client_prefix,#[fg=colour8],#[fg=colour15]}#{?client_prefix,#[bg=colour15],#[bg=colour8]} #S ' 
+set -g status-right '#{?client_prefix,#[fg=colour0],#[fg=colour0]}#{?client_prefix,#[bg=colour2],#[bg=colour15]} #S ' 
 set -g status-left ''
 
 # for scrolling mode or whatever

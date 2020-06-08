@@ -1,8 +1,14 @@
 #!/bin/sh
 #xrandr --output eDP1 --mode 1920x1080 --pos 1920x0 --rotate normal \
 #--output DP1 --primary --mode 1920x1080 --pos 0x0 --rotate normal
-xrandr --output eDP-1 --mode 1920x1080 --pos 1920x0 --rotate normal \
---output DP-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal
-sleep 1.5
-feh --bg-scale $HOME/dots/walls/forrest.jpg
+#xrandr --output eDP-1 --mode 1920x1080 --pos 1920x0 --rotate normal \
+#--output DP-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal
+
+xrandr --output DP-1 --mode 1920x1080 --pos 0x0 --rotate normal \
+ --output eDP-1 --primary --mode 1920x1080 --pos 0x1080 --rotate normal
+
 setxkbmap -layout us -option caps:ctrl_modifier
+#sleep 1.5
+#feh --bg-scale $HOME/dots/walls/forrest.jpg
+
+
