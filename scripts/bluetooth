@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+device="$(bluetoothctl devices | awk '{print $3 " " $2}' | drun -m | awk '{print $2}')"
+#echo "Connecting to $device"
+bluetoothctl connect $device
