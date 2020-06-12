@@ -1,5 +1,5 @@
 #!/bin/bash
-vars="-x 560 -y 405 -w 800 -l 15 \
+vars="-i -x 560 -y 405 -w 800 -l 15 \
 -nb "$(clrmgr.py -x bg)" -nf "$(clrmgr.py -x fg)" \
 -sb "$(clrmgr.py -x secondary)" -sf "$(clrmgr.py -x bg)""
 

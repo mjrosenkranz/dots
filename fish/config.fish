@@ -5,20 +5,13 @@ clrmgr.py
 #
 set fish_greeting "Hi, xenone"
 
-# vi keybindings
-set -g fish_key_bindings fish_vi_key_bindings
-set fish_cursor_insert line
-set fish_cursor_default block
-set fish_cursor_replace_one underscore
-set fish_cursor_visual block
-set -g prompt_emoji 💩
-
+set fish_cursor_default underscore
 
 set fish_color_normal white
 set fish_color_command red --bold
 set fish_color_quote brwhite
-set fish_color_redirection blue
-set fish_color_end brblack
+set fish_color_redirection cyan
+set fish_color_end cyan
 set fish_color_error yellow
 set fish_color_param white
 set fish_color_comment brblack
