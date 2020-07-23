@@ -104,11 +104,13 @@
     <file>menu.xml</file>
   </menu>
   <keyboard>
+	  <!--
     <keybind key="W-Return">
       <action name="Execute">
-        <command>termite</command>
+        <command>"xiate"</command>
       </action>
     </keybind>
+	  -->
     <keybind key="W-shift-M">
       <action name="Execute">
 		  <command>/home/xenone/dots/scripts/monitor</command>
@@ -283,6 +285,7 @@
       </action>
     </keybind>
     <!-- misc stuff -->
+    <!--
     <keybind key="W-space">
       <action name="Execute">
         <command>/home/xenone/dots/scripts/drun</command>
@@ -300,12 +303,12 @@
     </keybind>
     <keybind key="XF86AudioLowerVolume">
       <action name="Execute">
-        <command>pactl set-sink-volume 0 -5%</command>
+        <command>pamixer -d 1</command>
       </action>
     </keybind>
     <keybind key="XF86AudioRaiseVolume">
       <action name="Execute">
-        <command>pactl set-sink-volume 0 +5%</command>
+        <command>pamixer -i 1</command>
       </action>
     </keybind>
     <keybind key="XF86AudioMute">
@@ -328,6 +331,7 @@
         <command>playerctl previous</command>
       </action>
     </keybind>
+	-->
   </keyboard>
   <mouse>
     <dragThreshold>8</dragThreshold>
