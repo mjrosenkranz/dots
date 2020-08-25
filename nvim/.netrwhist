@@ -1,12 +1,12 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =4
+let g:netrw_dirhistcnt =8
+let g:netrw_dirhist_8='/home/xenone/dots/openbox'
+let g:netrw_dirhist_7='/home/xenone/.config/mpv'
+let g:netrw_dirhist_6='/home/xenone/dots/zsh'
+let g:netrw_dirhist_5='/home/xenone/docs/code/helium/src'
 let g:netrw_dirhist_4='/home/xenone/dots/nvim/colors'
 let g:netrw_dirhist_3='/home/xenone/dots/fish'
 let g:netrw_dirhist_2='/home/xenone/dots/zsh'
 let g:netrw_dirhist_1='/home/xenone/code/clrmgr'
 let g:netrw_dirhist_0='/home/xenone/dots/zsh'
 let g:netrw_dirhist_9='/home/xenone/dots/nvim/colors'
-let g:netrw_dirhist_8='/home/xenone/dots/zsh'
-let g:netrw_dirhist_7='/home/xenone/dots/qutebrowser'
-let g:netrw_dirhist_6='/home/xenone/dots/zsh'
-let g:netrw_dirhist_5='/home/xenone/dots/xfiles'

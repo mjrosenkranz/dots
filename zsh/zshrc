@@ -3,16 +3,13 @@
 PS1='%B%F{10}%~%b 🌱
 $%F{reset} '
 
-clrmgr.py
-
-#if [[ $TERM == screen* ]]; then
-#	clrmgr -t
-#else
-#fi
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 # includes
 source $HOME/dots/zsh/aliases
 source $HOME/dots/zsh/path
+clrmgr.py
 
 # vi mode
 bindkey -v
@@ -52,3 +49,5 @@ setopt KSH_ARRAYS
 precmd() {
 	printf "%b" "\033]2;${PWD//\/home\/xenone/~}\007"
 }
+
+TERMINAL="xfce4-terminal"

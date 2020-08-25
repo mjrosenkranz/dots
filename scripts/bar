@@ -86,10 +86,21 @@ call() {
 	done
 }
 
+callsome() {
+	while true; do
+		str="%{r}"
+		str+="$(vol)"
+		str+="%{c}%{B${pri}}%{O$p}$(dt)%{O$p}%{B-}"
+		str+="%{B${bg}}$(desk)%{B-}"
+		echo -n "${str}"
+		sleep 0.3
+	done
+}
+
 pkill lemonbar
 
 #echo "0 date '+%I:%M'" > /tmp/datetime
 echo "date '+%I:%M'" > /tmp/datetime
 
-call | lemonbar -g 1920x30 ${fonts} -F ${bg} -B "#00000000" &
+callsome | lemonbar -g 1920x30 ${fonts} -F ${bg} -B "#00000000" &
 

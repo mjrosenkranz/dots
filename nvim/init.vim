@@ -1,10 +1,7 @@
 " plugins
 call plug#begin('~/.config/plugged')
-
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
-
 Plug 'junegunn/goyo.vim'
-
 call plug#end()
 
 " markdown preview
@@ -66,6 +63,16 @@ colo color
 "	let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 "	set termguicolors
 "endif
+
+"make the cursor color stay
+	" use an orange cursor in insert mode
+	let &t_SI = "\<Esc>]12;orange\x7"
+	" use a red cursor otherwise
+	let &t_EI = "\<Esc>]12;red\x7"
+	silent !echo -ne "\033]12;red\007"
+	" reset cursor when vim exits
+	autocmd VimLeave * silent !echo -ne "\033]12;#0000ff\007"
+	" use \003]12;gray\007 for gnome-terminal
 
 
 "keybindings

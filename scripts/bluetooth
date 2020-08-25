@@ -1,4 +1,14 @@
-#!/usr/bin/env bash
-device="$(bluetoothctl devices | awk '{print $3 " " $2}' | drun -m | awk '{print $2}')"
+#!/bin/sh
+opts="on\noff"
+opts="$opts\n$(bluetoothctl devices | awk '{print $3 " " $2}')"
+cmd="$(printf '%b' "$opts" | drun -m)"
+
+case $cmd in
+	'on' | 'off') bluetoothctl power "$cmd" ;;
+	*) [ -z "$(bluetoothctl show | sed -n 's/Powered: yes//p')" ] \
+		&& bluetoothctl power on
+		bluetoothctl connect $(echo $cmd | awk '{print $2}')
+		;;
+esac
 #echo "Connecting to $device"
-bluetoothctl connect $device
+#bluetoothctl connect "$cmd"
