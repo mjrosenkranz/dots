@@ -1,8 +1,0 @@
-#!/bin/bash
-xrdb -merge ~/.Xresources
-for term in /dev/pts/[0-9]*; do
-	#printf "%b" "$(clrmgr)" > "${term}"
-	printf "%b" "$(clrmgr.py)" > "${term}"
-done
-
-#eval $(clrmgr -v)

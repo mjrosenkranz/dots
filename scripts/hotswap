@@ -1,6 +1,0 @@
-#!/bin/bash
-
-inotifywait -e close -m /sys/class/drm/card0-DP-1/status |
-while read d; do 
-	[[ "$d" == *"CLOSE"* ]] && /home/xenone/dots/scripts/monitor
-done 

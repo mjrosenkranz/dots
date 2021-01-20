@@ -343,9 +343,6 @@
        screen while moving a window, in milliseconds (1000 = 1 second).
        Set this to 0 to disable warping -->
     <context name="Frame">
-      <mousebind button="A-Left" action="Drag">
-        <action name="Move"/>
-      </mousebind>
       <mousebind button="A-Right" action="Drag">
         <action name="Resize"/>
       </mousebind>

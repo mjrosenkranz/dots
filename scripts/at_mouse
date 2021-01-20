@@ -1,3 +1,0 @@
-eval "$(xdotool getmouselocation --shell | grep -i '[xy]')"
-
-dmenu_run -x $X -y $Y -w 300

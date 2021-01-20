@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-notify-send -t 1500 "${1}" \
--h "string:bgcolor:$(clrmgr.py -x bg)" \
--h "string:fgcolor:$(clrmgr.py -x fg)" \
--h "string:frcolor:$(clrmgr.py -x primary)" \

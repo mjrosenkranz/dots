@@ -6,4 +6,4 @@ feh --bg-fill $HOME/dots/walls/currbg
 polybar full &
 xfsettingsd &
 picom &
-monitor
+dunst &

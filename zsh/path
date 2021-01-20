@@ -1,1 +1,2 @@
-export PATH="$HOME/dots/scripts:$PATH"
+export PATH="$HOME/.cargo/bin:$HOME/go/bin:$HOME/bin:$PATH"
+export PALLET_PATH="$HOME/colors"

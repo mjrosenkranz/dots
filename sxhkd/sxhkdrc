@@ -2,7 +2,16 @@
 
 # new terminal
 super + Return
+      emacsclient -e '(oct/term-in-new-frame)'
+
+# backup of normal terminal
+super + shift + Return
 	xiate
+
+# new emacs window
+super + e
+      emacsclient -c
+
 # browser
 super + shift + w
 	vivaldi-stable
@@ -15,11 +24,6 @@ super + space
 # display time
 super + t
 	notify-send -t 3000 "$(date)"
-# brightness
-XF86MonBrightnessUp
-	notify-send -t 1500 "brightup"
-XF86MonBrightnessDown
-	notify-send -t 1500 "brightdown"
 # toggle bar
 # volume control
 XF86AudioRaiseVolume
@@ -28,6 +32,11 @@ XF86AudioLowerVolume
 	dunstify -r 300 -t 1500 "$(pamixer --get-volume)%"; pamixer -d 1
 XF86AudioMute
 	dunstify -r 300 -t 1500 "mute toggled"; pamixer -t
+
+XF86MonBrightnessUp
+	dunstify -r 300 -t 1500 "$(brightness)%"; brightness -i 50
+XF86MonBrightnessDown
+	dunstify -r 300 -t 1500 "$(brightness)%"; brightness -d 50
 # media playback control
 XF86AudioPlay
 	playerctl play-pause
@@ -44,4 +53,6 @@ super + shift + c
 # reload config
 super + ctrl + shift + r
 	pkill -USR1 sxhkd; dunstify -t 1000 "reloaded sxhkdrc"
-# kill X
+
+super + shift + q
+	killall Xorg

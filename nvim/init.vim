@@ -10,8 +10,11 @@ let g:mkdp_refresh_slow=1
 " file explorer
 let g:netrw_liststyle=3
 let g:netrw_banner=0
-let g:netrw_browse_split=3
+let g:netrw_browse_split=0
 let g:netrw_winsize=20
+
+" help
+cabbrev h rightb vert h
 
 " tabs/spaces
 set tabstop=4       " number of visual spaces per TAB
