@@ -2,6 +2,8 @@
 call plug#begin('~/.config/plugged')
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'junegunn/goyo.vim'
+Plug 'neovim/nvim-lspconfig'
+Plug 'nvim-lua/completion-nvim'
 call plug#end()
 
 " markdown preview
@@ -87,6 +89,15 @@ nnoremap <leader>n :noh <cr>
 
 packloadall
 
-set list
+set nolist
 set listchars=tab:\│\ 
+
+" lsp stuffs
+set completeopt=menuone,noinsert,noselect
+let g:completion_matching_strategry_list = ['exact', 'substring', 'fuzzy']
+lua << EOF
+require'lspconfig'.clangd.setup{
+	on_attach=require'completion'.on_attach
+}
+EOF
 

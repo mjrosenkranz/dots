@@ -1,17 +1,5 @@
-# Universal rc
-
-# new terminal
 super + Return
-      emacsclient -e '(oct/term-in-new-frame)'
-
-# backup of normal terminal
-super + shift + Return
 	xiate
-
-# new emacs window
-super + e
-      emacsclient -c
-
 # browser
 super + shift + w
 	vivaldi-stable
@@ -44,15 +32,12 @@ XF86AudioNext
 	playerctl next
 XF86AudioPrev
 	playerctl previous
-# monitor switching commands
-#
 # screenshot
 super + shift + c
 	maim -s ~/pic/scrot/$(date +%s)
-
 # reload config
 super + ctrl + shift + r
 	pkill -USR1 sxhkd; dunstify -t 1000 "reloaded sxhkdrc"
-
+# kill X
 super + shift + q
 	killall Xorg

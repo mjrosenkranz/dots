@@ -1,2 +1,6 @@
 export PATH="$HOME/.cargo/bin:$HOME/go/bin:$HOME/bin:$PATH"
 export PALLET_PATH="$HOME/colors"
+export PATH="$HOME/.local/bin:$HOME/dots/scripts:$HOME/go/bin:$PATH"
+export PATH="$HOME/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
+export PALLET_PATH="$HOME/.config/pallets"

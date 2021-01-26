@@ -24,6 +24,7 @@ vterm_printf(){
 # includes
 source $HOME/dots/zsh/aliases
 source $HOME/dots/zsh/path
+
 pallet
 
 # vi mode

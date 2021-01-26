@@ -1,6 +1,6 @@
 {
     // workbench
-    "window.zoomLevel": 2,
+    "window.zoomLevel": 1,
     "workbench.activityBar.visible": false,
     "workbench.colorCustomizations": {
         // "statusBar.background": "#ff0000"
@@ -13,8 +13,8 @@
     "editor.renderLineHighlight": "gutter",
     "editor.useTabStops": false,
     "editor.detectIndentation": false,
-	"editor.tabSize": 4,
-	"editor.insertSpaces": true,
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true,
     // vim stuff
     "vim.handleKeys": {
         "<C-d>": true,
@@ -63,7 +63,7 @@
     "explorer.confirmDelete": false,
     "diffEditor.ignoreTrimWhitespace": false,
     "explorer.confirmDragAndDrop": false,
-    "workbench.colorTheme": "Palenight (Mild Contrast)",
+    "workbench.colorTheme": "Quiet Light",
     // "[go]": {
     // }
 }

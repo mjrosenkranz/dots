@@ -59,8 +59,9 @@ bind Enter command-prompt "new-session -s '%%'"
 set -g default-terminal 'screen-256color'
 # true color
 set -ga terminal-overrides ',*256col*:Tc'
+set -g terminal-overrides 'xterm*:smcup@:rmcup@'
 # for cursor shape
-set -ga terminal-overrides '*:Ss=\E[%p1%d q:Se=\E[ q'
+#set -ga terminal-overrides '*:Ss=\E[%p1%d q:Se=\E[ q'
 set -g set-titles on
 set -g set-titles-string "#S"
 
