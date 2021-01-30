@@ -29,6 +29,8 @@ set copyindent      " copy indent from the previous line
 
 " line numbers
 set number
+" make the sign column in the numbers
+set signcolumn=number
 " line wrapping
 set wrap
 noremap <silent> k gk

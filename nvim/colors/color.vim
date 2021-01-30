@@ -26,7 +26,7 @@ hi EndOfBuffer ctermfg=8
 hi VertSplit ctermbg=8
 hi Folded ctermfg=7 ctermbg=4
 hi link FoldColumn Folded
-hi link SignColumn EndOfBuffer
+hi clear SignColumn
 hi ErrorMsg ctermfg=3 ctermbg=0 cterm=bold
 hi WarningMsg ctermfg=4 cterm=bold
 hi ModeMsg ctermfg=8
@@ -67,7 +67,7 @@ hi DiffDelete ctermfg=3 ctermbg=0
 hi DiffText ctermfg=2 ctermbg=0 cterm=bold
 
 " code
-hi Comment ctermfg=8 ctermbg=0 cterm=NONE
+hi Comment ctermfg=5 ctermbg=0 cterm=NONE
 hi Constant ctermfg=3 ctermbg=0 cterm=NONE
 hi String ctermfg=2 ctermbg=0 cterm=NONE
 hi link Character String
@@ -94,7 +94,7 @@ hi Underlined ctermfg=7 ctermbg=0 cterm=underline
 hi link Ignore Comment
 hi Question ctermfg=1 cterm=italic
 hi SpecialKey ctermfg=4 cterm=italic
-hi link Whitespace Comment
+hi Whitespace ctermfg=8
 
 " nvim
 hi NvimInternalError ctermfg=0 ctermbg=3
@@ -120,3 +120,14 @@ hi link htmlH3 htmlH1
 hi link htmlH4 htmlH1
 hi link htmlH5 htmlH1
 hi link htmlH6 htmlH1
+
+" lsp
+hi LspDiagnosticsDefaultHint ctermfg=5
+hi LspDiagnosticsDefaultError ctermfg=3
+hi LspDiagnosticsDefaultWarning ctermfg=4
+hi LspDiagnosticsDefaultInformation ctermfg=1
+
+hi LspDiagnosticsUnderlineHint ctermfg=5 cterm=undercurl
+hi LspDiagnosticsUnderlineError ctermfg=3 cterm=undercurl
+hi LspDiagnosticsUnderlineWarning ctermfg=4 cterm=undercurl
+hi LspDiagnosticsUnderlineInformation ctermfg=1 cterm=undercurl
