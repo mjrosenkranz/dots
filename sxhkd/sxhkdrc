@@ -3,14 +3,11 @@ super + Return
 # browser
 super + shift + w
 	vivaldi-stable
-# file manager
-super + shift + t
-	thunar
 # dmenu/rofi
 super + space
 	drun
 # display time
-super + t
+super + shift + t
 	notify-send -t 3000 "$(date)"
 # toggle bar
 # volume control

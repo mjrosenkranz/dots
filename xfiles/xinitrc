@@ -1,0 +1,17 @@
+# common
+source $HOME/.zshrc
+setxkbmap -layout us -option caps:ctrl_modifier
+xcape -e 'Caps_Lock=Escape'
+feh --bg-fill $HOME/dots/walls/currbg
+picom &
+sxhkd -c $HOME/dots/sxhkd/sxhkdrc & 
+xiate &
+dunst &
+
+set no bell
+
+sxhkd -c $HOME/dots/bspwm/sxhkdrc & 
+exec bspwm
+
+
+#exec openbox-session

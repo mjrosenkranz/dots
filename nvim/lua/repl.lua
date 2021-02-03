@@ -3,13 +3,17 @@ local M = {}
 -- we need a variable for the session, window, and window
 local session = "test"
 local window = "window"
+local pid = ""
 
 function M.send_to_tmux(text)
-    -- find the window and pane we want
-    -- $(tmux lsw), contains the name of our window
-    -- if it doesnt exist then create one
+    -- start racket and get the pid
+    --      racket -f % -i
+    -- find the pane with that pid
+    --
+    -- send text to that pane
     --   maybe start new tmux session
     --   tmux neww -t ${filename-racket}
+    --tmux list-panes -F '#{pane_active} #{pane_pid}'
     --   
     -- send keys
     text = text:gsub("['|\"]", "\\%1")
@@ -30,6 +34,11 @@ end
 
 function M.set_window(window_name)
     window = window_name
+end
+
+function M.start_sesh(cmd)
+    local res = os.execute("pidof racket")
+    print(res)
 end
 
 return M

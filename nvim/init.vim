@@ -7,7 +7,7 @@ Plug 'nvim-lua/completion-nvim'
 "Plug 'tpope/vim-surround'
 "Plug 'guns/vim-sexp'
 "Plug 'tpope/vim-sexp-mappings-for-regular-people'
-"Plug 'wlangstroth/vim-racket'
+Plug 'wlangstroth/vim-racket'
 call plug#end()
 
 " file explorer
@@ -20,9 +20,9 @@ let g:netrw_winsize=20
 cabbrev h rightb vert h
 
 " tabs/spaces
-set tabstop=4       " number of visual spaces per TAB
-set softtabstop=4   " number of spaces in tab when editing
-set shiftwidth=4    " number of spaces to use for autoindent set expandtab
+set tabstop=2       " number of visual spaces per TAB
+set softtabstop=2   " number of spaces in tab when editing
+set shiftwidth=2    " number of spaces to use for autoindent set expandtab
 set expandtab       " we want spaces!
 set autoindent
 set copyindent      " copy indent from the previous line
@@ -112,6 +112,9 @@ local on_attach = function(client, bufnr)
 
   buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 
+  -- completion?
+  require'completion'.on_attach()
+
   -- Mappings.
   local opts = { noremap=true, silent=true }
   buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
@@ -165,9 +168,18 @@ nvim_lsp.omnisharp.setup {
 
 -- c/c++
 nvim_lsp.clangd.setup {
-    on_attach = on_attach;
+  on_attach = on_attach;
+}
+
+nvim_lsp.racket_langserver.setup {
+  on_attach = on_attach;
 }
 EOF
 
 " racket stuff
 vnoremap <silent> <C-c><C-c> "ry :silent :call luaeval("require'repl'.send_to_tmux(_A)", @r)<CR>
+
+
+
+" TODO: make popups a different color
+" tab completion

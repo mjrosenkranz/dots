@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+f=$(bspc query --nodes --node "focused.floating")
+if [[ $f != "" ]]; then
+	bspc node -v $2 $3
+else
+	bspc node -s $1
+fi
