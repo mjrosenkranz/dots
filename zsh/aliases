@@ -1,9 +1,8 @@
 # rcs
-alias zshrc="nvim $HOME/dots/zsh"
+alias zshrc="kak $HOME/dots/zsh"
 alias sourcez="source $HOME/.zshrc"
-alias vimrc="nvim $HOME/.config/nvim/init.vim"
-alias xfiles="nvim $HOME/dots/xfiles"
-alias kittyrc="nvim $HOME/dots/kitty"
+alias xfiles="kak $HOME/dots/xfiles"
+alias kittyrc="kak $HOME/dots/kitty"
 
 # directories
 alias dots="cd $HOME/dots/"
@@ -13,3 +12,8 @@ alias scripts="cd $HOME/dots/scripts"
 alias ls="ls --color=auto"
 alias ll="ls --color=auto -l"
 alias merge="xrdb -merge ~/.Xresources"
+
+# tmux
+ta() {
+    tmux a -t "$(tmux ls | fzy | awk -F: '{print $1}')"
+}

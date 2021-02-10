@@ -14,55 +14,60 @@ evaluate-commands %sh{
 # For Code
 echo "
     face global value ${alert}
-    face global type cur
-    face global variable green
-    face global module green
-    face global function cyan
-    face global string magenta
-    face global keyword blue
-    face global operator cur
-    face global attribute green
-    face global comment cyan
+    face global type ${cur}
+    face global variable ${pri}
+    face global module ${alert}
+    face global function ${pri}
+    face global string ${sec}
+    face global keyword ${pri}
+    face global operator ${cur}
+    face global attribute ${pri}
+    face global comment ${com}
     face global documentation comment
-    face global meta magenta
-    face global builtin default+b
+    face global meta ${cur}
+    face global builtin ${alert}+b
+    face global DiagnosticWarning ${cur}+ub
+    face global DiagnosticError ${alert}+ub
+    face global LineFlagErrors ${alert}
 "
 
 # For markup
 echo "
-    face global title blue
-    face global header cyan
-    face global mono green
-    face global block magenta
-    face global link cyan
-    face global bullet cyan
-    face global list cur
+    face global title ${pri}
+    face global header ${sec}
+    face global mono ${fg}
+    face global block ${fg},${block}
+    face global link ${pri}
+    face global bullet ${fg}
+    face global list ${fg}
 "
 
 # builtin faces
 echo "
     face global Default default,default
-    face global PrimarySelection white,blue+fg
-    face global SecondarySelection black,blue+fg
-    face global PrimaryCursor black,white+fg
-    face global SecondaryCursor black,white+fg
-    face global PrimaryCursorEol black,cyan+fg
-    face global SecondaryCursorEol black,cyan+fg
-    face global LineNumbers default,default
-    face global LineNumberCursor default,default+r
-    face global MenuForeground white,blue
-    face global MenuBackground blue,white
-    face global MenuInfo cyan
-    face global Information black,cur
-    face global Error black,${alert}
-    face global StatusLine cyan,default
-    face global StatusLineMode cur,default
-    face global StatusLineInfo blue,default
-    face global StatusLineValue green,default
-    face global StatusCursor black,cyan
-    face global Prompt cur,default
-    face global MatchingChar default,default+b
+    face global PrimarySelection default,${bg_alt}
+    face global SecondarySelection default,${fg_alt}+fg
+    face global PrimaryCursor black,${cur}+fg
+    face global SecondaryCursor PrimaryCursor
+    face global PrimaryCursorEol PrimaryCursor
+    face global SecondaryCursorEol PrimaryCursor
+
+    face global LineNumbers ${com},default+d
+    face global LineNumberCursor ${com},default+b
+
+    face global MenuForeground ${block},${pri}+b
+    face global MenuBackground ${block},${com}
+    face global MenuInfo ${pri}
+    face global Information ${bg},${pri}
+    face global Error ${fg},${alert}
+    face global StatusLine ${pri},default
+    face global StatusLineMode ${cur},default
+    face global StatusLineInfo ${pri},default
+    face global StatusLineValue ${pri},default
+    face global StatusCursor ${bg},${pri}
+    face global Prompt ${cur},default
+    face global MatchingChar ${sec},default+bu
     face global Whitespace default,default+f
-    face global BufferPadding blue,default
+    face global BufferPadding comment
 "
 }

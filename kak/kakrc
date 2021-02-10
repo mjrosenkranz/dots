@@ -1,1 +1,34 @@
-echo %sh{pallet -x fg}
+
+# tabs and whatnot
+set-option global tabstop 4
+set-option global indentwidth 4
+
+# ui
+set-option global ui_options ncurses_assistant=cat
+set-option global scrolloff 3,3
+
+# number lines
+add-highlighter global/ number-lines -hlcursor -separator ' '
+
+# show matching parens
+add-highlighter global/ show-matching
+# lsp
+eval %sh{kak-lsp --kakoune -s $kak_session --config $HOME/dots/kak/kak-lsp.toml}
+lsp-enable
+map global user l %{: enter-user-mode lsp<ret>} -docstring "LSP mode"
+set-option global lsp_diagnostic_line_warning_sign '*'
+set-option global lsp_diagnostic_line_error_sign '!'
+
+colorscheme pallet
+
+# clipboard
+hook global NormalKey y|d|c %{ nop %sh{
+    printf %s "$kak_main_reg_dquote" | xclip -in -selection clipbaord >&- 2>&-
+}}
+
+map global user P '!xclip -out<ret>'
+map global user p '<a-!>xclip -out<ret>'
+
+# TODO: add errors and warning to status bar
+# TODO: add highlight for todo
+# TODO: rename window when making new tab (use tmux rename, and new window cmd with kak -c)

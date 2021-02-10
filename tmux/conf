@@ -56,7 +56,7 @@ bind Enter command-prompt "new-session -s '%%'"
 # terminal #
 ############
 # term info name
-set -g default-terminal 'screen-256color'
+set -g default-terminal 'tmux-256color'
 # true color
 set -ga terminal-overrides ',*256col*:Tc'
 set -g terminal-overrides 'xterm*:smcup@:rmcup@'
