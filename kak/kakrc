@@ -1,7 +1,6 @@
-
 # tabs and whatnot
-set-option global tabstop 4
-set-option global indentwidth 4
+set-option global tabstop 2
+set-option global indentwidth 2
 
 # ui
 set-option global ui_options ncurses_assistant=cat
@@ -32,3 +31,10 @@ map global user p '<a-!>xclip -out<ret>'
 # TODO: add errors and warning to status bar
 # TODO: add highlight for todo
 # TODO: rename window when making new tab (use tmux rename, and new window cmd with kak -c)
+
+define-command -hidden -params 1 tabe %{
+	%sh{
+		tmux new-window -n "$1" kak $1
+	}
+}
+
