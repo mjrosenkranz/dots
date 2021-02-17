@@ -1,6 +1,8 @@
 # tabs and whatnot
 set-option global tabstop 2
 set-option global indentwidth 2
+map global insert <tab> '<a-;><gt>'
+map global insert <s-tab> '<a-;><lt>'
 
 # ui
 set-option global ui_options ncurses_assistant=cat
@@ -32,7 +34,7 @@ map global user p '<a-!>xclip -out<ret>'
 # TODO: add highlight for todo
 # TODO: rename window when making new tab (use tmux rename, and new window cmd with kak -c)
 
-define-command -hidden -params 1 tabe %{
+define-command -params 1 -file-completion -docstring "opens new tmux tab with given file" tabe %{
 	%sh{
 		tmux new-window -n "$1" kak $1
 	}
