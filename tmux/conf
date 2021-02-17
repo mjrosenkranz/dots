@@ -50,7 +50,7 @@ bind w kill-pane
 # sessions #
 ############
 set -g detach-on-destroy on
-bind Enter command-prompt "new-session -s '%%'"
+bind S command-prompt "new-session -s '%%'"
 
 ############
 # terminal #
