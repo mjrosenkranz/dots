@@ -4,10 +4,11 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': 
 Plug 'junegunn/goyo.vim'
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/completion-nvim'
-"Plug 'tpope/vim-surround'
-"Plug 'guns/vim-sexp'
-"Plug 'tpope/vim-sexp-mappings-for-regular-people'
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 Plug 'wlangstroth/vim-racket'
+Plug 'ziglang/zig.vim'
 call plug#end()
 
 " file explorer
@@ -32,7 +33,7 @@ set number
 " make the sign column in the numbers
 set signcolumn=number
 " line wrapping
-set wrap
+set nowrap
 noremap <silent> k gk
 noremap <silent> j gj
 
@@ -45,6 +46,8 @@ set mouse=a
 
 " get rid of pesky swap files
 set noswapfile
+" allow us to swap between buffers
+set hidden
 
 function! GetFileType(filetype)
 	if a:filetype == ''
@@ -91,10 +94,19 @@ nnoremap <leader>r :tabe ~/.config/nvim/init.vim<cr>
 nnoremap <leader>p :silent exec "!pdflatex %"<cr>
 nnoremap <leader>n :noh <cr>
 
+" Telescope keybindings
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>b <cmd>Telescope live_grep<cr>
+"nnoremap <leader>h <cmd>Telescope help_tags<cr>
+
 packloadall
 
-set list
-set listchars=tab:\¦\ 
+" right now its disabled but this shows a dotted line for tabs
+set nolist
+"set listchars=tab:\¦\ 
+" set the vertical line character
+set fillchars+=vert:\▏
 
 let g:vimsyn_embed = 'l'
 
@@ -112,7 +124,7 @@ local on_attach = function(client, bufnr)
 
   buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 
-  -- completion?
+  -- completion
   require'completion'.on_attach()
 
   -- Mappings.
@@ -171,6 +183,12 @@ nvim_lsp.clangd.setup {
   on_attach = on_attach;
 }
 
+-- zig
+nvim_lsp.zls.setup {
+  on_attach = on_attach;
+}
+
+-- racket
 nvim_lsp.racket_langserver.setup {
   on_attach = on_attach;
 }

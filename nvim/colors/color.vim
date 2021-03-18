@@ -10,20 +10,20 @@ let g:colors_name = 'color'
 " editor
 hi Normal ctermfg=7
 hi link NormalFloat Normal
-hi Visual ctermfg=15 ctermbg=8
+hi link NormalNC Normal
+hi Visual ctermfg=NONE ctermbg=8
 hi link VisualNOS Visual
 hi StatusLine ctermfg=2 ctermbg=0 cterm=bold
 hi StatusLineNC ctermfg=8 ctermbg=0 cterm=bold
 hi TabLine ctermfg=15 ctermbg=0 cterm=NONE
 hi TabLineFill ctermfg=0 ctermbg=0 cterm=NONE
 hi TabLineSel ctermfg=1 ctermbg=0 cterm=bold,italic
-hi NormalNC ctermfg=8
 hi NonText ctermfg=8 ctermbg=0 cterm=NONE
 hi Conceal ctermfg=8 ctermbg=0 cterm=NONE
 hi Error ctermfg=0 ctermbg=3 cterm=NONE
 hi Todo ctermfg=0 ctermbg=2 cterm=NONE
 hi EndOfBuffer ctermfg=8
-hi VertSplit ctermbg=8
+hi VertSplit ctermbg=8 ctermfg=0
 hi Folded ctermfg=7 ctermbg=4
 hi link FoldColumn Folded
 hi clear SignColumn
@@ -46,8 +46,8 @@ hi CursorLineNr ctermfg=1
 hi MatchParen ctermbg=8
 
 " Menu
-hi Pmenu ctermfg=0 ctermbg=8
-hi PmenuSel ctermfg=0 ctermbg=1
+hi Pmenu ctermfg=7 ctermbg=6
+hi PmenuSel ctermfg=0 ctermbg=5
 hi PmenuSbar ctermfg=8 ctermbg=8
 hi PmenuThumb ctermfg=1 ctermbg=1
 hi link WildMenu Pmenu
@@ -122,7 +122,7 @@ hi link htmlH5 htmlH1
 hi link htmlH6 htmlH1
 
 " lsp
-hi LspDiagnosticsDefaultHint ctermfg=5
+hi LspDiagnosticsDefaultHint ctermfg=5 ctermbg=6
 hi LspDiagnosticsDefaultError ctermfg=3
 hi LspDiagnosticsDefaultWarning ctermfg=4
 hi LspDiagnosticsDefaultInformation ctermfg=1
