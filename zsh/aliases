@@ -1,8 +1,8 @@
 # rcs
-alias zshrc="kak $HOME/dots/zsh"
+alias zshrc="nvim $HOME/dots/zsh"
 alias sourcez="source $HOME/.zshrc"
-alias xfiles="kak $HOME/dots/xfiles"
-alias kittyrc="kak $HOME/dots/kitty"
+alias xfiles="nvim $HOME/dots/xfiles"
+alias kittyrc="nvim $HOME/dots/kitty"
 
 # directories
 alias dots="cd $HOME/dots/"
