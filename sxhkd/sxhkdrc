@@ -38,3 +38,6 @@ super + ctrl + shift + r
 # kill X
 super + shift + q
 	killall Xorg
+
+super + Scroll_Lock
+  systemctl suspend
