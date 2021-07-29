@@ -1,12 +1,8 @@
-# prompt
-#PS1='%B%F{10}%~%b :(
-PS1='%B%F{10}%~%b 🌱
-$%F{reset} '
+PROMPT='%B%F{10}%~%b 🌱
+>%F{reset} '
 
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
-export GO111MODULE=on
-DISABLE_AUTO_TITLE=true
 
 # includes
 source $HOME/dots/zsh/aliases
@@ -19,10 +15,7 @@ bindkey -v
 bindkey "^?" backward-delete-char
 zle -N zle-line-init
 zle -N zle-keymap-select
-
-# no esc lag
 export KEYTIMEOUT=1
-
 function zle-line-init zle-keymap-select {
 	if [ $KEYMAP = "vicmd" ]; then
 		echo -ne '\033[2 q'
@@ -30,6 +23,7 @@ function zle-line-init zle-keymap-select {
 		echo -ne '\033[6 q'
 	fi
 }
+
 
 # autocomplete
 autoload -Uz compinit && compinit
@@ -45,13 +39,10 @@ HISTFILE=~/.zsh_history
 # misc
 setopt KSH_ARRAYS
 
-# syntax highlighting
-#source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-precmd() {
-	printf "%b" "\033]2;${PWD//\/home\/xenone/~}\007"
+# add pane title to tmux
+function precmd() {
+    if [ "$TERM" = 'screen-256color' ]; then
+        branch="$(git rev-parse --abbrev-ref HEAD 2>/dev/null)"
+        printf '\033]2;%s\033\\' "$branch"
+    fi
 }
-
-TERMINAL="xfce4-terminal"
-
-set bell-style none
