@@ -3,6 +3,7 @@ setxkbmap -layout us -option caps:ctrl_modifier
 xcape -e 'Caps_Lock=Escape'
 source $HOME/.zshrc
 sxhkd -c $HOME/dots/sxhkd/sxhkdrc & 
+sxhkd -c $HOME/dots/bspwm/sxhkdrc & 
 sakura &
 dunst &
 
@@ -14,4 +15,5 @@ hsetroot -cover $HOME/pics/walls/currbg &
 
 pipewire &
 
-exec openbox-session
+#exec openbox-session
+exec bspwm -c "$HOME/dots/bspwm/bspwmrc"

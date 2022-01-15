@@ -1,6 +1,7 @@
 local utils = require('utils')
 
 vim.g.mapleader = ","
+vim.g.maplocalleader = "\\"
 -- remap j and k for linewrapped movement
 utils.map('n', 'j', "gj")
 utils.map('n', 'k', "gk")

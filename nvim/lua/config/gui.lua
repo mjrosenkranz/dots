@@ -1,17 +1,16 @@
 local utils = require('utils')
 
-utils.opt('w', 'number', true)
 utils.opt('o', 'signcolumn',  "number")
 utils.opt('w', 'wrap', true)
 utils.opt('w', 'breakindent', true)
 
 -- set hybrid numbers
-utils.opt('o', 'relativenumber', true)
-utils.opt('o', 'number', true)
+utils.opt('w', 'relativenumber', true)
+utils.opt('w', 'number', true)
 
 -- theme
 utils.opt('o', 'termguicolors', true)
-utils.opt('o', 'background', 'light')
+utils.opt('o', 'background', 'dark')
 vim.cmd 'colorscheme gruvbox'
 
 -- bar
@@ -27,13 +26,13 @@ require'nvim-treesitter.configs'.setup {
 
 -- cmd to make it so that only the current file has relative
 --
-vim.cmd([[
-augroup toggle_number
-    autocmd!
-    autocmd BufEnter, FocusGained, InsertLeave * set relativenumber
-    autocmd BufLeave, FocusLost, InsertEnter   * set norelativenumber
-augroup END
-]])
+--vim.cmd([[
+--augroup toggle_number
+--    autocmd!
+--    autocmd BufEnter, FocusGained, InsertLeave * set relativenumber
+--    autocmd BufLeave, FocusLost, InsertEnter   * set norelativenumber
+--augroup END
+--]])
 
 -- make the gutter bigger
 utils.opt('g', 'signcolumn', 'auto:2')
