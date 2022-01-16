@@ -16,6 +16,7 @@
   # Set your time zone.
   time.timeZone = "America/New_York";
 
+  users.mutableUsers = true;
   users.users.mjr = {
     isNormalUser = true;
     home = "/home/mjr";
@@ -29,7 +30,7 @@
 
   security.doas.enable = true;
   security.doas.extraRules = [{
-    groups = [ "wheel" ];
+    users = [ "mjr" ];
     keepEnv = true;
     noPass = true;
   }];
