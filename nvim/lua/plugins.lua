@@ -12,6 +12,7 @@ return require('packer').startup(function()
 
     -- git
     use 'tpope/vim-fugitive'
+    use 'LnL7/vim-nix'
 	
 	-- telescope
     use {

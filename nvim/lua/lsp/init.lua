@@ -53,6 +53,16 @@ nvim_lsp.clangd.setup {
   on_attach = on_attach;
 }
 
+-- ocamllsp
+nvim_lsp.ocamllsp.setup {
+  on_attach = on_attach;
+}
+
+-- typescript
+nvim_lsp.tsserver.setup {
+  on_attach = on_attach;
+}
+
 -- zig
 nvim_lsp.zls.setup {
   on_attach = on_attach;
