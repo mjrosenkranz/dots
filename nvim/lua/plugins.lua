@@ -30,4 +30,6 @@ return require('packer').startup(function()
     use 'mfussenegger/nvim-dap'
     use 'mfussenegger/nvim-dap-python'
     use 'nvim-telescope/telescope-dap.nvim'
+
+    use 'jpalardy/vim-slime'
 end)

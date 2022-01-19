@@ -19,3 +19,5 @@ cmd('set shiftwidth=4')
 utils.opt('o', 'expandtab', true)
 utils.opt('o', 'autoindent', true)
 utils.opt('o', 'copyindent', true)
+
+vim.g.slime_target = "tmux"
