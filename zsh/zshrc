@@ -1,5 +1,13 @@
-PROMPT='%B%F{10}%~%b 🌱
+# returns a string corresponding to nix shell status
+function in_nix() {
+    [ -z $IN_NIX_SHELL ] || echo "[nix]"
+}
+
+setopt PROMPT_SUBST
+
+PROMPT='%B%F{10}$(in_nix)%~%b 🌱
 >%F{reset} '
+
 
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
@@ -9,9 +17,8 @@ source $HOME/dots/zsh/aliases
 source $HOME/dots/zsh/path
 
 # TODO: rewrite pallet
-# TODO: make nix-daemon sv
 # TODO: sym link script
-# TODO: add nix shell variable
+
 
 pallet
 

@@ -15,5 +15,4 @@ hsetroot -cover $HOME/pics/walls/currbg &
 
 pipewire &
 
-#exec openbox-session
 exec bspwm -c "$HOME/dots/bspwm/bspwmrc"
