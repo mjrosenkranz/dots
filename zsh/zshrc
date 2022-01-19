@@ -8,6 +8,11 @@ export LANG=en_US.UTF-8
 source $HOME/dots/zsh/aliases
 source $HOME/dots/zsh/path
 
+# TODO: rewrite pallet
+# TODO: make nix-daemon sv
+# TODO: sym link script
+# TODO: add nix shell variable
+
 pallet
 
 # vi mode
@@ -46,3 +51,5 @@ function precmd() {
         printf '\033]2;%s\033\\' "$branch"
     fi
 }
+
+eval "$(direnv hook zsh)"
