@@ -32,4 +32,6 @@ return require('packer').startup(function()
     use 'nvim-telescope/telescope-dap.nvim'
 
     use 'jpalardy/vim-slime'
+
+    use 'tikhomirov/vim-glsl'
 end)

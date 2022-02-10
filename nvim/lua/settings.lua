@@ -13,9 +13,9 @@ utils.opt('o', 'hidden', true)
 
 
 -- whole lotta tabs
-cmd('set tabstop=4')
-cmd('set softtabstop=4')
-cmd('set shiftwidth=4')
+cmd('set tabstop=2')
+cmd('set softtabstop=2')
+cmd('set shiftwidth=2')
 utils.opt('o', 'expandtab', true)
 utils.opt('o', 'autoindent', true)
 utils.opt('o', 'copyindent', true)
