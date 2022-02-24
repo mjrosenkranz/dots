@@ -20,8 +20,6 @@ source $HOME/dots/zsh/path
 # TODO: sym link script
 
 
-pallet
-
 # vi mode
 bindkey -v
 bindkey "^?" backward-delete-char
