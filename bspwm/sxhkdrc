@@ -39,7 +39,7 @@ super + {h,j,k,l}
 
 # movement
 super + shift + {h,j,k,l}
-	/home/xenone/dots/bspwm/bspwm_move {west -20 0, south 0 20, north 0 -20, east 20 0}
+	$HOME/dots/bspwm/bspwm_move {west -20 0, south 0 20, north 0 -20, east 20 0}
 # focus the node for the given path jump
 super + {p,b,comma,period}
 	bspc node -f @{parent,brother,first,second}

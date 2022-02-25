@@ -21,7 +21,7 @@ focus_follows_mouse no
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec sakura
+bindsym $mod+Return exec kitty
 
 # kill focused window
 bindsym $mod+w kill
@@ -142,9 +142,26 @@ mode "switch tab" {
 
 bindsym $mod+g mode "switch tab"
 
+set $bg #2D944D
+set $text #F8EFE9
+set $bg-alt #D5CED2
+set $text-alt #888888
+
 bar {
-        status_command i3status
+  position top
+  status_command i3status
+
+  colors {
+    background $bg
+    statusline $text
+    separator $text
+    focused_workspace $bg-alt $bg $text
+    #active_workspace $bg-alt $bg $text
+    inactive_workspace $bg $bg $text
+  }
 }
+
+
 
 gaps left 500
 gaps right 500
@@ -153,10 +170,10 @@ gaps inner 15
 smart_gaps inverse_outer
 
 # class                 border  backgr. text    indicator child_border
-client.focused          #2D944D #2D944D #F8EFE9 #000000   #2D944D
-client.focused_inactive #D5CED2 #D5CED2 #888888 #000000   #D5CED2
-client.unfocused        #D5CED2 #D5CED2 #888888 #000000   #D5CED2
-client.urgent           #2f343a #F8EFE9 #ffffff #000000   #900000
-client.placeholder      #000000 #F8EFE9 #ffffff #000000   #0c0c0c
+client.focused          $bg     $bg     $text     #000000   #2D944D
+client.focused_inactive $bg-alt $bg-alt $text-alt #000000   #D5CED2
+client.unfocused        #D5CED2 #D5CED2 #888888   #000000   #D5CED2
+client.urgent           #2f343a #F8EFE9 #ffffff   #000000   #900000
+client.placeholder      #000000 #F8EFE9 #ffffff   #000000   #0c0c0c
 
 client.background       #000000

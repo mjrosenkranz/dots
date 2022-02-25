@@ -20,6 +20,8 @@ source $HOME/dots/zsh/path
 # TODO: sym link script
 
 
+cat $HOME/.cache/current-palette
+
 # vi mode
 bindkey -v
 bindkey "^?" backward-delete-char
@@ -58,3 +60,6 @@ function precmd() {
 }
 
 eval "$(direnv hook zsh)"
+
+# opam configuration
+[[ ! -r /home/oct/.opam/opam-init/init.zsh ]] || source /home/oct/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
