@@ -6,5 +6,5 @@ export PATH="/home/xenone/docs/code/gcc-arm-8.3-2019.03-x86_64-arm-linux-gnueabi
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/zls/bin:$PATH"
 export PATH="$HOME/zig/:$PATH"
-export PATH="$HOME/.emacs.d/bin:$PATH"
+export PATH="/opt/homebrew/bin/:$PATH"
 export PALLET_PATH="$HOME/colors"
