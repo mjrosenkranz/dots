@@ -3,9 +3,7 @@ setxkbmap -layout us -option caps:ctrl_modifier
 xcape -e 'Caps_Lock=Escape'
 source $HOME/.zshrc
 dunst &
-#sxhkd -c $HOME/dots/sxhkd/sxhkdrc & 
-#sxhkd -c $HOME/dots/bspwm/sxhkdrc & 
-sakura &
+kitty &
 
 {
 sleep 1
@@ -14,6 +12,6 @@ hsetroot -cover $HOME/pics/walls/currbg &
 }&
 
 pipewire &
-picom &
+picom --backend glx --vsync &
 
 exec i3
