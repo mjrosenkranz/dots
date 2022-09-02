@@ -9,8 +9,8 @@ alias dots="cd $HOME/dots/"
 alias scripts="cd $HOME/dots/scripts"
 
 # misc
-alias ls="ls --color=auto"
-alias ll="ls --color=auto -l"
+alias ls="ls"
+alias ll="ls -l"
 alias merge="xrdb -merge ~/.Xresources"
 
 # tmux

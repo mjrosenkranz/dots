@@ -1,13 +1,7 @@
-# returns a string corresponding to nix shell status
-function in_nix() {
-    [ -z $IN_NIX_SHELL ] || echo "[nix]"
-}
-
 setopt PROMPT_SUBST
 
-PROMPT='%B%F{10}$(in_nix)%~%b 🌱
+PROMPT='%B%F{10}%~%b 🌱
 >%F{reset} '
-
 
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
@@ -15,12 +9,6 @@ export LANG=en_US.UTF-8
 # includes
 source $HOME/dots/zsh/aliases
 source $HOME/dots/zsh/path
-
-# TODO: rewrite pallet
-# TODO: sym link script
-
-
-cat $HOME/.cache/current-palette
 
 # vi mode
 bindkey -v
@@ -58,8 +46,3 @@ function precmd() {
         printf '\033]2;%s\033\\' "$branch"
     fi
 }
-
-eval "$(direnv hook zsh)"
-
-# opam configuration
-[[ ! -r /home/oct/.opam/opam-init/init.zsh ]] || source /home/oct/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
