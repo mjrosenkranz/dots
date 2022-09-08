@@ -34,4 +34,5 @@ return require('packer').startup(function()
     use 'jpalardy/vim-slime'
 
     use 'tikhomirov/vim-glsl'
+  use 'smithbm2316/centerpad.nvim'
 end)
