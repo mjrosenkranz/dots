@@ -35,4 +35,5 @@ require'nvim-treesitter.configs'.setup {
 --]])
 
 -- make the gutter bigger
-utils.opt('g', 'signcolumn', 'auto:2')
+-- utils.opt('g', 'signcolumn', 'yes:2')
+utils.opt('g', 'signcolumn', 'number')
