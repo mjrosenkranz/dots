@@ -11,7 +11,11 @@ utils.opt('w', 'number', true)
 -- theme
 utils.opt('o', 'termguicolors', true)
 utils.opt('o', 'background', 'dark')
-vim.cmd 'colorscheme gruvbox'
+
+vim.g.catppuccin_flavour = "macchiato"
+require('catppuccin').setup();
+
+vim.cmd 'colorscheme catppuccin'
 
 -- bar
 utils.opt('o', 'showtabline', 2)

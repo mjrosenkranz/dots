@@ -1,6 +1,6 @@
 local utils = require('utils')
 
-vim.g.mapleader = ","
+vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 -- remap j and k for linewrapped movement
 utils.map('n', 'j', "gj")
@@ -31,3 +31,6 @@ utils.map('n', '<leader>g', "<cmd>Gtabedit :<cr>")
 -- dap
 utils.map('n', '<leader>bp', "<cmd>lua require'dap'.toggle_breakpoint()<cr>")
 utils.map('n', '<leader>dp', "<cmd>lua require'dap'.continue()<cr>")
+
+-- leader p replaces without copying the selected text
+utils.map('x', "<leader>p", "\"_dP")

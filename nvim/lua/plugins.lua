@@ -25,8 +25,9 @@ return require('packer').startup(function()
   -- tmux stuff
   use 'christoomey/vim-tmux-navigator'
 
-  -- duh
+  -- colors
   use 'morhetz/gruvbox'
+  use { "catppuccin/nvim", as = "catppuccin" }
 
   -- debuggin
   use 'mfussenegger/nvim-dap'
@@ -36,6 +37,5 @@ return require('packer').startup(function()
   use 'jpalardy/vim-slime'
 
   use 'tikhomirov/vim-glsl'
-  use 'smithbm2316/centerpad.nvim'
   use 'beyondmarc/hlsl.vim'
 end)
