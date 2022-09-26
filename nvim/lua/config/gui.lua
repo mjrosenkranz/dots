@@ -10,11 +10,9 @@ utils.opt('w', 'number', true)
 
 -- theme
 utils.opt('o', 'termguicolors', true)
-utils.opt('o', 'background', 'dark')
 
 vim.g.catppuccin_flavour = "macchiato"
 require('catppuccin').setup();
-
 vim.cmd 'colorscheme catppuccin'
 
 -- bar
@@ -41,6 +39,7 @@ require'treesitter-context'.setup{
             'class',
             'function',
             'method',
+            'FnProto',
             -- 'for', -- These won't appear in the context
             -- 'while',
             -- 'if',

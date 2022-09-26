@@ -29,8 +29,8 @@ utils.map('n', '<M-l>', "<cmd>TmuxNavigateRight<cr>")
 utils.map('n', '<leader>g', "<cmd>Gtabedit :<cr>")
 
 -- dap
-utils.map('n', '<leader>bp', "<cmd>lua require'dap'.toggle_breakpoint()<cr>")
-utils.map('n', '<leader>dp', "<cmd>lua require'dap'.continue()<cr>")
+utils.map('n', '<leader>b', "<cmd>lua require'dap'.toggle_breakpoint()<cr>")
+utils.map('n', '<leader>c', "<cmd>lua require'dap'.continue()<cr>")
 
 -- leader p replaces without copying the selected text
 utils.map('x', "<leader>p", "\"_dP")
