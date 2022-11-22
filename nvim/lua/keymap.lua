@@ -24,6 +24,9 @@ utils.map('n', '<M-h>', "<cmd>TmuxNavigateLeft<cr>")
 utils.map('n', '<M-j>', "<cmd>TmuxNavigateDown<cr>")
 utils.map('n', '<M-k>', "<cmd>TmuxNavigateUp<cr>")
 utils.map('n', '<M-l>', "<cmd>TmuxNavigateRight<cr>")
+utils.map('n', '<C-u>', "<C-u>zz")
+utils.map('n', '<C-d>', "<C-d>zz")
+utils.map('n', 'n', "nzz")
 
 -- git
 utils.map('n', '<leader>g', "<cmd>Gtabedit :<cr>")
