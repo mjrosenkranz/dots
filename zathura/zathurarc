@@ -1,0 +1,6 @@
+# include catppuccin-macchiato
+include gruvbox-dark
+set font "Iosevka Term Extended 14"
+set recolor true
+set adjust-open "best-fit"
+set selection-clipboard clipboard
