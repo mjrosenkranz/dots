@@ -21,6 +21,7 @@ return require('packer').startup(function()
     "catppuccin/nvim",
     as = "catppuccin",
   }
+  use 'airblade/vim-gitgutter'
 
   -- languages
   use 'ziglang/zig.vim'
