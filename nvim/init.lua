@@ -1,6 +1,1 @@
-require('settings')
-require('keymap')
-require('plugins')
-require('config')
-require('lsp')
-require('dbg')
+require('mjr')

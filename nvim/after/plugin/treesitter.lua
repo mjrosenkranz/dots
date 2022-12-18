@@ -1,28 +1,21 @@
-local utils = require('utils')
-
-utils.opt('o', 'signcolumn',  "number")
-utils.opt('w', 'wrap', true)
-utils.opt('w', 'breakindent', true)
-
--- set hybrid numbers
-utils.opt('w', 'relativenumber', true)
-utils.opt('w', 'number', true)
-
--- theme
-utils.opt('o', 'termguicolors', true)
-
-vim.g.catppuccin_flavour = "macchiato"
-require('catppuccin').setup();
-vim.cmd 'colorscheme catppuccin'
-
--- bar
-utils.opt('o', 'showtabline', 2)
-
 -- syntax highlighting
 require'nvim-treesitter.configs'.setup {
   highlight = {
+    ensure_installed = {
+	    "help",
+	    "typescript",
+	    "c",
+	    "lua",
+	    "zig",
+	    "clojure",
+    },
+    sync_install = false,
+    auto_install = true,
     enable = true,
-    additional_vim_regex_highlighting = false,
+    highlight = {
+	enable = true,
+    	additional_vim_regex_highlighting = false,
+    },
   },
 }
 
@@ -66,18 +59,3 @@ require'treesitter-context'.setup{
     mode = 'cursor',  -- Line used to calculate context. Choices: 'cursor', 'topline'
     separator = nil, -- Separator between context and content. Should be a single character string, like '-'.
 }
--- add context stuff at the top
-
--- cmd to make it so that only the current file has relative
---
---vim.cmd([[
---augroup toggle_number
---    autocmd!
---    autocmd BufEnter, FocusGained, InsertLeave * set relativenumber
---    autocmd BufLeave, FocusLost, InsertEnter   * set norelativenumber
---augroup END
---]])
-
--- make the gutter bigger
--- utils.opt('g', 'signcolumn', 'yes:2')
-utils.opt('g', 'signcolumn', 'number')
