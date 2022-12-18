@@ -1,3 +1,5 @@
+exec --no-startup-id ~/dots/i3/autostart.sh
+
 # set modifier to super
 set $mod Mod4
 
@@ -141,11 +143,6 @@ mode "switch tab" {
 }
 
 bindsym $mod+g mode "switch tab"
-
-# set $bg #2D944D
-# set $text #F8EFE9
-# set $bg-alt #D5CED2
-# set $text-alt #888888
 
 set $bg #444877
 set $text #F8EFE9
