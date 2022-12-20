@@ -45,3 +45,7 @@ vim.keymap.set('v', "K", ":m '<-2<CR>gv=gv")
 vim.keymap.set('n', "J", "mzJ`z")
 
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+
+-- disable horizontal scrolling
+vim.keymap.set("n", "<ScrollWheelLeft>", "<nop>")
+vim.keymap.set("n", "<ScrollWheelRight>", "<nop>")

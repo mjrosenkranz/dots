@@ -3,6 +3,7 @@ require'nvim-treesitter.configs'.setup {
   highlight = {
     ensure_installed = {
 	    "help",
+	    "python",
 	    "typescript",
 	    "c",
 	    "lua",
