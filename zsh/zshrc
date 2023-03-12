@@ -46,3 +46,5 @@ function precmd() {
         printf '\033]2;%s\033\\' "$branch"
     fi
 }
+
+eval "$(direnv hook zsh)"
