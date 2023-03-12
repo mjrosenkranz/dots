@@ -26,6 +26,8 @@ return require('packer').startup(function()
   -- languages
   use 'ziglang/zig.vim'
 
+  use 'LnL7/vim-nix'
+
   use 'tikhomirov/vim-glsl'
   use 'beyondmarc/hlsl.vim'
 
