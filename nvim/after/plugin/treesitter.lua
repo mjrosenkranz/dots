@@ -2,6 +2,7 @@
 require'nvim-treesitter.configs'.setup {
   highlight = {
     ensure_installed = {
+	    "comment",
 	    "help",
 	    "python",
 	    "typescript",
