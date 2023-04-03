@@ -1,5 +1,4 @@
-# include catppuccin-macchiato
-include gruvbox-dark
+include catppuccin-macchiato
 set font "Iosevka Term Extended 14"
 set recolor true
 set adjust-open "best-fit"

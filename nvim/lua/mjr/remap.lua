@@ -2,12 +2,8 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = ","
 
 
--- remap j and k for linewrapped movement
-vim.keymap.set('n', 'j', "gj")
-vim.keymap.set('n', 'k', "gk")
-
 -- source init file
-vim.keymap.set('n', '<leader>s', ':luafile ~/.config/nvim/init.lua<cr>')
+vim.keymap.set('n', '<leader>S', ':luafile ~/.config/nvim/init.lua<cr>')
 
 -- stop highlighting
 vim.keymap.set('n', '<leader>n', ':noh <cr>')
@@ -28,7 +24,8 @@ vim.keymap.set('n', '<M-k>', "<cmd>TmuxNavigateUp<cr>")
 vim.keymap.set('n', '<M-l>', "<cmd>TmuxNavigateRight<cr>")
 
 -- git
-vim.keymap.set('n', '<leader>g', "<cmd>Gtabedit :<cr>")
+vim.keymap.set('n', '<leader>gt', "<cmd>Gtabedit :<cr>")
+vim.keymap.set('n', '<leader>gs', "<cmd>G<cr>")
 
 -- leader p replaces without copying the selected text
 vim.keymap.set('x', "<leader>p", "\"_dP")
@@ -44,8 +41,8 @@ vim.keymap.set('v', "K", ":m '<-2<CR>gv=gv")
 -- append line without moving to end
 vim.keymap.set('n', "J", "mzJ`z")
 
-vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
-
 -- disable horizontal scrolling
 vim.keymap.set("n", "<ScrollWheelLeft>", "<nop>")
 vim.keymap.set("n", "<ScrollWheelRight>", "<nop>")
+
+vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
