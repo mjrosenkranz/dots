@@ -4,7 +4,6 @@ return require('packer').startup(function()
 
   -- git
   use 'tpope/vim-fugitive'
-  use 'ThePrimeagen/harpoon'
 
   -- telescope
   use  'nvim-lua/plenary.nvim'
@@ -13,6 +12,7 @@ return require('packer').startup(function()
     requires = { { 'nvim-lua/popup.nvim' } }
   }
 
+  use 'ThePrimeagen/harpoon'
 
   -- tmux stuff
   use 'christoomey/vim-tmux-navigator'

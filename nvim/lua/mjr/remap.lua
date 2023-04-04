@@ -25,7 +25,7 @@ vim.keymap.set('n', '<M-l>', "<cmd>TmuxNavigateRight<cr>")
 
 -- git
 vim.keymap.set('n', '<leader>gt', "<cmd>Gtabedit :<cr>")
-vim.keymap.set('n', '<leader>gs', "<cmd>G<cr>")
+vim.keymap.set('n', '<leader>g', "<cmd>G<cr><C-w>o")
 
 -- leader p replaces without copying the selected text
 vim.keymap.set('x', "<leader>p", "\"_dP")
