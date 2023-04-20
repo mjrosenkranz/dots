@@ -24,6 +24,7 @@ return require('packer').startup(function()
     as = "catppuccin",
   }
   use 'airblade/vim-gitgutter'
+  use 'brenoprata10/nvim-highlight-colors'
 
   -- languages
   use 'ziglang/zig.vim'
@@ -34,7 +35,7 @@ return require('packer').startup(function()
   use 'beyondmarc/hlsl.vim'
 
   -- lisp stuff
-  use 'Olical/conjure'
+  -- use 'Olical/conjure'
   use 'guns/vim-sexp'
   use 'tpope/vim-sexp-mappings-for-regular-people'
   use 'tpope/vim-surround'

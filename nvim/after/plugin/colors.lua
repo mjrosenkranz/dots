@@ -5,3 +5,5 @@ require("catppuccin").setup({
     }
 })
 vim.cmd('colorscheme catppuccin-macchiato')
+
+require('nvim-highlight-colors').setup {}

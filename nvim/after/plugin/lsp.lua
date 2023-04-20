@@ -10,11 +10,16 @@ lsp.ensure_installed({
 })
 
 local cmp = require('cmp')
-local cmp_select = { behavior = cmp.SelectBehavior.Select }
+local cmp_select = { behavior = cmp.SelectBehavior.Insert }
 local cmp_mappings = lsp.defaults.cmp_mappings({
   ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
   ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
   ['<Tab>'] = cmp.mapping.confirm({ select = true }),
+  -- ['<CR>'] = cmp.mapping.confirm({ select = false }),
+  ['<CR>'] = cmp.mapping(function(fallback)
+      cmp.close()
+      fallback()
+  end),
   ["<C-Space>"] = cmp.mapping.complete(),
 })
 
@@ -51,10 +56,6 @@ lsp.set_preferences({
   }
 })
 
-vim.diagnostic.config({
-  virtual_text = true,
-})
-
 lsp.on_attach(function(client, bufnr)
   local opts = { buffer = bufnr, remap = false }
 
@@ -70,8 +71,11 @@ lsp.on_attach(function(client, bufnr)
   vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, opts)
 end)
 
-vim.keymap.set('n', "<leader>f", function()
-  vim.lsp.buf.format()
-end)
-
 lsp.setup()
+
+
+vim.diagnostic.config({
+  signs = true,
+  virtual_text = false,
+})
+
