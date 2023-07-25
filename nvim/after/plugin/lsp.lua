@@ -1,63 +1,80 @@
-local lsp = require("lsp-zero")
+local lspconfig = require('lspconfig')
+--
+-- Add additional capabilities supported by nvim-cmp
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-lsp.preset("recommended")
+-- luasnip setup
+local luasnip = require 'luasnip'
 
-lsp.ensure_installed({
-  'tsserver',
-  'clojure_lsp',
-  'sumneko_lua',
-  'zls',
-})
-
-local cmp = require('cmp')
-local cmp_select = { behavior = cmp.SelectBehavior.Insert }
-local cmp_mappings = lsp.defaults.cmp_mappings({
-  ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
-  ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
-  ['<Tab>'] = cmp.mapping.confirm({ select = true }),
-  -- ['<CR>'] = cmp.mapping.confirm({ select = false }),
-  ['<CR>'] = cmp.mapping(function(fallback)
-      cmp.close()
-      fallback()
-  end),
-  ["<C-Space>"] = cmp.mapping.complete(),
-})
-
-lsp.setup_nvim_cmp({
-  mapping = cmp_mappings,
-  documentation = {
-    border = { '', '', '', ' ', '', '', '', ' ' }, -- the border option is the same as `|help nvim_open_win|`
-    winhighlight = "NormalFloat:CompeDocumentation,FloatBorder:CompeDocumentationBorder",
-    max_width = 120,
-    min_width = 60,
-    max_height = math.floor(vim.o.lines * 0.3),
-    min_height = 1,
+-- nvim-cmp setup
+local cmp = require 'cmp'
+cmp.setup {
+  snippet = {
+    expand = function(args)
+      luasnip.lsp_expand(args.body)
+    end,
   },
-
-  source = {
-    path = true;
-    buffer = true;
-    calc = true;
-    nvim_lsp = true;
-    nvim_lua = true;
-    vsnip = true;
-    ultisnips = true;
-    luasnip = true;
+  mapping = cmp.mapping.preset.insert({
+    ['<C-u>'] = cmp.mapping.scroll_docs(-4), -- Up
+    ['<C-d>'] = cmp.mapping.scroll_docs(4), -- Down
+    -- C-b (back) C-f (forward) for snippet placeholder navigation.
+    ['<C-Space>'] = cmp.mapping.complete(),
+    ['<CR>'] = cmp.mapping.confirm {
+      behavior = cmp.ConfirmBehavior.Replace,
+      select = true,
+    },
+    ['<Tab>'] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_next_item()
+      elseif luasnip.expand_or_jumpable() then
+        luasnip.expand_or_jump()
+      else
+        fallback()
+      end
+    end, { 'i', 's' }),
+    ['<S-Tab>'] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_prev_item()
+      elseif luasnip.jumpable(-1) then
+        luasnip.jump(-1)
+      else
+        fallback()
+      end
+    end, { 'i', 's' }),
+  }),
+  sources = {
+    { name = 'nvim_lsp' },
+    { name = 'luasnip' },
   },
+}
+
+vim.diagnostic.config({
+  signs = true,
+  virtual_text = false,
 })
 
-lsp.set_preferences({
-  suggest_lsp_servers = false,
-  sign_icons = {
-    error = 'E',
-    warn = 'W',
-    hint = 'H',
-    info = 'I'
-  }
-})
+local nvim_lsp = require('lspconfig')
+-- general lsp stuff
+local on_attach = function(client, bufnr)
+  local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+  local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
-lsp.on_attach(function(client, bufnr)
-  local opts = { buffer = bufnr, remap = false }
+  buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
+
+  -- Mappings.
+  -- utils.map('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>')
+  -- utils.map('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>')
+  -- utils.map('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>')
+  -- utils.map('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>')
+  -- utils.map('n', '<leader>k', '<cmd>lua vim.lsp.buf.signature_help()<CR>')
+  -- utils.map('n', '<leader>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>')
+  -- utils.map('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>')
+  -- utils.map('n', '<leader>rr', '<cmd>lua vim.lsp.buf.references()<CR>')
+  -- utils.map('n', '<leader>d', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>')
+  -- utils.map('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>')
+  -- utils.map('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>')
+  -- utils.map('n', '<leader>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>')
+
 
   vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
   vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
@@ -69,13 +86,49 @@ lsp.on_attach(function(client, bufnr)
   vim.keymap.set("n", "<leader>rr", vim.lsp.buf.references, opts)
   vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
   vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, opts)
-end)
-
-lsp.setup()
 
 
-vim.diagnostic.config({
-  signs = true,
-  virtual_text = false,
-})
+  -- Set autocommands conditional on server_capabilities
+  if client.resolved_capabilities.document_highlight then
+    vim.api.nvim_exec([[
+    hi LspReferenceRead cterm=bold ctermbg=red guibg=LightYellow
+    hi LspReferenceText cterm=bold ctermbg=red guibg=LightYellow
+    hi LspReferenceWrite cterm=bold ctermbg=red guibg=LightYellow
+    augroup lsp_document_highlight
+    autocmd!
+    autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
+    autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
+    augroup END
+    ]], false)
+  end
+end
 
+-- python
+nvim_lsp.pyright.setup {
+  on_attach = on_attach;
+  capabilities = capabilities;
+}
+
+-- clang
+nvim_lsp.clangd.setup {
+  on_attach = on_attach;
+  capabilities = capabilities;
+}
+
+-- typescript
+nvim_lsp.tsserver.setup {
+  on_attach = on_attach;
+  capabilities = capabilities;
+}
+
+-- rust
+nvim_lsp.rust_analyzer.setup {
+  on_attach = on_attach;
+  capabilities = capabilities;
+}
+
+-- zig
+nvim_lsp.zls.setup {
+  on_attach = on_attach;
+  capabilities = capabilities;
+}
