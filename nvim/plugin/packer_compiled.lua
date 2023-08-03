@@ -79,6 +79,11 @@ _G.packer_plugins = {
     path = "/Users/mjr/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
   },
+  ["ayu-vim"] = {
+    loaded = true,
+    path = "/Users/mjr/.local/share/nvim/site/pack/packer/start/ayu-vim",
+    url = "https://github.com/ayu-theme/ayu-vim"
+  },
   catppuccin = {
     loaded = true,
     path = "/Users/mjr/.local/share/nvim/site/pack/packer/start/catppuccin",
@@ -94,11 +99,6 @@ _G.packer_plugins = {
     path = "/Users/mjr/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
     url = "https://github.com/hrsh7th/cmp-nvim-lsp"
   },
-  ["cmp-nvim-lua"] = {
-    loaded = true,
-    path = "/Users/mjr/.local/share/nvim/site/pack/packer/start/cmp-nvim-lua",
-    url = "https://github.com/hrsh7th/cmp-nvim-lua"
-  },
   ["cmp-path"] = {
     loaded = true,
     path = "/Users/mjr/.local/share/nvim/site/pack/packer/start/cmp-path",
@@ -109,45 +109,30 @@ _G.packer_plugins = {
     path = "/Users/mjr/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
-  conjure = {
-    loaded = true,
-    path = "/Users/mjr/.local/share/nvim/site/pack/packer/start/conjure",
-    url = "https://github.com/Olical/conjure"
-  },
-  ["friendly-snippets"] = {
-    loaded = true,
-    path = "/Users/mjr/.local/share/nvim/site/pack/packer/start/friendly-snippets",
-    url = "https://github.com/rafamadriz/friendly-snippets"
-  },
   gruvbox = {
     loaded = true,
     path = "/Users/mjr/.local/share/nvim/site/pack/packer/start/gruvbox",
     url = "https://github.com/morhetz/gruvbox"
+  },
+  harpoon = {
+    loaded = true,
+    path = "/Users/mjr/.local/share/nvim/site/pack/packer/start/harpoon",
+    url = "https://github.com/ThePrimeagen/harpoon"
   },
   ["hlsl.vim"] = {
     loaded = true,
     path = "/Users/mjr/.local/share/nvim/site/pack/packer/start/hlsl.vim",
     url = "https://github.com/beyondmarc/hlsl.vim"
   },
-  ["lsp-zero.nvim"] = {
-    loaded = true,
-    path = "/Users/mjr/.local/share/nvim/site/pack/packer/start/lsp-zero.nvim",
-    url = "https://github.com/VonHeikemen/lsp-zero.nvim"
-  },
-  ["mason-lspconfig.nvim"] = {
-    loaded = true,
-    path = "/Users/mjr/.local/share/nvim/site/pack/packer/start/mason-lspconfig.nvim",
-    url = "https://github.com/williamboman/mason-lspconfig.nvim"
-  },
-  ["mason.nvim"] = {
-    loaded = true,
-    path = "/Users/mjr/.local/share/nvim/site/pack/packer/start/mason.nvim",
-    url = "https://github.com/williamboman/mason.nvim"
-  },
   ["nvim-cmp"] = {
     loaded = true,
     path = "/Users/mjr/.local/share/nvim/site/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
+  },
+  ["nvim-highlight-colors"] = {
+    loaded = true,
+    path = "/Users/mjr/.local/share/nvim/site/pack/packer/start/nvim-highlight-colors",
+    url = "https://github.com/brenoprata10/nvim-highlight-colors"
   },
   ["nvim-lspconfig"] = {
     loaded = true,
@@ -203,6 +188,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/mjr/.local/share/nvim/site/pack/packer/start/vim-glsl",
     url = "https://github.com/tikhomirov/vim-glsl"
+  },
+  ["vim-nix"] = {
+    loaded = true,
+    path = "/Users/mjr/.local/share/nvim/site/pack/packer/start/vim-nix",
+    url = "https://github.com/LnL7/vim-nix"
   },
   ["vim-repeat"] = {
     loaded = true,
