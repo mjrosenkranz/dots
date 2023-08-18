@@ -9,6 +9,9 @@ set PYENV_ROOT "$HOME/.pyenv"
 set PATH $PYENV_ROOT/bin $PATH
 # add brew path
 set PATH /opt/homebrew/bin $PATH
+# add rust path
+set PATH $HOME/.cargo/bin $PATH
+set PATH $HOME/bin $PATH
 
 # setup direnv
 direnv hook fish | source
