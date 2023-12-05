@@ -1,5 +1,11 @@
 local geometry = require("hs.geometry")
 
+hs.hotkey.bind({"cmd", "shift"}, "r", function()
+  hs.reload()
+end)
+
+-- focusing
+
 hs.hotkey.bind({"cmd"}, "h", function()
 	hs.window.focusedWindow().focusWindowWest()
 end)
@@ -14,31 +20,6 @@ end)
 hs.hotkey.bind({"cmd"}, "l", function()
 	hs.window.focusedWindow().focusWindowEast()
 end)
-
--- hs.hotkey.bind({"cmd"}, "enter", function()
--- 
--- end)
-
--- hs.hotkey.bind({"shift", "cmd"}, "h",  function() 
---   local focused = hs.window.focusedWindow()
---   hs.layout.apply({
---     {nil, focused, focused:screen(), hs.layout.left50, 0, 0}
---   })
--- end)
-
--- hs.hotkey.bind({"shift", "cmd"}, "l",  function() 
---   local focused = hs.window.focusedWindow()
---   hs.layout.apply({
---     {nil, focused, focused:screen(), hs.layout.right50, 0, 0}
---   })
--- end)
-
--- hs.hotkey.bind({"shift", "cmd"}, "k",  function() 
---   local focused = hs.window.focusedWindow()
---   hs.layout.apply({
---     {nil, focused, focused:screen(), geometry.rect(0.10, 0.05, 0.80, 0.9), 0, 0}
---   })
--- end)
 
 function yabai(args, completion)
   local yabai_output = ""
@@ -56,18 +37,49 @@ function yabai(args, completion)
   yabai_task:start()
 end
 
+function resize(args)
+  local shell_task = hs.task.new("/Users/mjr/dots/yabai/resize.sh",nil, args)
+  shell_task:start()
+end
+
+-- swapping
+
 hs.hotkey.bind({"shift", "cmd"}, "h",  function() 
-                         yabai({"-m", "window", "--warp", "west"})
+    yabai({"-m", "window", "--warp", "west"})
 end)
 
 hs.hotkey.bind({"shift", "cmd"}, "l",  function() 
-                         yabai({"-m", "window", "--warp", "east"})
+    yabai({"-m", "window", "--warp", "east"})
 end)
 
 hs.hotkey.bind({"shift", "cmd"}, "j",  function() 
-                         yabai({"-m", "window", "--warp", "south"})
+    yabai({"-m", "window", "--warp", "south"})
 end)
 
 hs.hotkey.bind({"shift", "cmd"}, "k",  function() 
-                         yabai({"-m", "window", "--warp", "north"})
+    yabai({"-m", "window", "--warp", "north"})
+end)
+
+hs.hotkey.bind({"shift", "cmd"}, "y",  function() 
+    yabai({"-m", "window", "--toggle", "split"})
+end)
+
+hs.hotkey.bind({"cmd", "alt"}, "t",  function() 
+    yabai({"-m", "window", "--toggle", "float"})
+end)
+
+hs.hotkey.bind({"shift", "cmd"}, "f",  function() 
+    yabai({"-m", "window", "--toggle", "zoom-parent"})
+end)
+
+
+-- window size
+
+hs.hotkey.bind({"cmd"}, "left",  function()
+    resize({"left", "50"})
+end)
+
+-- window size
+hs.hotkey.bind({"cmd"}, "right",  function()
+    resize({"right", "50"})
 end)
