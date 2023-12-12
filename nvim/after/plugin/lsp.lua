@@ -1,4 +1,23 @@
 local lspconfig = require('lspconfig')
+local navic = require('nvim-navic')
+
+navic.setup {
+  lsp = {
+    auto_attach = true,
+    preference = nil,
+  },
+  highlight = false,
+  separator = " > ",
+  depth_limit = 5,
+  depth_limit_indicator = "..",
+  safe_output = true,
+  lazy_update_context = false,
+  click = false,
+  format_text = function(text)
+    return text
+  end,
+}
+
 --
 -- Add additional capabilities supported by nvim-cmp
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
@@ -82,10 +101,9 @@ local on_attach = function(client, bufnr)
   vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts)
   vim.keymap.set("n", "[d", vim.diagnostic.goto_next, opts)
   vim.keymap.set("n", "]d", vim.diagnostic.goto_prev, opts)
-  vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
+  vim.keymap.set("n", "<leader>a", vim.lsp.buf.code_action, opts)
   vim.keymap.set("n", "<leader>rr", vim.lsp.buf.references, opts)
   vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
-  vim.keymap.set("n", "<leader>c", vim.lsp.buf.code_action, opts)
   vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, opts)
 
 
@@ -102,6 +120,8 @@ local on_attach = function(client, bufnr)
     augroup END
     ]], false)
   end
+
+  navic.attach(client, bufnr)
 end
 
 -- python

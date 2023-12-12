@@ -8,7 +8,14 @@ vim.keymap.set('n', '<leader>S', ':luafile ~/.config/nvim/init.lua<cr>')
 -- stop highlighting
 vim.keymap.set('n', '<leader>n', ':noh <cr>')
 
-vim.keymap.set('n', "<leader>fd", vim.cmd.Ex);
+
+-- dired.
+local function dired_current ()
+  -- return "<cmd>Dired" .. vim.fn.expand('%') .. "<cr>"
+  return vim.cmd.Dired(vim.fn.expand('%'))
+end
+
+vim.keymap.set('n', "<leader>fd", dired_current)
 
 -- navigation
 vim.keymap.set('n', '<C-u>', "<C-u>zz")
@@ -24,8 +31,7 @@ vim.keymap.set('n', '<M-k>', "<cmd>TmuxNavigateUp<cr>")
 vim.keymap.set('n', '<M-l>', "<cmd>TmuxNavigateRight<cr>")
 
 -- git
-vim.keymap.set('n', '<leader>gt', "<cmd>Gtabedit :<cr>")
-vim.keymap.set('n', '<leader>gs', "<cmd>G<cr>")
+vim.keymap.set('n', '<leader>g', "<cmd>Gedit :<cr>")
 
 -- leader p replaces without copying the selected text
 vim.keymap.set('x', "<leader>p", "\"_dP")

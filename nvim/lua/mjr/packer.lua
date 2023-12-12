@@ -52,10 +52,20 @@ return require('packer').startup(function()
 
   -- ts
   use(
-    'nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' }
+  'nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' }
   )
   use 'nvim-treesitter/playground'
   use 'nvim-treesitter/nvim-treesitter-context'
 
+  -- dired clone
+  use {
+    "X3eRo0/dired.nvim",
+    requires = "MunifTanjim/nui.nvim",
+  }
+
+  use {
+    "SmiteshP/nvim-navic",
+    requires = "neovim/nvim-lspconfig"
+  }
 
 end)
