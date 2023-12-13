@@ -1,21 +1,9 @@
-vim.g.mapleader = " "
-vim.g.maplocalleader = ","
-
-
 -- source init file
 vim.keymap.set('n', '<leader>S', ':luafile ~/.config/nvim/init.lua<cr>')
 
 -- stop highlighting
 vim.keymap.set('n', '<leader>n', ':noh <cr>')
-
-
--- dired.
-local function dired_current ()
-  -- return "<cmd>Dired" .. vim.fn.expand('%') .. "<cr>"
-  return vim.cmd.Dired(vim.fn.expand('%'))
-end
-
-vim.keymap.set('n', "<leader>fd", dired_current)
+vim.keymap.set('n', "<leader>fd", vim.cmd.Ex);
 
 -- navigation
 vim.keymap.set('n', '<C-u>', "<C-u>zz")
@@ -31,7 +19,8 @@ vim.keymap.set('n', '<M-k>', "<cmd>TmuxNavigateUp<cr>")
 vim.keymap.set('n', '<M-l>', "<cmd>TmuxNavigateRight<cr>")
 
 -- git
-vim.keymap.set('n', '<leader>g', "<cmd>Gedit :<cr>")
+-- vim.keymap.set('n', '<leader>g', "<cmd>Gedit :<cr>")
+vim.keymap.set('n', '<leader>g', require('neogit').open)
 
 -- leader p replaces without copying the selected text
 vim.keymap.set('x', "<leader>p", "\"_dP")
