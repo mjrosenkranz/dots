@@ -20,12 +20,6 @@ return {
   },
   'airblade/vim-gitgutter',
 
-  -- colors
-  {
-    "catppuccin/nvim",
-    name = "catppuccin",
-  },
-  'brenoprata10/nvim-highlight-colors',
 
   -- languages
   'ziglang/zig.vim',
