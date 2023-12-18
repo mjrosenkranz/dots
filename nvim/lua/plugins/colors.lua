@@ -9,10 +9,8 @@ return {
             gitgutter = true,
           }
       })
-    end,
-    config = function () 
       vim.cmd('colorscheme catppuccin-macchiato')
-    end
+    end,
   },
   'brenoprata10/nvim-highlight-colors',
 }
