@@ -9,6 +9,8 @@ return {
     },
     config = true
   },
+  'tpope/vim-fugitive',
+  "sindrets/diffview.nvim",
   {
     'airblade/vim-gitgutter',
     config = function ()
