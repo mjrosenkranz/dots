@@ -30,6 +30,8 @@ vim.opt.scrolloff = 8
 
 vim.opt.updatetime = 50
 
+vim.api.nvim_command "packadd cfilter"
+
 -- TODO: make a whole statusline setup
 -- if vim.v.hlsearch == 1 then
 -- 	local sinfo = vim.fn.searchcount { maxcount = 0 }
