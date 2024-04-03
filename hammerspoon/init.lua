@@ -83,3 +83,9 @@ end)
 hs.hotkey.bind({"cmd"}, "right",  function()
     resize({"right", "50"})
 end)
+
+-- new terminal
+hs.hotkey.bind({"cmd"}, "return",  function()
+  local shell_task = hs.task.new("/Applications/kitty.app/Contents/MacOS/kitty",nil, {"--single-instance"})
+  shell_task:start()
+end)
