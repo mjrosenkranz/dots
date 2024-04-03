@@ -70,7 +70,9 @@ return {
         vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
         vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
         vim.keymap.set("n", "<leader>ws", vim.lsp.buf.workspace_symbol, opts)
-        vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts)
+        -- vim.keymap.set("n", "<leader>D", vim.diagnostic.open_float, opts)
+        -- hmm which one??
+        vim.keymap.set("n", "<leader>k", vim.diagnostic.open_float, opts)
         vim.keymap.set("n", "[d", vim.diagnostic.goto_next, opts)
         vim.keymap.set("n", "]d", vim.diagnostic.goto_prev, opts)
         vim.keymap.set("n", "<leader>a", vim.lsp.buf.code_action, opts)

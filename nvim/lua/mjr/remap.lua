@@ -25,7 +25,6 @@ vim.keymap.set('n', '<leader>g', require('neogit').open)
 -- leader p replaces without copying the selected text
 vim.keymap.set('x', "<leader>p", "\"_dP")
 vim.keymap.set('n', "<leader>d", "\"_d")
-vim.keymap.set('v', "<leader>d", "\"_d")
 
 vim.keymap.set('n', "Q", "<nop>")
 
