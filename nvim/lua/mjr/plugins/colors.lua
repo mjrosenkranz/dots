@@ -14,8 +14,18 @@ return {
   },
   {
     "rebelot/kanagawa.nvim",
+    -- init = function ()
+    --    vim.cmd('colorscheme kanagawa')
+    -- end
+  },
+  {
+    "ellisonleao/gruvbox.nvim",
+    priority = 1000 ,
+    config = true,
+    --opts = ...
     init = function ()
-       vim.cmd('colorscheme kanagawa')
+       vim.cmd('colorscheme gruvbox')
+       vim.cmd('set background=light')
     end
   },
   {

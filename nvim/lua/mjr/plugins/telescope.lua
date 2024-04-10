@@ -7,9 +7,24 @@ return {
     'nvim-telescope/telescope.nvim',
     dependencies = {'nvim-lua/popup.nvim'},
 
-    config = function ()
+    opts = function ()
+      local default = {
+        theme = "ivy",
+      }
+      return {
+        pickers = {
+          find_files = default,
+          buffers = default,
+          live_grep = default,
+        },
+      }
+    end,
+
+    config = function (_, opts)
       require('telescope').load_extension('emoji')
       local builtin = require('telescope.builtin')
+
+      require('telescope').setup(opts)
 
       vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
       vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
