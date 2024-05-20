@@ -3,7 +3,7 @@ vim.keymap.set('n', '<leader>S', ':luafile ~/.config/nvim/init.lua<cr>')
 
 -- stop highlighting
 vim.keymap.set('n', '<leader>n', ':noh <cr>')
-vim.keymap.set('n', "<leader>fd", vim.cmd.Ex);
+vim.keymap.set('n', "<leader>fd", ':Oil <cr>');
 
 -- navigation
 vim.keymap.set('n', '<C-u>', "<C-u>zz")
