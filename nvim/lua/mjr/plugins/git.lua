@@ -10,21 +10,21 @@ return {
     config = true
   },
   'tpope/vim-fugitive',
-  {
-    'sindrets/diffview.nvim',
-    opts = {
-        use_icons = false, 
-        icons = {
-          folder_closed = "📂",
-          folder_open = "📁",
-        },
-        signs = {
-          fold_closed = ">",
-          fold_open = "_",
-          done = "✓",
-        },
-      },
-  },
+  -- {
+  --   'sindrets/diffview.nvim',
+  --   opts = {
+  --       use_icons = false, 
+  --       icons = {
+  --         folder_closed = "📂",
+  --         folder_open = "📁",
+  --       },
+  --       signs = {
+  --         fold_closed = ">",
+  --         fold_open = "_",
+  --         done = "✓",
+  --       },
+  --     },
+  -- },
   {
     'airblade/vim-gitgutter',
     config = function ()
