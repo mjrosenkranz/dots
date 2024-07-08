@@ -5,6 +5,7 @@ return {
     init = function ()
 
       require'nvim-treesitter.configs'.setup {
+        indent = { enable = true },
         highlight = {
           ensure_installed = {
             "comment",
