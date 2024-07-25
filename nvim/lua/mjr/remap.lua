@@ -19,8 +19,7 @@ vim.keymap.set('n', '<M-k>', "<cmd>TmuxNavigateUp<cr>")
 vim.keymap.set('n', '<M-l>', "<cmd>TmuxNavigateRight<cr>")
 
 -- git
--- vim.keymap.set('n', '<leader>g', "<cmd>Gedit :<cr>")
-vim.keymap.set('n', '<leader>g', require('neogit').open)
+vim.keymap.set('n', '<leader>g', "<cmd>Gedit :<cr>")
 
 -- leader p replaces without copying the selected text
 vim.keymap.set('x', "<leader>p", "\"_dP")
