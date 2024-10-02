@@ -90,7 +90,10 @@ return {
 
       -- clang
       nvim_lsp.clangd.setup {
-        on_attach = on_attach;
+        on_attach = function(client, bufnr)
+          vim.keymap.set("n", "<leader>h", ":ClangdSwitchSourceHeader<cr>")
+          on_attach(client, bufnr)
+        end;
         capabilities = capabilities;
       }
 
