@@ -12,10 +12,14 @@ set PATH /opt/homebrew/bin $PATH
 # add rust path
 set PATH $HOME/.cargo/bin $PATH
 set PATH $HOME/bin $PATH
+set PATH $HOME/fun/zls/zig-out/bin $PATH
+set PATH /opt/homebrew/opt/python@3.11/libexec/bin $PATH
+set PATH (brew --prefix)/opt/llvm/bin $PATH
 
 # setup direnv
 direnv hook fish | source
 
+set fish_vi_force_cursor 1
 # Emulates vim's cursor shape behavior
 # Set the normal and visual mode cursors to a block
 set fish_cursor_default block
