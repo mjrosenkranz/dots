@@ -41,6 +41,9 @@ return {
     config = function()
       require('todo-comments').setup({
         signs = false,
+        keywords = {
+          PRC = { icon = "☝", color = "warning"}
+        },
       })
       vim.keymap.set('n', '<leader>ft', ':TodoTelescope<cr>')
     end
