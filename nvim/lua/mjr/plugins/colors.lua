@@ -1,25 +1,12 @@
 return {
   {
-    "catppuccin/nvim",
-    name = "catppuccin",
-    init = function ()
-      require("catppuccin").setup({
-          flavor = "macchiato",
-          integrations = {
-            gitgutter = true,
-          }
-      })
-      vim.cmd('colorscheme catppuccin-macchiato')
-    end,
-  },
-  {
     "zenbones-theme/zenbones.nvim",
     dependencies = "rktjmp/lush.nvim",
     priority = 1000,
     lazy = false,
     config = function ()
-        vim.api.nvim_set_option_value("background", "light", {})
-        vim.cmd('colorscheme zenbones')
+        -- vim.api.nvim_set_option_value("background", "light", {})
+        vim.cmd('colorscheme neobones')
     end
   },
   {
@@ -28,11 +15,11 @@ return {
       update_interval = 1000,
       set_dark_mode = function()
         vim.api.nvim_set_option_value("background", "dark", {})
-        vim.cmd('colorscheme catppuccin-macchiato')
+        vim.cmd('colorscheme kanagawabones')
       end,
       set_light_mode = function()
         vim.api.nvim_set_option_value("background", "light", {})
-        vim.cmd('colorscheme zenbones')
+        vim.cmd('colorscheme neobones')
       end,
     },
   },

@@ -14,9 +14,9 @@ local function is_dark()
 end
 
 if is_dark() then
-  config.color_scheme = 'Catppuccin Macchiato'
+  config.color_scheme = 'kanagawabones'
 else
-  config.color_scheme = 'zenbones'
+  config.color_scheme = 'neobones_light'
 end
 
 -- keybinds
@@ -27,10 +27,19 @@ config.send_composed_key_when_right_alt_is_pressed = false
 config.default_cursor_style = 'SteadyBar'
 config.cursor_blink_rate = 0
 
+config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
+config.integrated_title_button_color = "Auto"
 config.enable_tab_bar = false
+config.window_padding = {
+  -- get dpi??
+  top = 30,
+  -- top = wezterm.dpi * 2,
+}
 
--- font
-config.font = wezterm.font { family = 'Roboto Mono' }
+config.font = wezterm.font_with_fallback {
+  { family = 'Roboto Mono', weight = 'Regular' },
+  'Apple Color Emoji',
+}
 config.font_size = 14
 config.font_rules = {
   {
