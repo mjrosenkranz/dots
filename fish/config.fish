@@ -15,6 +15,7 @@ set PATH $HOME/bin $PATH
 set PATH $HOME/fun/zls/zig-out/bin $PATH
 set PATH /opt/homebrew/opt/python@3.11/libexec/bin $PATH
 set PATH (brew --prefix)/opt/llvm/bin $PATH
+set PATH $HOME/code/zls/zig-out/bin $PATH
 
 # setup direnv
 direnv hook fish | source
