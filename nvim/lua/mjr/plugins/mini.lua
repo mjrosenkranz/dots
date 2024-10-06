@@ -7,7 +7,6 @@ return {
       vim.opt.showmode = false
       require('mini.statusline').setup({
         content = {
-          -- Content for active window
           active = function()
             local mode, mode_hl = MiniStatusline.section_mode({ trunc_width = 120 })
             local diff          = MiniStatusline.section_diff({ trunc_width = 75 })
@@ -19,12 +18,12 @@ return {
             local search        = MiniStatusline.section_searchcount({ trunc_width = 75 })
 
             return MiniStatusline.combine_groups({
-              { hl = mode_hl,                  strings = { mode } },
+              { hl = 'Statusline',                  strings = { mode } },
               '%<', -- Mark general truncate point
               { hl = 'MiniStatuslineFilename', strings = { filename } },
               '%=', -- End left alignment
               { hl = 'MiniStatuslineSearchInfo', strings = { search } },
-              { hl = mode_hl,                  strings = { location } },
+              { hl = 'Statusline',               strings = { location } },
             })
           end
           ,

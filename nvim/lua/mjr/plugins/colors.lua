@@ -4,13 +4,10 @@ return {
     dependencies = "rktjmp/lush.nvim",
     priority = 1000,
     lazy = false,
-    config = function ()
-        -- vim.api.nvim_set_option_value("background", "light", {})
-        vim.cmd('colorscheme neobones')
-    end
   },
   {
     "f-person/auto-dark-mode.nvim",
+    priority = 1000,
     opts = {
       update_interval = 1000,
       set_dark_mode = function()
