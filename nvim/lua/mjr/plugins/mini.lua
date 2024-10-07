@@ -8,7 +8,7 @@ return {
       -- w and fam past the end of a line
       require('mini.jump').setup()
       require('mini.comment').setup()
-      require('mini.cursorword').setup({delay = 1000,})
+      require('mini.cursorword').setup({delay = 400,})
       require('mini.splitjoin').setup()
       require('mini.surround').setup()
     end
