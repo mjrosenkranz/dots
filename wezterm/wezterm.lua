@@ -44,10 +44,9 @@ config.font_size = 14
 config.font_rules = {
   {
     italic = true,
-    font = wezterm.font {
-      family = 'Iosevka Term Extended',
-      weight = 'Medium',
-      style = 'Italic',
+    font = wezterm.font_with_fallback {
+      {family = 'Iosevka Term Extended', weight = 'Medium', style = 'Italic',},
+      'Apple Color Emoji',
     },
   },
 }
