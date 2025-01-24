@@ -1,3 +1,15 @@
+-- wasn't sure where to put this be I like // better for comments
+vim.api.nvim_create_autocmd({"FileType"}, {
+  pattern = {"cpp"},
+  callback = function()
+    vim.b.minicomment_config = {
+      options = {
+        custom_commentstring = function() return "//%s" end,
+      }
+    }
+  end
+})
+
 return {
 
   -- languages
@@ -21,7 +33,6 @@ return {
           vim.opt_local.expandtab = true
         end
       })
-
     end,
   }
 }
