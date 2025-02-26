@@ -1,0 +1,83 @@
+# in your actual gitignore add the following to include this file
+# [include]
+#   path = ~/dots/git/gitconfig
+# 
+# [user]
+#   email = youremail@email.com
+#
+# [includeIf "gitdir:~/other_dir/"]
+#     path = ~/other_dir/.gitconfig
+#
+# Do the global include part first so that any global setting you want to add override this
+# Then to have different ssh settings in other directories you can add the following
+# ~/other_dir/.gitconfig
+# [core]
+#     sshCommand = "ssh -i ~/.ssh/other_rsa"
+
+
+
+[user]
+  name = mjr
+
+[core]
+	editor = nvim
+	excludesfile = ./gitignore
+
+[init]
+	defaultBranch = main
+[github]
+	user = Morgan-Alloy
+
+[alias]
+    wip = "commit -m WIP --no-verify"
+    uwip = "!f(){ if [[ $(git log -n 1 --pretty=format:%s HEAD) == 'WIP' ]]; then git reset --soft HEAD^; else echo 'cannot use git uwip to undo a non WIP commit'; fi; }; f"
+    noci = "commit --no-verify -e -m \"[no ci]\""
+
+[difftool]
+    prompt = true
+
+[column]
+    ui = auto
+
+[branch]
+    sort = -committerdate
+[tag]
+    sort = -version:refname
+
+[diff]
+	tool = nvimdiff
+  algorithm = histogram
+  colorMoved = plain
+  mnemonicPrefix = true
+  renames = true
+
+[push]
+  autoSetupRemote = true
+	followTags = true
+[fetch]
+  prune = true
+  pruneTags = true
+  all = true
+[pull]
+  rebase = true
+[merge]
+	tool = nvimdiff
+	conflictstyle = zdiff3
+[rebase]
+  autoSquash = true
+  autoStash = true
+  updateRefs = true
+
+# reuse solutions when rebasing
+[rerere]
+  enabled = true
+  autoupdate = true
+
+[includeIf "gitdir:~/fun/"]
+    path = ~/fun/.gitconfig
+
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
