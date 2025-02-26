@@ -24,7 +24,7 @@ return {
       -- setup cpp
       dap.adapters.lldb = {
         type = 'executable',
-        command = '/opt/homebrew/opt/llvm/bin/lldb-dap', -- adjust as needed, must be absolute path
+        command = '/Users/mjr/.nix-profile/bin/lldb-dap', -- adjust as needed, must be absolute path
         name = 'lldb'
       }
 
