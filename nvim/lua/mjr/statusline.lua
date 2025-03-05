@@ -33,14 +33,14 @@ require('mini.statusline').setup({
 
         local CTRL_V = vim.api.nvim_replace_termcodes('<C-V>', true, true, true)
 
-        if vim.fn.mode() == 'V' or vim.fn.mode() == CTRL_V then
+        if vim.fn.mode() == 'v' or vim.fn.mode() == 'V' or vim.fn.mode() == CTRL_V then
           local starts = vim.fn.line('v')
           local ends = vim.fn.line('.')
           local lines = starts <= ends and ends - starts + 1 or starts - ends + 1
           output = output .. tostring(lines)
         end
 
-        if vim.fn.mode() == CTRL_V then
+        if vim.fn.mode() == 'v' or vim.fn.mode() == CTRL_V then
           local starts = vim.fn.col('v')
           local ends = vim.fn.col('.')
           local cols = starts <= ends and ends - starts + 1 or starts - ends + 1
