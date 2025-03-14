@@ -7,6 +7,7 @@ return {
       require('mini.ai').setup()
       -- w and fam past the end of a line
       require('mini.jump').setup()
+      require('mini.pairs').setup()
       require('mini.comment').setup({
         options = {
           ignore_blank_line = true,
