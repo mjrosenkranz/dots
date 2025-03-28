@@ -1,14 +1,7 @@
 return {
   {
     'tpope/vim-fugitive',
-    config = function ()
-    vim.api.nvim_create_autocmd({"FileType"}, {
-        pattern = {"gitcommit"},
-        callback = function()
-          vim.opt_local.spell = true
-        end
-    })
-    end
+    lazy=false,
   },
   {
     'airblade/vim-gitgutter',
