@@ -6,7 +6,10 @@ return {
       -- a / i text objects
       require('mini.ai').setup()
       -- w and fam past the end of a line
-      require('mini.jump').setup()
+      require('mini.jump').setup({})
+      -- make the color not the same as an error
+      vim.api.nvim_set_hl(0, 'MiniJump', { link="DiagnosticUnderlineOk" })
+
       require('mini.pairs').setup()
       require('mini.comment').setup({
         options = {
