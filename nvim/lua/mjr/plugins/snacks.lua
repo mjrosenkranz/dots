@@ -31,7 +31,7 @@ return {
     { '<leader>ff', function() Snacks.picker.files() end},
     { '<leader>fg', function() Snacks.picker.grep() end},
     {'<leader>b', function() Snacks.picker.buffers() end },
-    { '<leader>fh', function Snacks.picker.help() end },
+    { '<leader>fh', function() Snacks.picker.help() end },
     {'<leader>te', function() Snacks.picker.icons({
       icon_sources = {"emoji"},
       -- layout = { preset = "ivy", },

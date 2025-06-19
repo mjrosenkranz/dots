@@ -11,13 +11,6 @@ vim.keymap.set('n', '<C-d>', "<C-d>zz")
 vim.keymap.set('n', 'n', "nzz")
 vim.keymap.set('n', 'N', "Nzz")
 
--- tmux nav
-vim.g.tmux_navigator_no_mappings = true
-vim.keymap.set('n', '<M-h>', "<cmd>TmuxNavigateLeft<cr>")
-vim.keymap.set('n', '<M-j>', "<cmd>TmuxNavigateDown<cr>")
-vim.keymap.set('n', '<M-k>', "<cmd>TmuxNavigateUp<cr>")
-vim.keymap.set('n', '<M-l>', "<cmd>TmuxNavigateRight<cr>")
-
 -- git
 vim.keymap.set('n', '<leader>g', "<cmd>Gedit :<cr>")
 
