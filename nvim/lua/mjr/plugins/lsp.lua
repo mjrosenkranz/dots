@@ -60,13 +60,13 @@ return {
             max = vim.diagnostic.severity.WARN,
           },
         },
-        virtual_lines = {
-          severity = {
-            min = vim.diagnostic.severity.ERROR,
-          },
-        },
+        -- virtual_lines = {
+        --   severity = {
+        --     min = vim.diagnostic.severity.ERROR,
+        --   },
+        -- },
         jump = {
-          float = false,
+          float = true,
         }
       })
 
@@ -80,6 +80,7 @@ return {
 
         vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
         vim.keymap.set("n", "<leader>ws", vim.lsp.buf.workspace_symbol, opts)
+        vim.keymap.set("n", "<leader>k", vim.diagnostic.open_float, opts)
       end
 
       -- python
