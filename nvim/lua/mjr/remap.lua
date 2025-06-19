@@ -40,6 +40,11 @@ vim.keymap.set("n", "<ScrollWheelRight>", "<nop>")
 
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
+vim.keymap.set("n", "<leader>qo", "<cmd>copen<cr>")
+vim.keymap.set("n", "<leader>qc", "<cmd>cclose<cr>")
+
+vim.keymap.set("n", "gD", "<C-w>v<cmd>lua vim.lsp.buf.definition()<cr>", opts)
+
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
 vim.keymap.set("t", "<C-l>", "<C-w><C-l>")
 vim.keymap.set("t", "<A-h>", "<C-\\><C-N><cmd>TmuxNavigateLeft<cr>")
