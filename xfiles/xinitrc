@@ -8,11 +8,12 @@ kitty &
 {
 sleep 1
 hsetroot -cover $HOME/pics/walls/currbg &
-./$HOME/bin/bar &
+# TODO: fix bar
+# ./$HOME/bin/bar &
 # xrandr --output DP-0 --mode 3440x1440 --rate 100
 }&
-
-pipewire &
+xset r rate 200 50
+# pipewire &
 picom --backend glx --vsync &
 
-exec i3
+# exec i3
