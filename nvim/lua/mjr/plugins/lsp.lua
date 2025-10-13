@@ -4,8 +4,7 @@ return {
     'neovim/nvim-lspconfig', -- Collection of configurations for built-in LSP client
     config = function ()
 
-      local lspconfig = require('lspconfig')
-      --
+
       -- Add additional capabilities supported by nvim-cmp
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
@@ -70,64 +69,54 @@ return {
         }
       })
 
-      local nvim_lsp = require('lspconfig')
-      -- general lsp stuff
-      local on_attach = function(client, bufnr)
-        local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-        local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
+      vim.api.nvim_create_autocmd('LspAttach', {
+        group = vim.api.nvim_create_augroup('mjr.lsp', {}),
+        callback = function(args)
 
-        buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
+          local bufnr = args.buf
 
-        vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-        vim.keymap.set("n", "<leader>ws", vim.lsp.buf.workspace_symbol, opts)
-        vim.keymap.set("n", "<leader>k", vim.diagnostic.open_float, opts)
-      end
+          local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+          local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
-      -- python
-      nvim_lsp.pyright.setup {
-        on_attach = on_attach;
+          buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
+
+          vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+          vim.keymap.set("n", "<leader>ws", vim.lsp.buf.workspace_symbol, opts)
+          vim.keymap.set("n", "<leader>k", vim.diagnostic.open_float, opts)
+
+          vim.keymap.set("n", "<leader>h", ":LspClangdSwitchSourceHeader<cr>")
+        end
+      })
+
+      vim.lsp.config("pyright", {
         capabilities = capabilities;
-      }
+      })
+      vim.lsp.enable("pyright")
 
       -- clang
-      nvim_lsp.clangd.setup {
-        on_attach = function(client, bufnr)
-          vim.keymap.set("n", "<leader>h", ":ClangdSwitchSourceHeader<cr>")
-          on_attach(client, bufnr)
-        end;
+      vim.lsp.config("clangd", {
         capabilities = capabilities;
-      }
+      })
+      vim.lsp.enable("clangd")
 
       -- typescript
-      nvim_lsp.ts_ls.setup {
-        on_attach = on_attach;
+      vim.lsp.config("ts_ls", {
         capabilities = capabilities;
-      }
+      })
+      vim.lsp.enable("ts_ls")
 
       -- rust
-      nvim_lsp.rust_analyzer.setup {
-        on_attach = on_attach;
+      vim.lsp.config("rust_analyzer", {
         capabilities = capabilities;
-      }
+      })
+      vim.lsp.enable("rust_analyzer")
 
       -- zig
-      nvim_lsp.zls.setup {
-        on_attach = on_attach;
+      vim.lsp.config("zls", {
         capabilities = capabilities;
-      }
+      })
+      vim.lsp.enable("zls")
 
-      -- godot
-      nvim_lsp.gdscript.setup {
-        on_attach = function(client, bufnr) 
-          local port = os.getenv('GDScript_Port') or '6005'
-          local cmd = vim.lsp.rpc.connect('127.0.0.1', port)
-          local pipe = '/tmp/godot.pipe'
-
-          vim.api.nvim_command('echo serverstart("' .. pipe .. '")')
-          on_attach(client, bufnr)
-        end;
-        capabilities = capabilities;
-      }
     end
   },
   'hrsh7th/nvim-cmp', -- Autocompletion plugin
