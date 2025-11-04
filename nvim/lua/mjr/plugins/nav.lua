@@ -7,6 +7,10 @@ return {
       view_options = {
         show_hidden = true,
       },
+      columns = {
+        "size",
+        "mtime",
+      },
     },
     -- Optional dependencies
     -- dependencies = { "nvim-tree/nvim-web-devicons" },
