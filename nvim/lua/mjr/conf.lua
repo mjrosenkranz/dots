@@ -29,7 +29,7 @@ vim.opt.incsearch = true
 vim.opt.scrolloff = 8
 
 vim.opt.updatetime = 60
-vim.opt.timeoutlen = 200
+vim.opt.timeoutlen = 350
 
 vim.api.nvim_command "packadd cfilter"
 
