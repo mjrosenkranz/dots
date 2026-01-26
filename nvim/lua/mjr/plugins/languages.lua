@@ -22,7 +22,7 @@ return {
   'beyondmarc/hlsl.vim',
   {
     'habamax/vim-godot',
-    -- event = "BufEnter *.gd",
+    event = "BufEnter *.gd",
     config = function()
       vim.api.nvim_create_autocmd({"FileType"}, {
         pattern = {"gdscript"},
@@ -34,5 +34,8 @@ return {
         end
       })
     end,
+  },
+  {
+"teatek/gdscript-extended-lsp.nvim"
   }
 }

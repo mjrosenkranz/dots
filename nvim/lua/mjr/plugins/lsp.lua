@@ -117,6 +117,13 @@ return {
       })
       vim.lsp.enable("zls")
 
+      -- gdscript
+      vim.lsp.config("gdscript", {
+        capabilities = capabilities;
+      })
+      vim.lsp.enable("gdscript")
+
+
     end
   },
   'hrsh7th/nvim-cmp', -- Autocompletion plugin
